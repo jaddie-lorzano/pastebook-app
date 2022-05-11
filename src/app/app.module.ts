@@ -14,7 +14,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatRippleModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio'
+
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRippleModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
