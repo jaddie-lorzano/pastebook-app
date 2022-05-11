@@ -1,26 +1,55 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Sign up to Pastebook</mat-toolbar>
+        <form 
+            fxLayoutAlign="stretch" 
+            fxLayout="column" 
+            class="login-form register-form" 
+            [formGroup]="registerForm" 
+            (submit)="onSubmit()">
 
-<div class="container">
-    <form class="register-form" [formGroup]="registerForm" (submit)="onSubmit()">
-        <div>
-            <input type="text"
-            name="first-name"
-            id="first-name"
-            formControlName="first-name"
-            placeholder="First Name">
+        <mat-form-field>
+            <input matInput placeholder="First Name" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Last Name" type="text">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Email" type="email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="New Password" type="Password">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Confirm Password" type="Password">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button  color="primary" type="submit">Login</button>
+
+        <div fxLayoutAlign="center center" fxFlexFill>
+            <button mat-button color="primary">Forgot Account?</button>
+            <button mat-button color="primary">Sign up for PasteBook</button>
         </div>
-        <div class="error-div">This field is required</div><br>
 
-        <input type="text"
-        name="last-name"
-        id="last-name"
-        formControlName="last-name"
-        placeholder="Last Name"><br>
+      </form>
+    </mat-card>
+</div>
 
-        <input type="text"
-        name="email"
-        id="email"
-        formControlName="email"
-        placeholder="Email"><br>
+<!-- 
+<div class="container">
+    <form>
 
         <input type="password"
         name="password"
@@ -55,4 +84,4 @@
         formControlName="number"
         placeholder="Mobile Number"><br>
     </form>
-</div>
+</div> -->
