@@ -1,10 +1,14 @@
+<div>
+    <p>{{registerForm.value | json}}</p>
+</div>
+
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <mat-card fxFlex="40">
         <mat-toolbar color="primary">Sign up to Pastebook</mat-toolbar>
         <form 
             fxLayoutAlign="stretch" 
             fxLayout="column" 
-            class="login-form register-form" 
+            class="register-form" 
             [formGroup]="registerForm" 
             (submit)="onSubmit()">
 
@@ -34,6 +38,10 @@
             name="email"
             id="email"
             formControlName="email">
+            <small fxLayoutAlign="center" class="error-div"
+            *ngIf="email?.errors?.['required'] && email?.touched">
+            You must enter a valid email
+        </small>
         </mat-form-field>
 
         <mat-form-field>
@@ -42,11 +50,15 @@
             name="password"
             id="password"
             formControlName="password">
+            <small fxLayoutAlign="center" class="error-div"
+                *ngIf="password?.errors?.['required'] && password?.touched">
+                Minimum six characters, at least one letter, one number and one special character
+            </small>
         </mat-form-field>
 
         <mat-form-field>
             <input matInput placeholder="Confirm Password" type="password"
-            name="confirmpasswordsword"
+            name="confirmpassword"
             id="confirmpassword"
             formControlName="confirmpassword">
         </mat-form-field>
@@ -54,7 +66,8 @@
         <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
             <mat-hint>MM/DD/YYYY</mat-hint>
-            <input formControlName="birthday" matInput [matDatepicker]="picker">
+            <input formControlName="birthday" matInput [matDatepicker]="picker"
+            [max]="maxDate">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -63,6 +76,8 @@
         <mat-form-field>
             <input matInput placeholder="Mobile Number"
             type="text"
+            (keypress)="keyPressNumbers($event)"
+            maxlength="11"
             name="number"
             id="number">
         </mat-form-field>
@@ -74,7 +89,9 @@
         </mat-radio-group>
 
         
-        <button mat-raised-button color="primary" value="submit" type="submit" [disabled]="registerForm.invalid"
+        <button mat-raised-button color="primary"
+        value="submit"
+        type="submit" [disabled]="registerForm.invalid"
         >Sign me up!</button>
 
         <div fxLayoutAlign="center center" fxFlexFill>

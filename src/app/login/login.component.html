@@ -1,18 +1,33 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <mat-card fxFlex="25">
       <mat-toolbar color="primary">Log into Pastebook</mat-toolbar>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      
+      <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="registerForm" >
         <mat-form-field>
-          <input matInput placeholder="Email" type="Email">
+          <input matInput placeholder="Email"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email">
         </mat-form-field>
+
         <mat-form-field>
-          <input matInput placeholder="Password" type="Password">
+          <input matInput placeholder="Password"
+          type="Password"
+          name="password"
+          formControlName="password">
         </mat-form-field>
-        <button mat-raised-button  color="primary" type="submit">Login</button>
+
+        <button mat-raised-button  color="primary"
+        type="submit"
+        [disabled]="registerForm.invalid"
+        >Login</button>
+
         <div fxLayoutAlign="center center" fxFlexFill>
           <button mat-button color="primary">Forgot Account?</button>
-          <button mat-button color="primary">Sign up for PasteBook</button>
+          <button mat-button color="primary">Sign up for Pastebook</button>
         </div>
+
       </form>
     </mat-card>
 </div>
