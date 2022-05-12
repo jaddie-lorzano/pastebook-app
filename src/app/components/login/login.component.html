@@ -1,23 +1,45 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-    <mat-card fxFlex="25" class="form-container mat-elevation-z6">
-      <mat-toolbar color="primary">
-        Log into Pastebook
-      </mat-toolbar>
-      <form [formGroup]="loginForm" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
-        <mat-form-field>
-          <input matInput placeholder="Email" type="Email" formControlName="email" [errorStateMatcher]="matcher" />
-          <mat-error>Email is required</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Password" type="Password" formControlName="password">
-          <mat-error>Password is required</mat-error>
-        </mat-form-field>
-        <button mat-raised-button  color="primary" type="submit">Login</button>
-        <br>
-        <div align="center">
-          <button mat-button color="primary">Forgot Account?</button>
-          <button mat-button color="primary" routerLink="sign-up">Sign up for PasteBook</button>
-        </div>
-      </form>
-    </mat-card>
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Log into Pastebook</mat-toolbar>
+    
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="registerForm" >
+      <mat-form-field>
+        <input matInput placeholder="Email"
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email">
+          <mat-error class="error-div"
+          *ngIf="email?.errors?.['pattern'] && email?.touched">
+          You must enter a valid email
+      </mat-error>
+      <mat-error
+      *ngIf="email?.errors?.['required'] && email?.touched">
+          Email is required
+      </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Password"
+        type="Password"
+        name="password"
+        formControlName="password">
+        <mat-error class="error-div"
+              *ngIf="password?.errors?.['required'] && password?.touched">
+              Password is required
+          </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button  color="primary"
+      type="submit"
+      [disabled]="registerForm.invalid"
+      >Login</button>
+
+      <div fxLayoutAlign="center center" fxFlexFill>
+        <button mat-button color="primary">Forgot Account?</button>
+        <button mat-button color="primary">Sign up for Pastebook</button>
+      </div>
+
+    </form>
+  </mat-card>
 </div>
