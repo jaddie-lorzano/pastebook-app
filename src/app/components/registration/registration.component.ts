@@ -43,6 +43,8 @@ export class RegistrationComponent {
     
     confirmpassword: new FormControl('', Validators.required),
     birthday: new FormControl('', Validators.required),
+    gender: new FormControl(''),
+    number: new FormControl('')
   });
 
   get firstName() {
