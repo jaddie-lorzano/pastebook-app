@@ -9,6 +9,14 @@
             name="email"
             id="email"
             formControlName="email">
+            <mat-error class="error-div"
+            *ngIf="email?.errors?.['pattern'] && email?.touched">
+            You must enter a valid email
+        </mat-error>
+        <mat-error
+        *ngIf="email?.errors?.['required'] && email?.touched">
+            Email is required
+        </mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -16,6 +24,10 @@
           type="Password"
           name="password"
           formControlName="password">
+          <mat-error class="error-div"
+                *ngIf="password?.errors?.['required'] && password?.touched">
+                Password is required
+            </mat-error>
         </mat-form-field>
 
         <button mat-raised-button  color="primary"

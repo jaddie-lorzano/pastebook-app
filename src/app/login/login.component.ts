@@ -13,7 +13,7 @@ export class LoginComponent {
   registerForm = new FormGroup({
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(8)]), //min length 8 characters
+      Validators.minLength(6)]), //min length 6 characters
     
     email: new FormControl('', [
       Validators.required,
