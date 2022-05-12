@@ -36,7 +36,7 @@ export class RegistrationComponent {
 
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$/)
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)
     ]),
 //      Max 20 characters, minimum six characters
 //      atleast one letter, one number and one special character
