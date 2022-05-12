@@ -16,7 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { LandingComponent } from './components/landing/landing.component';
-import { HomePageComponent } from './components/home-page/home-page.component'
+import { MainPageComponent } from './components/main-page/main-page.component'
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     RegistrationComponent,
     LandingComponent,
-    HomePageComponent
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
