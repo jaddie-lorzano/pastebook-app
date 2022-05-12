@@ -15,15 +15,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
-import { LandingComponent } from './components/landing/landing.component'
-
+import { LandingComponent } from './components/landing/landing.component';
+import { HomePageComponent } from './components/home-page/home-page.component'
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    LandingComponent
+    LandingComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { LandingComponent } from './components/landing/landing.component'
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
