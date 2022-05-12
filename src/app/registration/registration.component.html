@@ -60,6 +60,10 @@
             formControlName="password">
             <mat-error class="error-div"
                 *ngIf="password?.errors?.['required'] && password?.touched">
+                Password is required
+            </mat-error>
+            <mat-error class="error-div"
+                *ngIf="password?.errors?.['pattern'] && password?.touched">
                 Minimum six characters, at least one letter, one number and one special character
             </mat-error>
         </mat-form-field>
