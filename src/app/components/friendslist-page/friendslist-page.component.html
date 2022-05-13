@@ -3,7 +3,8 @@
         <mat-form-field class="search-field" appearance="fill">
             <mat-label>Search a friend's name</mat-label>
             <input matInput type="text" [(ngModel)]="clearField">
-            <button  matSuffix mat-icon-button aria-label="Clear" (click)="clearField=''">
+            <button  matSuffix mat-icon-button aria-label="Clear"
+            (click)="clearField=''">
             <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -15,7 +16,7 @@
             <mat-card-title>
                 {{friendName}}
                 <div>
-                   <button class="align:left" mat-button color="primary">Visit Profile</button>
+                   <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
                 </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Woofer</mat-card-subtitle>
@@ -33,7 +34,7 @@
             <mat-card-title>
                 Doge to the moon
                 <div>
-                    <button class="align:left" mat-button color="primary">Visit Profile</button>
+                    <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
                 </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Howler</mat-card-subtitle>
@@ -51,7 +52,7 @@
             <mat-card-title>
                 Scary Doge
                 <div>
-                <button class="align:left" mat-button color="primary">Visit Profile</button>
+                <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
                 </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Howler</mat-card-subtitle>
