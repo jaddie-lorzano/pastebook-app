@@ -3,7 +3,7 @@
         <mat-form-field class="search-field" appearance="fill">
             <mat-label>Search a friend's name</mat-label>
             <input matInput type="text" [(ngModel)]="clearField">
-            <button matSuffix mat-icon-button aria-label="Clear" (click)="clearField=''">
+            <button  matSuffix mat-icon-button aria-label="Clear" (click)="clearField=''">
             <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
@@ -14,7 +14,9 @@
             <mat-card-title-group>
             <mat-card-title>
                 {{friendName}}
-                <button mat-button color="primary">Visit Profile</button>
+                <div>
+                   <button class="align:left" mat-button color="primary">Visit Profile</button>
+                </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Woofer</mat-card-subtitle>
             <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
@@ -30,7 +32,9 @@
             <mat-card-title-group>
             <mat-card-title>
                 Doge to the moon
-                <button mat-button color="primary">Visit Profile</button>
+                <div>
+                    <button class="align:left" mat-button color="primary">Visit Profile</button>
+                </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Howler</mat-card-subtitle>
             <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
@@ -46,7 +50,9 @@
             <mat-card-title-group>
             <mat-card-title>
                 Scary Doge
-                <button mat-button color="primary">Visit Profile</button>
+                <div>
+                <button class="align:left" mat-button color="primary">Visit Profile</button>
+                </div>
             </mat-card-title>
             <mat-card-subtitle>Professional Howler</mat-card-subtitle>
             <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
