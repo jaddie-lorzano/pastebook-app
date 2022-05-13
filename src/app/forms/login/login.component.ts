@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SigninComponent {
-  signInForm = this.fb.group({
+export class LoginComponent implements OnInit {
+  loginForm = this.fb.group({
     email: [null, [
       Validators.required,
       Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
@@ -80,6 +80,9 @@ export class SigninComponent {
   ];
 
   constructor(private fb: FormBuilder) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   onSubmit(): void {
     alert('Thanks!');

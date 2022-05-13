@@ -14,25 +14,27 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
-import { LandingComponent } from './components/landing/landing.component';
 import { MainPageComponent } from './components/main-page/main-page.component'
 import { MatIconModule } from '@angular/material/icon';
 import { MainComponent } from './components/main/main.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SignupComponent } from './forms/signup/signup.component';
-import { SigninComponent } from './forms/signin/signin.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { LoginComponent } from './forms/login/login.component';
+import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegistrationComponent,
-    LandingComponent,
     MainPageComponent,
     MainComponent,
     SignupComponent,
-    SigninComponent
+    LoginComponent,
+    SignupPageComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
