@@ -22,6 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { SignupComponent } from './forms/signup/signup.component';
 import { SigninComponent } from './forms/signin/signin.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { FriendslistPageComponent } from './components/friendslist-page/friendslist-page.component';
+import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     MainPageComponent,
     MainComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    FriendslistPageComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     MatNativeDateModule,
     MatRadioModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

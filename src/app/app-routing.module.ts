@@ -6,13 +6,15 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MainComponent } from './components/main/main.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { FriendslistPageComponent } from './components/friendslist-page/friendslist-page.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component:LandingComponent},
   {path: 'login', pathMatch: 'full', component:LoginPageComponent},
   {path: 'signup', pathMatch: 'full', component:RegistrationComponent},
   {path: 'home', pathMatch: 'full', component:MainPageComponent},
-  {path: 'main', pathMatch: 'full', component:MainComponent}
+  {path: 'main', pathMatch: 'full', component:MainComponent},
+  {path: 'friends', pathMatch: 'full', component:FriendslistPageComponent}
 ];
 
 @NgModule({

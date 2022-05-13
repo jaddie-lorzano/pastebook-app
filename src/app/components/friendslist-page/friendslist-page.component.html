@@ -1,0 +1,63 @@
+<div class="main-div" fxFlex="70">
+    <div class="search-field-container">
+        <mat-form-field class="search-field" appearance="fill">
+            <mat-label>Search a friend's name</mat-label>
+            <input matInput type="text" [(ngModel)]="clearField">
+            <button matSuffix mat-icon-button aria-label="Clear" (click)="clearField=''">
+            <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="friend-container">
+        <mat-card class="friend-card">
+            <mat-card-title-group>
+            <mat-card-title>
+                {{friendName}}
+                <button mat-button color="primary">Visit Profile</button>
+            </mat-card-title>
+            <mat-card-subtitle>Professional Woofer</mat-card-subtitle>
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+            {{friendDescription}}
+            </mat-card-content>
+        </mat-card>
+
+        <mat-divider></mat-divider>
+
+        <mat-card class="friend-card">
+            <mat-card-title-group>
+            <mat-card-title>
+                Doge to the moon
+                <button mat-button color="primary">Visit Profile</button>
+            </mat-card-title>
+            <mat-card-subtitle>Professional Howler</mat-card-subtitle>
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+            Works at Krusty Krab
+            </mat-card-content>
+        </mat-card>
+
+        <mat-divider></mat-divider>
+
+        <mat-card class="friend-card">
+            <mat-card-title-group>
+            <mat-card-title>
+                Scary Doge
+                <button mat-button color="primary">Visit Profile</button>
+            </mat-card-title>
+            <mat-card-subtitle>Professional Howler</mat-card-subtitle>
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </mat-card-title-group>
+            <mat-card-content>
+            Works at sa Puso Mo
+            </mat-card-content>
+        </mat-card>
+
+        <mat-divider></mat-divider>
+    </div>
+</div>
+
+<p>{{clearField | json}}</p>
