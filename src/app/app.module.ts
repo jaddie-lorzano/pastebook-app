@@ -16,25 +16,24 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MainPageComponent } from './components/main-page/main-page.component'
 import { MatIconModule } from '@angular/material/icon';
-import { MainComponent } from './components/main/main.component';
 import { MatSelectModule } from '@angular/material/select';
-import { SignupComponent } from './forms/signup/signup.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { LoginComponent } from './forms/login/login.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-
+import { SignupComponent } from './components/signup-page/signup/signup.component';
+import { LoginComponent } from './components/login-page/login/login.component';
+import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     RegistrationComponent,
     MainPageComponent,
-    MainComponent,
     SignupComponent,
     LoginComponent,
     SignupPageComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
