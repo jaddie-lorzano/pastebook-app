@@ -12,8 +12,8 @@ export class SignupComponent {
 
   maxDate = new Date();
   signUpForm = new FormGroup({
-    firstname: new FormControl('', Validators.required),
-    lastname: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
 
 //      Example of valid email id
 //      mysite@ourearth.com
@@ -41,18 +41,18 @@ export class SignupComponent {
 //      Max 20 characters, minimum six characters
 //      atleast one letter, one number and one special character
     
-    confirmpassword: new FormControl('', Validators.required),
-    birthday: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
+    birthDate: new FormControl('', Validators.required),
     gender: new FormControl(''),
     number: new FormControl('')
   });
 
   get firstName() {
-    return this.signUpForm.get('firstname')
+    return this.signUpForm.get('firstName')
   }
   
   get lastName() {
-    return this.signUpForm.get('lastname')
+    return this.signUpForm.get('lastName')
   }
   
   get email() {
@@ -64,11 +64,11 @@ export class SignupComponent {
   }
   
   get confirmPassword() {
-    return this.signUpForm.get('confirmpassword')
+    return this.signUpForm.get('confirmPassword')
   }
   
-  get birthday() {
-    return this.signUpForm.get('birthday')
+  get birthDate() {
+    return this.signUpForm.get('birthDate')
   }
   
   get gender() {
