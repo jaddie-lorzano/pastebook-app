@@ -1,3 +1,91 @@
 <mat-toolbar color="primary">
-    
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <h1>P</h1>
+    </button>
+    <form>
+        <mat-form-field>  
+            <button matPrefix mat-button><mat-icon >search</mat-icon></button>
+            <input type="text" matInput name= "search">
+        </mat-form-field>
+    </form>
+    <span class="example-spacer"></span>
+    <div fxLayoutAlign="center center">
+        <button mat-icon-button aria-label="Example icon-button with heart icon">
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon-button with heart icon">
+            <mat-icon>people</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon-button with heart icon">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Example icon-button with heart icon">
+            <mat-icon>notifications</mat-icon>
+        </button>
+    </div>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="profile-image"></div>
+                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Account Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
 </mat-toolbar>
+
+<div>
+    <ul>
+        <li class="left-menu">
+            <a router-link="/home">Logo</a>
+        </li>
+        <li class="search">
+            <input type="text"placeholder="Search people...">  
+            <button >search</button>
+        </li>
+    
+    
+        <li class="center">
+            <a routerLink="/home">Newsfeed</a>
+        </li>
+        <li>
+            <a routerLink="/home/friends">Friends</a>
+        </li>
+        <li>
+            <a routerLink="/home/profile">Profile</a>
+        </li>
+        <li>
+            <a routerLink="home">Notifications ({{0}})</a>
+    
+        </li>
+    
+        <li class="dropdown">
+    
+                <button class="dropbtn">Settings 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a routerLink="home">Account Settings</a>
+                  <a routerLink="home">Security Settings</a>
+                </div>
+    
+        </li>
+    </ul>
+</div>

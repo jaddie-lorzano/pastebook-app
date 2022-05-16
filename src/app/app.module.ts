@@ -23,6 +23,11 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { LoginComponent } from './components/login-page/login/login.component';
 import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +55,10 @@ import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.componen
     MatNativeDateModule,
     MatRadioModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
