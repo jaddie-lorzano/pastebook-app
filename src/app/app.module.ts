@@ -26,6 +26,10 @@ import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.componen
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatBadgeModule } from '@angular/material/badge';
+import { PostCardComponent } from './components/main-page/post-card/post-card.component';
 
 
 @NgModule({
@@ -39,6 +43,7 @@ import { MatDividerModule } from '@angular/material/divider';
     SignupPageComponent,
     LandingPageComponent,
     NavBarComponent,
+    PostCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTooltipModule,
     MatMenuModule,
     MatDividerModule,
+    MatTabsModule,
+    MatSlideToggleModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
