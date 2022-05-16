@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component:MainPageComponent},
   {path: 'login', pathMatch: 'full', component:LoginPageComponent},
   {path: 'signup', pathMatch: 'full', component:SignupPageComponent},
   {path: 'home', pathMatch: 'full', component:MainPageComponent},
+  {path: 'profile', pathMatch: 'full', component:ProfilePageComponent}
 ];
 
 @NgModule({

@@ -30,6 +30,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { PostCardComponent } from './components/main-page/post-card/post-card.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { PostCardComponent } from './components/main-page/post-card/post-card.co
     LandingPageComponent,
     NavBarComponent,
     PostCardComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
