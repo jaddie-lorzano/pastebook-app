@@ -14,31 +14,31 @@
       <div class="row">
         <!-- First Name -->
         <div class="col">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
             <input 
               type="text"
               matInput 
               placeholder="First Name"
               formControlName="firstName">
-            <!-- Error message -->
-            <mat-error 
-              *ngIf="signUpForm.controls['firstName'].touched 
-              && signUpForm.controls['firstName'].hasError('required')">
+            <!-- First name required -->
+            <mat-error *ngIf=" signUpForm.controls['firstName'].touched 
+              && signUpForm.controls['firstName'].errors?.['required']">
                 First name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <!-- Last Name -->
         <div class="col">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
             <input 
             matInput 
             placeholder="Last Name"
             formControlName="lastName">
-            <!-- Error message -->
-            <mat-error 
-              *ngIf="signUpForm.controls['lastName'].touched 
-              && signUpForm.controls['lastName'].hasError('required')">
+            <!-- Last name required -->
+            <mat-error *ngIf=" signUpForm.controls['lastName'].touched 
+              && signUpForm.controls['lastName'].errors?.['required']">
                 Last name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -48,24 +48,23 @@
       <div class="row">
         <!-- Email -->
         <div class="col">
-          <mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
             <input 
               matInput 
               placeholder="Email"
               type="email"
               formControlName="email">
-              <!-- Error message : Invalid Email -->
-              <mat-error class="error-div"
-                *ngIf="signUpForm.controls['email'].errors?.['pattern'] 
-                && signUpForm.controls['email'].touched">
-                  You must enter a <strong>valid</strong> email
-              </mat-error>
-              <!-- Error message : Email Required -->
-              <mat-error
-                *ngIf="signUpForm.controls['email'].errors?.['required'] 
-                && signUpForm.controls['email'].touched">
-                  Email is <strong>required</strong>
-              </mat-error>
+              <!-- Email Required -->
+            <mat-error *ngIf="signUpForm.controls['email'].touched 
+              && signUpForm.controls['email'].errors?.['required']">
+                Email is <strong>required</strong>
+            </mat-error>
+            <!-- Invalid Email -->
+            <mat-error *ngIf="signUpForm.controls['email'].touched 
+              && signUpForm.controls['email'].errors?.['pattern']">
+                Email is <strong>invalid</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
@@ -73,12 +72,13 @@
       <div class="row">
         <!-- New Password -->
         <div class="col">
-          <mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>New Password</mat-label>
             <input 
-            matInput
-            placeholder="New Password"
-            type="password"
-            formControlName="password">
+              matInput
+              placeholder="Password"
+              type="password"
+              formControlName="password">
             <!-- Password Required -->
             <mat-error 
               *ngIf="signUpForm.controls['password'].errors?.['required'] 
@@ -93,9 +93,7 @@
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="!signUpForm.controls['password'].value.isnull 
-                && !signUpForm.controls['confirmpassword'].value.isnull
-                && signUpForm.controls['password'].value != signUpForm.controls['confirmpassword'].value">
+                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
@@ -105,12 +103,13 @@
       <div class="row">
         <!-- Confirm Password -->
         <div class="col">
-          <mat-form-field class="full-width">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
             <input 
-            matInput
-            placeholder="Confirm password"
-            type="Password"
-            formControlName="confirmPassword">
+              matInput
+              placeholder="Password"
+              type="Password"
+              formControlName="confirmPassword">
             <!-- Password Required -->
             <mat-error 
               *ngIf="signUpForm.controls['confirmPassword'].errors?.['required'] 
@@ -125,9 +124,7 @@
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="!signUpForm.controls['password'].value.isnull 
-                && !signUpForm.controls['confirmpassword'].value.isnull
-                && signUpForm.controls['password'].value != signUpForm.controls['confirmpassword'].value">
+                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
@@ -137,11 +134,11 @@
       <div class="row">
         <!-- Birthdate -->
         <div class="col">
-          <mat-form-field  appearance="fill">
+          <mat-form-field appearance="outline" class="full-width">
             <mat-label>Choose a date</mat-label>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <input 
-              formControlName="birthday" 
+              formControlName="birthDate"
               matInput 
               [matDatepicker]="picker"
               [max]="maxDate">
@@ -156,16 +153,14 @@
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <!-- Sixth row : Mobile number -->
-      <div class="row">
-        <!-- Mobile number -->
+        <!-- Mobile Number -->
         <div class="col">
-          <mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mobile Number</mat-label>
             <input 
               matInput 
               placeholder="Mobile Number"
-              type="text"
+              type="tel"
               (keypress)="keyPressNumbers($event)"
               maxlength="11"
               formControlName="mobileNumber">
@@ -190,12 +185,12 @@
     
     <!-- Sign up button -->
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
     </mat-card-actions>
   </form>
   <!-- Redirect to login page -->
   <div fxLayoutAlign="center center" fxFlexFill>
-    <button mat-button color="primary" routerLink="login">
+    <button mat-button color="primary" routerLink="../login">
       Already have an account?
     </button>
   </div>

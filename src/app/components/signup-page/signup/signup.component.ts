@@ -8,79 +8,75 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SignupComponent {
 
-  constructor() { }
-
   maxDate = new Date();
-  signUpForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-
-//      Example of valid email id
-//      mysite@ourearth.com
-//      my.ownsite@ourearth.org
-//      mysite@you.me.net
-//      Example of invalid email id
-//      mysite.ourearth.com [@ is not present]
-//      mysite@.com.my [ tld (Top Level domain) can not start with dot "." ]
-//      @you.me.net [ No character before @ ]
-//      mysite123@gmail.b [ ".b" is not a valid tld ]
-//      mysite@.org.org [ tld can not start with dot "." ]
-//      .mysite@mysite.org [ an email should not be start with "." ]
-//      mysite()*@gmail.com [ here the regular expression only allows character, digit, underscore, and dash ]
-//      mysite..1234@yahoo.com [double dots are not allowed]
-
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
-    ]),
-
-    password: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)
-    ]),
-//      Max 20 characters, minimum six characters
-//      atleast one letter, one number and one special character
-    
-    confirmPassword: new FormControl('', Validators.required),
+  signUpForm = this.formBuilder.group({
+    firstName: [null, [Validators.required]],
+    lastName: [null, [Validators.required]],
+    email: [null, [Validators.required, 
+      Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
+      //      Example of valid email id
+      //      mysite@ourearth.com
+      //      my.ownsite@ourearth.org
+      //      mysite@you.me.net
+      //      Example of invalid email id
+      //      mysite.ourearth.com [@ is not present]
+      //      mysite@.com.my [ tld (Top Level domain) can not start with dot "." ]
+      //      @you.me.net [ No character before @ ]
+      //      mysite123@gmail.b [ ".b" is not a valid tld ]
+      //      mysite@.org.org [ tld can not start with dot "." ]
+      //      .mysite@mysite.org [ an email should not be start with "." ]
+      //      mysite()*@gmail.com [ here the regular expression only allows character, digit, underscore, and dash ]
+      //      mysite..1234@yahoo.com [double dots are not allowed]
+    password: [null, [Validators.required,
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
+      //      Max 20 characters, minimum six characters
+      //      atleast one letter, one number and one special character
+    confirmPassword: [null, [Validators.required,
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
     birthDate: new FormControl('', Validators.required),
-    gender: new FormControl(''),
-    number: new FormControl('')
+    gender: null,
+    mobileNumber: null,
   });
+  
+  constructor(private formBuilder : FormBuilder) { }
+  // get firstName() {
+  //   return this.signUpForm.get('firstName')
+  // }
+  
+  // get lastName() {
+  //   return this.signUpForm.get('lastName')
+  // }
+  
+  // get email() {
+  //   return this.signUpForm.get('email')
+  // }
+  
+  // get password() {
+  //   return this.signUpForm.get('password')
+  // }
+  
+  // get confirmPassword() {
+  //   return this.signUpForm.get('confirmPassword')
+  // }
+  
+  // get birthDate() {
+  //   return this.signUpForm.get('birthDate')
+  // }
+  
+  // get gender() {
+  //   return this.signUpForm.get('gender')
+  // }
+  
+  // get mobileNumber() {
+  //   return this.signUpForm.get('mobileNumber')
+  // }
 
-  get firstName() {
-    return this.signUpForm.get('firstName')
-  }
-  
-  get lastName() {
-    return this.signUpForm.get('lastName')
-  }
-  
-  get email() {
-    return this.signUpForm.get('email')
-  }
-  
-  get password() {
-    return this.signUpForm.get('password')
-  }
-  
-  get confirmPassword() {
-    return this.signUpForm.get('confirmPassword')
-  }
-  
-  get birthDate() {
-    return this.signUpForm.get('birthDate')
-  }
-  
-  get gender() {
-    return this.signUpForm.get('gender')
-  }
-  
-  get mobileNumber() {
-    return this.signUpForm.get('mobileNumber')
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
   }
 
-  onSubmit() {
-    if (this.signUpForm.get('password')?.value === this.signUpForm.get('confirmpassword')?.value)
+  onSubmit(): void {
+    if (this.signUpForm.get('password')?.value === this.signUpForm.get('confirmPassword')?.value)
     {
       alert ('Success');
     }

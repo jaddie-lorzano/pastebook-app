@@ -2,63 +2,75 @@
   Log in to Pastebook
 </mat-toolbar>
 <mat-card class="login-card">
-  <mat-card-content>
-    <form 
+  <form 
       fxLayoutAlign="stretch" 
       fxLayout="column" 
       class="loginForm"
       [formGroup]="loginForm" 
       novalidate 
       (ngSubmit)="onSubmit()">
-        <!-- Email -->
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input 
-                matInput 
-                placeholder="Email" 
-                formControlName="email" 
-                type="email">
-              <!-- Email Required -->
-              <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['required']">
-                    Email is <strong>required</strong>
-              </mat-error>
-              <!-- Invalid Email -->
-              <mat-error *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['pattern']">
+    <mat-card-content>
+      <!-- Email -->
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input 
+              matInput 
+              placeholder="Email" 
+              formControlName="email" 
+              type="email">
+            <!-- Email Required -->
+            <mat-error *ngIf="loginForm.controls['email'].touched 
+              && loginForm.controls['email'].errors?.['required']">
+                Email is <strong>required</strong>
+            </mat-error>
+            <!-- Invalid Email -->
+            <mat-error *ngIf="loginForm.controls['email'].touched 
+              && loginForm.controls['email'].errors?.['pattern']">
                 Email is <strong>invalid</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <!-- Password -->
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Password" formControlName="password" type="password">
-              <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">
+      </div>
+      <!-- Password -->
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input 
+              matInput 
+              placeholder="Password" 
+              formControlName="password" 
+              type="password">
+            <mat-error *ngIf="loginForm.controls['password'].touched 
+              && loginForm.controls['password'].errors?.['required']">
                 Password is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-          </div>
+            </mat-error>
+          </mat-form-field>
         </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
       <button 
-        routerLink="home"
+        fxFill
+        routerLink="../"
         mat-raised-button  
         color="primary"
         type="submit"
         [disabled]="loginForm.invalid">
         Login
       </button>
-    </form>
-  </mat-card-content>
-  <div class="row">
+    </mat-card-actions>
+  </form>
+  <div class="row" fxLayoutAlign="center center" fxFlexFill>
     <!-- Forgot Account -->
     <div class="col">
       <button mat-button color="primary">Forgot Account?</button>
     </div>
     <!-- Sign Up -->
     <div class="col">
-      <button mat-button color="primary" routerLink="signup">Sign up for Pastebook</button>
+      <button mat-button color="primary" routerLink="../signup">Sign up for Pastebook</button>
     </div>  
   </div>
 </mat-card>
