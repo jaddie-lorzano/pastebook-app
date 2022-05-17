@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
@@ -36,12 +35,12 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CommentsComponent } from './components/main-page/post-card/comments/comments.component';
 import { LikesComponent } from './components/main-page/post-card/likes/likes.component';
-import { NewPostCardComponent } from './components/main-page/new-post-card/new-post-card.component';
-import { NewPostDialogComponent } from './components/main-page/new-post-card/new-post-dialog/new-post-dialog.component';
 import { MatChipsModule } from '@angular/material/chips';
-import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
+import { NewPostCardComponent } from './components/main-page/new-post-card/new-post-card.component';
+import { NewPostDialogComponent } from './components/main-page/new-post-card/new-post-dialog/new-post-dialog.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 
 @NgModule({
@@ -61,7 +60,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     CommentsComponent,
     LikesComponent,
     NewPostCardComponent,
-    NewPostDialogComponent
+    NewPostDialogComponent,
     ProfilePageComponent,
     PeopleWhoLikedComponent,
   ],
