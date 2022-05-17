@@ -34,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FriendRequestPageComponent } from './components/friend-request-page/friend-request-page.component';
 import { AlbumComponent } from './components/main-page/album/album.component';
 import { CreateAlbumDialogComponent } from './components/main-page/album/create-album-dialog/create-album-dialog.component';
-
+import { AlbumGalleryComponent } from './components/main-page/album-gallery/album-gallery.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
     PostCardComponent,
     FriendRequestPageComponent,
     AlbumComponent,
-    CreateAlbumDialogComponent
+    CreateAlbumDialogComponent,
+    AlbumGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,7 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
     MatSlideToggleModule,
     MatBadgeModule,
     MatDialogModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
