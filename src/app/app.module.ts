@@ -35,6 +35,9 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CommentsComponent } from './components/main-page/post-card/comments/comments.component';
 import { LikesComponent } from './components/main-page/post-card/likes/likes.component';
+import { NewPostCardComponent } from './components/main-page/new-post-card/new-post-card.component';
+import { NewPostDialogComponent } from './components/main-page/new-post-card/new-post-dialog/new-post-dialog.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { LikesComponent } from './components/main-page/post-card/likes/likes.com
     SignupComponent,
     CommentsComponent,
     LikesComponent,
+    NewPostCardComponent,
+    NewPostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +82,7 @@ import { LikesComponent } from './components/main-page/post-card/likes/likes.com
     MatSlideToggleModule,
     MatBadgeModule,
     MatDialogModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
