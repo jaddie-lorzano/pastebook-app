@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
@@ -61,7 +60,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     CommentsComponent,
     LikesComponent,
     NewPostCardComponent,
-    NewPostDialogComponent
+    NewPostDialogComponent,
     ProfilePageComponent,
     PeopleWhoLikedComponent,
   ],
