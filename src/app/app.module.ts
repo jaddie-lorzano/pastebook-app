@@ -31,7 +31,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { PostCardComponent } from './components/main-page/post-card/post-card.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
-
+import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     NavBarComponent,
     PostCardComponent,
     ProfilePageComponent,
+    PeopleWhoLikedComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,10 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     MatTabsModule,
     MatSlideToggleModule,
     MatBadgeModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatListModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
