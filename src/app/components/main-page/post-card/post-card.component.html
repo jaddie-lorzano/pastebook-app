@@ -1,6 +1,6 @@
 <div fxLayoutAlign="column" fxLayoutAlign="center center">
   <mat-card class="post-card">
-    <!-- Header -->
+    <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')">
         <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
@@ -44,10 +44,12 @@
         <mat-icon inline="true">thumb_up</mat-icon>
         Like
       </button>
+      <!-- Insert functionality -->
       <button mat-button color="primary" style="width: 100%;">
         <mat-icon inline="true">comment</mat-icon>
         Comment
       </button>
+      <!-- Insert functionality -->
     </mat-card-actions>
   </mat-card>
 </div>
