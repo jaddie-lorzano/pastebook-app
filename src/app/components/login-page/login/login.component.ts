@@ -18,9 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {
-    // throw new Error('Method not implemented.');
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
     alert('Thanks!');
