@@ -1,0 +1,19 @@
+.img {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.liked {
+    display: inline;
+    position: absolute;
+    top: 20%;
+    padding-left: 5px;
+}
+
+.img-liked {
+    position: relative;
+    width: 150px;
+    height: 40px;
+}
