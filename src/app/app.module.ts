@@ -37,6 +37,7 @@ import { CommentsComponent } from './components/main-page/post-card/comments/com
 import { LikesComponent } from './components/main-page/post-card/likes/likes.component';
 import { NewPostCardComponent } from './components/main-page/new-post-card/new-post-card.component';
 import { NewPostDialogComponent } from './components/main-page/new-post-card/new-post-dialog/new-post-dialog.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import { NewPostDialogComponent } from './components/main-page/new-post-card/new
     MatSlideToggleModule,
     MatBadgeModule,
     MatDialogModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
