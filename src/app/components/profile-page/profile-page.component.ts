@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PeopleWhoLikedComponent } from './people-who-liked/people-who-liked.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,7 +11,9 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  aboutMe = "";
+  aboutMe = '';
+  aboutMeSaved = '';
+
 openDialog() {
   const dialogRef = this.dialog.open(PeopleWhoLikedComponent);
 }
@@ -20,4 +21,8 @@ openDialog() {
   ngOnInit(): void {
   }
 
+  addToAboutMe(event: Event, aboutMe: String) {
+    this.aboutMeSaved = this.aboutMe;
+    this.aboutMe = '';
+  }
 }

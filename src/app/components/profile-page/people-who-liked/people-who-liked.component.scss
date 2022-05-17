@@ -1,7 +1,7 @@
 .img {
-    width: 40px;
-    height: auto;
-    padding-right: 5px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
     border-radius: 50%;
 }
 
@@ -9,6 +9,7 @@
     display: inline;
     position: absolute;
     top: 20%;
+    padding-left: 5px;
 }
 
 .img-liked {

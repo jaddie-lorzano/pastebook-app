@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -76,7 +76,8 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     MatBadgeModule,
     MatBottomSheetModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    FormsModule
     
   ],
   providers: [],

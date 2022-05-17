@@ -13,8 +13,9 @@
 }
 
 .profile-picture {
-    max-height: 160px;
-    width: auto;
+    max-height: 200px;
+    width: 200px;
+    overflow: hidden;
     border-radius: 50%;
 }
 
@@ -61,12 +62,14 @@ mat-card {
 
 .post-image {
     height: 43px;
+    width: 43px;
+    overflow: hidden;
     border-radius: 50%;
 }
 
 .post-users-name {
     display: inline-block;
-    padding-left: 20px;
+    padding-left: 13px;
     position: absolute;
     top: 30%;
     left: 12%;
@@ -90,4 +93,13 @@ mat-card {
     padding-right: 5px;
     padding-bottom: 2px;
     transform: scale(0.9);
+}
+
+.about-me-card {
+    max-width: 334px;
+    word-wrap: break-word;
+}
+
+.card-content {
+    word-wrap: break-word;
 }
