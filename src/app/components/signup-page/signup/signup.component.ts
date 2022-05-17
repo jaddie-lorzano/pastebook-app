@@ -76,13 +76,13 @@ export class SignupComponent {
   }
 
   onSubmit(): void {
-    if (this.signUpForm.get('password')?.value === this.signUpForm.get('confirmPassword')?.value)
+    if (this.signUpForm.valid)
     {
-      alert ('Success');
+      console.log(this.signUpForm.value)
     }
     else
     {
-      alert ("Passwords don't match");
+      console.log("Passwords don't match");
     }
   }
 
