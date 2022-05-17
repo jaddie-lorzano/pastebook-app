@@ -30,6 +30,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { PostCardComponent } from './components/main-page/post-card/post-card.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FriendRequestPageComponent } from './components/friend-request-page/friend-request-page.component';
+import { AlbumComponent } from './components/main-page/album/album.component';
+import { CreateAlbumDialogComponent } from './components/main-page/album/create-album-dialog/create-album-dialog.component';
 
 
 @NgModule({
@@ -44,6 +48,9 @@ import { PostCardComponent } from './components/main-page/post-card/post-card.co
     LandingPageComponent,
     NavBarComponent,
     PostCardComponent,
+    FriendRequestPageComponent,
+    AlbumComponent,
+    CreateAlbumDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +74,7 @@ import { PostCardComponent } from './components/main-page/post-card/post-card.co
     MatTabsModule,
     MatSlideToggleModule,
     MatBadgeModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
