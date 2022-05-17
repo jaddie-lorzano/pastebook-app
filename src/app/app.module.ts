@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
@@ -20,7 +19,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { LoginComponent } from './components/login-page/login/login.component';
 import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -34,6 +32,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FriendRequestPageComponent } from './components/friend-request-page/friend-request-page.component';
 import { AlbumComponent } from './components/main-page/album/album.component';
 import { CreateAlbumDialogComponent } from './components/main-page/album/create-album-dialog/create-album-dialog.component';
+import { SignupComponent } from './components/signup-page/signup/signup.component';
+import { CommentsComponent } from './components/main-page/post-card/comments/comments.component';
+import { LikesComponent } from './components/main-page/post-card/likes/likes.component';
 
 
 @NgModule({
@@ -47,7 +48,11 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
     PostCardComponent,
     FriendRequestPageComponent,
     AlbumComponent,
-    CreateAlbumDialogComponent
+    CreateAlbumDialogComponent,
+    SignupPageComponent,
+    SignupComponent,
+    CommentsComponent,
+    LikesComponent,
   ],
   imports: [
     BrowserModule,
