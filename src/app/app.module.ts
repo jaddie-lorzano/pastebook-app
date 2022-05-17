@@ -40,11 +40,8 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegistrationComponent,
     MainPageComponent,
-    SignupComponent,
     LoginComponent,
-    SignupPageComponent,
     LandingPageComponent,
     NavBarComponent,
     PostCardComponent,
