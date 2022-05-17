@@ -1,0 +1,23 @@
+<h1 mat-dialog-header fxLayoutAlign="center">Create Post</h1>
+<mat-divider></mat-divider>
+<mat-card-header class="header" fxLayout="row" fxLayoutAlign="start center">
+    <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')">
+      <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
+    </div>
+    <mat-card-title>
+      User Account Name
+      <!-- {{post.userAccountId.name}} -->
+    </mat-card-title>
+</mat-card-header>
+<mat-card-content>
+    <mat-form-field appearance="standard" style="width:100%; height: auto;">
+        <textarea matInput placeholder="What's on your mind, Jae?" style="height:auto;text-align: left"></textarea>
+    </mat-form-field>
+</mat-card-content>
+<mat-card-content style="background-color: lightgrey; height: 240px;">
+    <button mat-mini-fab><mat-icon>add_photo_alternate</mat-icon></button>
+    <button mat-mini-fab><mat-icon>close</mat-icon></button>
+</mat-card-content>
+<button mat-raised-button color="primary" style="width: 100%;">
+    Post
+</button>
