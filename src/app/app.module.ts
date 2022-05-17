@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -38,7 +39,10 @@ import { LikesComponent } from './components/main-page/post-card/likes/likes.com
 import { NewPostCardComponent } from './components/main-page/new-post-card/new-post-card.component';
 import { NewPostDialogComponent } from './components/main-page/new-post-card/new-post-dialog/new-post-dialog.component';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
+import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,8 @@ import { MatChipsModule } from '@angular/material/chips';
     LikesComponent,
     NewPostCardComponent,
     NewPostDialogComponent
+    ProfilePageComponent,
+    PeopleWhoLikedComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +89,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatBadgeModule,
     MatDialogModule,
     MatChipsModule,
+    MatBottomSheetModule,
+    MatListModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
