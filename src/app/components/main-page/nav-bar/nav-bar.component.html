@@ -1,58 +1,60 @@
-<mat-toolbar color="primary" fxLayoutAlign="column" fxLayoutAlign="space-between stretch">
+<mat-toolbar color="primary">
+    <div fxLayoutAlign="row" layout-wrap style="width: 100%" fxLayoutAlign="space-between center">
+        <div fxLayoutAlign="column" fxLayoutAlign="start center" fxFlex="25">
+            <button mat-mini-fab color="primary" class="example-icon" aria-label="Example icon-button with menu icon" fxLayoutAlign="center center">
+                <h1>pb</h1>
+            </button>
+            <span style="width:10px"></span>
+            <!-- Search bar -->
+            <button matPrefix mat-button color="primary" style="background-color:white"><mat-icon >search</mat-icon><input placeholder="Search" style="border: 0;height: 100%;width: calc(100% - 20px);" type="text" matInput name= "search"></button>
+                    
+        </div>
+        <div fxLayoutAlign="column" fxLayoutAlign="center center" style="max-width: 712px;width: 100%;">
+            <!-- Home/News Feed Button -->
+            <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;">
+                <mat-icon>home</mat-icon>
+            </button>
+            <!-- Account Button => redirects to Profile page -->
+            <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </div>
+        <div fxLayoutAlign="column" fxLayoutAlign="end center" fxFlex="25">
+            <button mat-mini-fab color="primary" aria-label="Example icon-button with heart icon">
+                <mat-icon matBadge="15" matBadgeColor="accent">people</mat-icon>
+            </button>
+            <span style="width:10px"></span>
+            <!-- Notification -->
+            <button mat-mini-fab color="primary" aria-label="Example icon-button with heart icon">
+                <mat-icon matBadge="15" matBadgeColor="accent">notifications</mat-icon>
+            </button>
+            <span style="width:10px"></span>
+            <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="menu-card">
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar class="profile-image"></div>
+                        <mat-card-title>User Account Name</mat-card-title>
+                        <mat-card-subtitle>See your profile</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-divider></mat-divider>
+                    <button mat-menu-item>
+                      <mat-icon>settings</mat-icon>
+                      <span>Settings</span>
+                    </button>
+                    <mat-slide-toggle>Night mode</mat-slide-toggle>
+                    <button mat-menu-item>
+                      <mat-icon>logout</mat-icon>
+                      <span>Log out</span>
+                    </button>
+                </mat-card>
+            </mat-menu>
+        </div>
+    </div>
     <!-- Logo -->
-    <div fxLayoutAlign="column" fxLayoutAlign="center center" fx>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <h1>P</h1>
-        </button>
-        <!-- Search bar -->
-        <form>
-            <mat-form-field>  
-                <button matPrefix mat-button><mat-icon >search</mat-icon></button>
-                <input type="text" matInput name= "search">
-            </mat-form-field>
-        </form>
-    </div>
-    <div fxLayoutAlign="column" fxLayoutAlign="center center">
-        <!-- Home/News Feed Button -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon>home</mat-icon>
-        </button>
-        <!-- Account Button => redirects to Profile page -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon>account_circle</mat-icon>
-        </button>
-    </div>
-    <div fxLayoutAlign="column" fxLayoutAlign="center center">
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon matBadge="15" matBadgeColor="accent">people</mat-icon>
-        </button>
-        <!-- Notification -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon matBadge="15" matBadgeColor="accent">notifications</mat-icon>
-        </button>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>expand_more</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" class="menu-card">
-            <mat-card>
-                <mat-card-header>
-                    <div mat-card-avatar class="profile-image"></div>
-                    <mat-card-title>User Account Name</mat-card-title>
-                    <mat-card-subtitle>See your profile</mat-card-subtitle>
-                </mat-card-header>
-                <mat-divider></mat-divider>
-                <button mat-menu-item>
-                  <mat-icon>settings</mat-icon>
-                  <span>Settings</span>
-                </button>
-                <mat-slide-toggle>Night mode</mat-slide-toggle>
-                <button mat-menu-item>
-                  <mat-icon>logout</mat-icon>
-                  <span>Log out</span>
-                </button>
-            </mat-card>
-        </mat-menu>
-    </div>
+    
     <!-- Friend Request List -->
     
 </mat-toolbar>
