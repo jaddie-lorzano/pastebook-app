@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Album } from 'src/app/models/Album';
 import { AlbumService } from 'src/app/services/album.service';
-import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-dialog.component';
+import { CreateAlbumDialogComponent } from '../create-album-dialog/create-album-dialog.component';
 
 @Component({
   selector: 'app-album',

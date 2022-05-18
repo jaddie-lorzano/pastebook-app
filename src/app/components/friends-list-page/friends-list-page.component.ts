@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-friendslist-page',
-  templateUrl: './friendslist-page.component.html',
-  styleUrls: ['./friendslist-page.component.scss']
+  selector: 'app-friends-list-page',
+  templateUrl: './friends-list-page.component.html',
+  styleUrls: ['./friends-list-page.component.scss']
 })
-export class FriendslistPageComponent implements OnInit {
+export class FriendsListPageComponent implements OnInit {
 
   clearField='';
   friendName='Abdul Kharakarakha';
