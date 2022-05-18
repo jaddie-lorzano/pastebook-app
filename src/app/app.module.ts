@@ -43,6 +43,7 @@ import { NewsFeedComponent } from './components/news-feed/news-feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryPageComponent } from './components/album-gallery-page/album-gallery-page.component';
 import { FriendsListPageComponent } from './components/friends-list-page/friends-list-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FriendsListPageComponent } from './components/friends-list-page/friends
     AlbumGalleryPageComponent,
     FriendsListPageComponent,
     LikesComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
