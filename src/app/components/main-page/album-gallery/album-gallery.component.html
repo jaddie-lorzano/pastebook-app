@@ -1,0 +1,78 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="cards-div" fxLayoutAlign="center center">
+    <mat-list role="list">
+        <h1>Albums</h1>
+
+        <!-- ADD ALBUM -->
+        <mat-card class="card">
+            <mat-card-actions class="card">
+                <button class="btn" mat-raised-button color="primary" (click)="openDialog()">
+                    + Add Album
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-list-item role="listitem" >
+            <a routerLink="">Album 1</a>
+            <mat-icon matListIcon>photo</mat-icon>
+            <div  class="act-btn">
+                <mat-list-item>
+                    <mat-action-list>
+                        <button class="btn"> 
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button  class="btn"> 
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button> 
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-action-list>
+                </mat-list-item>
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem" >
+            <a routerLink="">Album 2</a>
+            <mat-icon matListIcon>photo</mat-icon>
+            <div  class="act-btn">
+                <mat-list-item>
+                    <mat-action-list>
+                        <button class="btn"> 
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button class="btn" > 
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button > 
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-action-list>
+                </mat-list-item>
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem" >
+            <a routerLink="">Album 3</a>
+            <mat-icon matListIcon>photo</mat-icon>
+            <div  class="act-btn">
+                <mat-list-item>
+                    <mat-action-list>
+                        <button class="btn" > 
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button class="btn" > 
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button > 
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-action-list>
+                </mat-list-item>
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+       
+    </mat-list>
+</div>

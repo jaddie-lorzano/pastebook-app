@@ -43,6 +43,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
+import { AlbumGalleryComponent } from './components/main-page/album-gallery/album-gallery.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     NewPostDialogComponent,
     ProfilePageComponent,
     PeopleWhoLikedComponent,
+    AlbumGalleryComponent
   ],
   imports: [
     BrowserModule,

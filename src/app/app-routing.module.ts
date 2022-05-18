@@ -7,6 +7,7 @@ import { SignupPageComponent } from './components/signup-page/signup-page.compon
 import { FriendRequestPageComponent } from './components/friend-request-page/friend-request-page.component';
 import { AlbumComponent } from './components/main-page/album/album.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component:MainPageComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'home', pathMatch: 'full', component:MainPageComponent},
   {path: 'album', pathMatch: 'full', component:AlbumComponent},
   {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
-  {path: 'profile', pathMatch: 'full', component:ProfilePageComponent}
+  {path: 'profile', pathMatch: 'full', component:ProfilePageComponent},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
