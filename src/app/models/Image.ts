@@ -1,11 +1,8 @@
+import { Album } from "./Album";
+
 export interface Image {
     Id: number;
-    Album: {
-        Id: number;
-        Title: string;
-        Description: string;
-        CreatedDate: Date;
-    }
+    Album: Album
     UploadedDate: Date;
     FilePath: string;
     Active: Boolean;
