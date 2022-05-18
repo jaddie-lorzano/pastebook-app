@@ -8,7 +8,7 @@ import { FriendRequestPageComponent } from './components/friend-request-page/fri
 import { AlbumComponent } from './components/main-page/album/album.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component:NewsFeedComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'album', pathMatch: 'full', component:AlbumComponent},
   {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
   {path: 'profile', pathMatch: 'full', component:ProfilePageComponent},
-  {path: '**', pathMatch: 'full', component:LandingPageComponent},
+  {path: '**', pathMatch: 'full', component: PageNotFoundComponent},
 ];
 
 @NgModule({
