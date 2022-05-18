@@ -58,7 +58,7 @@
       margin: 2px;
   }
 
-  mat-card-content {
+  mat-card-content, mat-form-field {
       padding-left: 30px;
   }
 
@@ -66,31 +66,35 @@
       font-weight: bold;
   }
 
-.password-field {
-    padding-top: 30px;
-    width: 270px;
-}
+  .password-field {
+      padding-top: 30px;
+      width: 270px;
+  }
 
-.label {
-    padding-left: 15px;
-}
+  .label {
+      padding-left: 15px;
+  }
 
-.error-outline {
+  .error-outline {
+      transform: scale(0.9);
+      padding-left: 10px;
+  }
+
+  .description {
+      display: inline;
+      padding-right: 10px;
+  }
+
+  .warning-dialog {
+      display: inline;
+      width: 400px;
+  }
+
+  .apply-btn {
+      display: inline;
+      padding-left: 15px;
+  }
+
+  .icon {
     transform: scale(0.9);
-    padding-left: 10px;
-}
-
-.description {
-    display: inline;
-    padding-right: 10px;
-}
-
-.warning-dialog {
-    display: inline;
-    width: 400px;
-}
-
-.apply-btn {
-    display: inline;
-    padding-left: 15px;
-}
+  }

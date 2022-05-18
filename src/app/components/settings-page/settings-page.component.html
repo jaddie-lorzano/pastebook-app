@@ -13,49 +13,62 @@
 
             <mat-card>
                 <mat-card-content class="title first-name">First Name</mat-card-content>
-                <mat-card-content class="first-name">Cardo</mat-card-content>
+                <mat-form-field class="first-name" appearance="legacy">
+                <input [value]="firstName" matInput [disabled]="toggle">
+                </mat-form-field>
                 <mat-card-actions align="end">
-                    <button mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                </mat-card-actions>
-            </mat-card>
-            
-            <mat-card>
-                <mat-card-content class="title last-name">Last Name</mat-card-content>
-                <mat-card-content class="last-name">Dalisay</mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                </mat-card-actions>
-            </mat-card>
-           
-            <mat-card>
-                <mat-card-content class="title birthday">Birthday</mat-card-content>
-                <mat-card-content class="birthday">Cardo</mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    <button (click)="toggleInput()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
                 </mat-card-actions>
             </mat-card>
 
             <mat-card>
-                <mat-card-content class="title gender">Gender</mat-card-content>
-                <mat-card-content class="gender">Cardo</mat-card-content>
+                <mat-card-content class="title">Last Name</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="lastName" matInput [disabled]="toggle">
+                </mat-form-field>
                 <mat-card-actions align="end">
-                    <button mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    <button (click)="toggleInput()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
                 </mat-card-actions>
             </mat-card>
+
             <mat-card>
-                <mat-card-content class="title number">Mobile Number</mat-card-content>
-                <mat-card-content class="number">Cardo</mat-card-content>
+                <mat-card-content class="title">Birthday</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="birthday" matInput [disabled]="toggle">
+                </mat-form-field>
                 <mat-card-actions align="end">
-                    <button mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    <button (click)="toggleInput()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
                 </mat-card-actions>
             </mat-card>
+
+            <mat-card>
+                <mat-card-content class="title">Gender</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="gender" matInput [disabled]="toggle">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleInput()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-content class="title">Phone Number</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="mobileNumber" matInput [disabled]="toggle">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleInput()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
+           
+            
             <div>
                 <mat-icon class="error-outline">error_outline</mat-icon><mat-form-field class="password-field" appearance="outline">
                     <mat-label>Password</mat-label>
                     <input type="password" matInput>
                 </mat-form-field>
                 <div class="apply-btn">
-                    <button mat-raised-button color="warn">Apply</button>
+                    <button (submit)="onClick()" mat-raised-button color="warn">Apply</button>
                 </div><br>
                 <p class="label">
                     Enter your password to apply changes
@@ -149,6 +162,7 @@
 
             <div fxLayoutAlign="center">
                 <button
+                [disabled] = "passwordForm.invalid"
                 (click)="checkPassword()"
                 mat-raised-button color="warn">Save new password</button>
             </div>
