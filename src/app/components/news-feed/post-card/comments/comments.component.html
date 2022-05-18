@@ -1,19 +1,18 @@
-<div>
-    <!-- Insert Profile Picture of commenter -->
-</div>
-<div>
-    <mat-card>
-        <mat-card-title>
-            User Name
-            <!-- {{commenter.username}} -->
-        </mat-card-title>
-        <mat-card-content>
-            Comment Here!
-            <!-- {{commenter.comment}} -->
-        </mat-card-content>
-    </mat-card>
-    <button mat-flat-button>Like</button>
-    <button mat-flat-button>Reply</button>
-    <!-- <button mat-flat-button>{{commenter.dateTimeCommentCreated}}</button> -->
-    <span>2h</span> <!-- {{commenter.dateTimeCommentCreated}} -->
+<div class="row">
+    <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <a href="#"><h4><strong>User Name</strong></h4></a>
+                <div>Comment Here!</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button mat-button>Like</button>
+                <button mat-button>Reply</button>
+                <span>2h</span>
+            </div>
+        </div>
+    </div>
 </div>
