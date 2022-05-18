@@ -1,6 +1,12 @@
 export interface Album {
-    Id: number;
-    Title: string;
-    Description: string;
-    CreatedDate: Date;
+    id: number;
+    title: string;
+    description: string;
+    createdDate: Date;
+}
+
+export interface CreateAlbum {
+    userAccountId: number;
+    title: string;
+    description: string | null;
 }

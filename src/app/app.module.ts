@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule, MatHint } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -35,6 +35,7 @@ import { CreateAlbumDialogComponent } from './components/main-page/album/create-
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CommentsComponent } from './components/main-page/post-card/comments/comments.component';
 import { LikesComponent } from './components/main-page/post-card/likes/likes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -77,6 +78,8 @@ import { LikesComponent } from './components/main-page/post-card/likes/likes.com
     MatSlideToggleModule,
     MatBadgeModule,
     MatDialogModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
