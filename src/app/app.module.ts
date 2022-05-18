@@ -44,6 +44,7 @@ import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.co
     MatChipsModule,
     MatBottomSheetModule,
     MatListModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
