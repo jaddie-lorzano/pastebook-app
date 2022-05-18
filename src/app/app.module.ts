@@ -46,6 +46,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
 import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryComponent } from './components/main-page/album-gallery/album-gallery.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AlbumGalleryComponent } from './components/main-page/album-gallery/albu
     ProfilePageComponent,
     PeopleWhoLikedComponent,
     NewsFeedComponent,
-    AlbumGalleryComponent
+    AlbumGalleryComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
