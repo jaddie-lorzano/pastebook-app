@@ -42,6 +42,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     NewPostDialogComponent,
     ProfilePageComponent,
     PeopleWhoLikedComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     MatChipsModule,
     MatBottomSheetModule,
     MatListModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@
       fxLayoutAlign="stretch" 
       fxLayout="column" 
       class="signupForm"
-      [formGroup]="signUpForm" 
+      [formGroup]="signUpForm"
       novalidate 
       (ngSubmit)="onSubmit()">
     <mat-card-content>
@@ -14,7 +14,7 @@
       <div class="row">
         <!-- First Name -->
         <div class="col">
-          <mat-form-field appearance="outline">
+          <mat-form-field style="width:220px" appearance="outline">
             <mat-label>First name</mat-label>
             <input 
               type="text"
@@ -30,7 +30,7 @@
         </div>
         <!-- Last Name -->
         <div class="col">
-          <mat-form-field appearance="outline">
+          <mat-form-field style="width:220px" appearance="outline">
             <mat-label>Last name</mat-label>
             <input 
             matInput 
@@ -83,7 +83,7 @@
             <mat-error 
               *ngIf="signUpForm.controls['password'].errors?.['required'] 
               && signUpForm.controls['password'].touched">
-                Password is required
+                Password is <strong>required</strong>
             </mat-error>
             <!-- Invalid Password -->
             <mat-error class="error-div"
@@ -108,13 +108,13 @@
             <input 
               matInput
               placeholder="Password"
-              type="Password"
+              type="text"
               formControlName="confirmPassword">
             <!-- Password Required -->
             <mat-error 
               *ngIf="signUpForm.controls['confirmPassword'].errors?.['required'] 
               && signUpForm.controls['confirmPassword'].touched">
-                Password is required
+                Password is <strong>required</strong>
             </mat-error>
             <!-- Invalid Password -->
             <mat-error class="error-div"
@@ -149,7 +149,7 @@
               class="error-div"
               *ngIf="signUpForm.controls['birthDate'].errors?.['required'] 
               && signUpForm.controls['birthDate'].touched">
-                Birthdate is required
+                Birthdate is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -185,7 +185,7 @@
     
     <!-- Sign up button -->
     <mat-card-actions>
-      <button fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
+      <button [disabled]="signUpForm.invalid" fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
     </mat-card-actions>
   </form>
   <!-- Redirect to login page -->
