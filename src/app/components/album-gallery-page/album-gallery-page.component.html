@@ -1,1 +1,32 @@
-<p>album-gallery-page works!</p>
+<!-- CREATE ALBUM -->
+<div class="row">
+    <div class = "col">
+        <mat-card>
+            <mat-card-title>Albums</mat-card-title>
+            <mat-card-actions>
+                <button mat-icon-button color="primary" (click)="openDialog()">
+                    <mat-icon>add</mat-icon>
+                    Create
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<div class="cards-div" fxLayoutAlign="center center" *ngFor="let album of albums">
+    <div class="card-container">
+        <mat-card class="image-card">
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        </mat-card>
+        <p>{{album.title}}</p>
+    </div>
+</div>
+
+<div class="cards-div" fxLayoutAlign="center center" *ngFor="let album of albums">
+    <div class="card-container">
+        <mat-card class="image-card">
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        </mat-card>
+        <p>{{album.title}}</p>
+    </div>
+</div>
