@@ -1,58 +1,108 @@
-<mat-toolbar color="primary" fxLayoutAlign="column" fxLayoutAlign="space-between stretch">
-    <!-- Logo -->
-    <div fxLayoutAlign="column" fxLayoutAlign="center center" fx>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-            <h1>P</h1>
+<mat-toolbar fxLayoutAlign="row" layout-wrap style="width: 100%" fxLayoutAlign="space-between center" color="primary">
+    <!-- Left Section -->
+    <div fxLayoutAlign="column" fxLayoutAlign="start center" fxFlex="25">
+        <!-- Logo -->
+        <button mat-mini-fab color="primary" class="example-icon" aria-label="Example icon-button with menu icon" fxLayoutAlign="center center">
+            <h1>pb</h1>
         </button>
+        <span style="width:10px"></span>
         <!-- Search bar -->
-        <form>
-            <mat-form-field>  
-                <button matPrefix mat-button><mat-icon >search</mat-icon></button>
-                <input type="text" matInput name= "search">
-            </mat-form-field>
-        </form>
+        <button matPrefix mat-button color="primary" style="background-color:white">
+            <mat-icon >search</mat-icon>
+            <input 
+                placeholder="Search" 
+                style="border: 0;height: 100%;width: calc(100% - 20px);text-align: left;" 
+                type="text" 
+                matInput 
+                name="search">
+        </button>
+                
     </div>
-    <div fxLayoutAlign="column" fxLayoutAlign="center center">
+    <!-- Middle Section -->
+    <div fxLayoutAlign="column" fxLayoutAlign="center center" style="max-width: 712px;width: 100%;">
         <!-- Home/News Feed Button -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
+        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="../">
             <mat-icon>home</mat-icon>
         </button>
-        <!-- Account Button => redirects to Profile page -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon>account_circle</mat-icon>
+        <!-- Friends Button => redirects to Display Friends page -->
+        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="/friends">
+            <mat-icon>people</mat-icon>
+        </button>
+        <!-- Photo Album -->
+        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="/albums">
+            <mat-icon>photo_album</mat-icon>
         </button>
     </div>
-    <div fxLayoutAlign="column" fxLayoutAlign="center center">
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
-            <mat-icon matBadge="15" matBadgeColor="accent">people</mat-icon>
+    <!-- Right Section -->
+    <div fxLayoutAlign="column" fxLayoutAlign="end center" fxFlex="25">
+        <!-- Profile -->
+        <mat-chip-list>
+            <mat-chip color="primary" routerLink="/username" selected>
+                <mat-chip-avatar style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');background-size: cover">
+                </mat-chip-avatar>
+                First name
+            </mat-chip>
+        </mat-chip-list>
+        <span style="width:10px"></span>
+        <!-- Friend Request -->
+        <button mat-mini-fab color="primary" [matMenuTriggerFor]="request" aria-label="Example icon-button with heart icon">
+            <mat-icon matBadge="15" matBadgeColor="accent">person_add</mat-icon>
         </button>
+        <mat-menu #request="matMenu" class="menu-card">
+            <mat-card-header style="padding: 6px 24px ;">
+                <mat-card-title>Friend Requests</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content style="padding: 6px 24px ;">
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+            </mat-card-content>
+        </mat-menu>
+        <span style="width:10px"></span>
         <!-- Notification -->
-        <button mat-icon-button aria-label="Example icon-button with heart icon">
+        <button mat-mini-fab color="primary" [matMenuTriggerFor]="notif" aria-label="Example icon-button with heart icon">
             <mat-icon matBadge="15" matBadgeColor="accent">notifications</mat-icon>
         </button>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-menu #notif="matMenu" class="menu-card">
+            <mat-card-header style="padding: 6px 24px ;">
+                <mat-card-title>Notifications</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content style="padding: 6px 24px ;">
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+            </mat-card-content>
+        </mat-menu>
+        <span style="width:10px"></span>
+        <!-- Expandable Menu -->
+        <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>expand_more</mat-icon>
         </button>
         <mat-menu #menu="matMenu" class="menu-card">
-            <mat-card>
-                <mat-card-header>
-                    <div mat-card-avatar class="profile-image"></div>
-                    <mat-card-title>User Account Name</mat-card-title>
-                    <mat-card-subtitle>See your profile</mat-card-subtitle>
-                </mat-card-header>
-                <mat-divider></mat-divider>
+            <mat-card-header style="padding: 6px 24px ">
+                <div mat-card-avatar class="profile-image"></div>
+                <mat-card-title>User Account Name</mat-card-title>
+                <mat-card-subtitle>See your profile</mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content style="padding: 6px 24px ">
                 <button mat-menu-item>
-                  <mat-icon>settings</mat-icon>
-                  <span>Settings</span>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
                 </button>
-                <mat-slide-toggle>Night mode</mat-slide-toggle>
                 <button mat-menu-item>
-                  <mat-icon>logout</mat-icon>
-                  <span>Log out</span>
+                    <mat-icon>wb_sunny</mat-icon>
+                    <span>Night mode</span>
                 </button>
-            </mat-card>
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Log out</span>
+                </button>
+            </mat-card-content>
         </mat-menu>
     </div>
-    <!-- Friend Request List -->
-    
 </mat-toolbar>
