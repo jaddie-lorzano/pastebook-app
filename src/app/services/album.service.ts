@@ -22,14 +22,9 @@ export class AlbumService {
     return this.http.post(`${this.apiUrl}Images/CreateAlbum`, body, httpOptions).subscribe(data => {
       console.log(data);
     });
-
-    // if(description == null || description == "") {
-    //   return this.http.post(`${this.apiUrl}Images/CreateAlbum?UserAccountId=${userAccountId}&Title=${title}`,undefined);
-    // }
-    // return this.http.post(`${this.apiUrl}Images/CreateAlbum?UserAccountId=${userAccountId}&AlbumTitle=${title}&AlbumDescription=${description}`, undefined);
   };
 
   getAlbums(userAccountId: number): Observable<Album[]> {
-    return this.http.get<Album[]>(`${this.apiUrl}UserAccount/GetAlbumId?userAccountId=${userAccountId}`);
+    return this.http.get<Album[]>(`${this.apiUrl}UserAccount/GetAlbums?userAccountId=${userAccountId}`);
   }
 }
