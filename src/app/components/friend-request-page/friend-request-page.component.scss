@@ -1,0 +1,26 @@
+.cards-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-container {
+    margin: 5px;
+}
+
+.friend-card {
+    width: 200px;
+    height: 270px;
+}
+
+.friend-name {
+    font-weight: bold;
+    font-size: 15px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    width: 85px;
+}

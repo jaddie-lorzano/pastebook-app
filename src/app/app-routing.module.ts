@@ -2,19 +2,21 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './components/main-page/main-page.component';
-import { LandingComponent } from './components/landing/landing.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { MainComponent } from './components/main/main.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { FriendslistPageComponent } from './components/friendslist-page/friendslist-page.component';
+import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { FriendRequestPageComponent } from './components/friend-request-page/friend-request-page.component';
+import { AlbumComponent } from './components/main-page/album/album.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component:LandingComponent},
+  {path: '', pathMatch: 'full', component:MainPageComponent},
+  {path: '**', pathMatch: 'full', component:MainPageComponent},
   {path: 'login', pathMatch: 'full', component:LoginPageComponent},
-  {path: 'signup', pathMatch: 'full', component:RegistrationComponent},
+  {path: 'signup', pathMatch: 'full', component:SignupPageComponent},
   {path: 'home', pathMatch: 'full', component:MainPageComponent},
-  {path: 'main', pathMatch: 'full', component:MainComponent},
-  {path: 'friends', pathMatch: 'full', component:FriendslistPageComponent}
+  {path: 'album', pathMatch: 'full', component:AlbumComponent},
+  {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
+  {path: 'profile', pathMatch: 'full', component:ProfilePageComponent}
 ];
 
 @NgModule({
