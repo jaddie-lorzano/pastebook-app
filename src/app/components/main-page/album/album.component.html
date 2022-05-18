@@ -19,66 +19,12 @@
         </div>
     </div>
 <mat-divider></mat-divider>
-<div class="cards-div" fxLayoutAlign="center center">
+<div class="cards-div" fxLayoutAlign="center center" *ngFor="let album of albums">
 
     <div class="card-container">
         <mat-card class="image-card">
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
         </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
-    </div>
-    <div class="card-container">
-        <mat-card class="image-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </mat-card>
+        <p>{{album.title}}</p>
     </div>
 </div>
