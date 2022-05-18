@@ -45,6 +45,7 @@ import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlbumGalleryPageComponent } from './components/main-page/album-gallery-page/album-gallery-page.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilePageComponent,
     PeopleWhoLikedComponent,
     NewsFeedComponent,
+    AlbumGalleryPageComponent,
   ],
   imports: [
     BrowserModule,
