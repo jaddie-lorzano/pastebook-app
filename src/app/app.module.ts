@@ -44,6 +44,7 @@ import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
 import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
+import { AlbumGalleryPageComponent } from './components/main-page/album-gallery-page/album-gallery-page.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.co
     ProfilePageComponent,
     PeopleWhoLikedComponent,
     NewsFeedComponent,
+    AlbumGalleryPageComponent,
   ],
   imports: [
     BrowserModule,
