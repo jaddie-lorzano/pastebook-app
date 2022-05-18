@@ -17,13 +17,14 @@ import { MainPageComponent } from './components/main-page/main-page.component'
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { FriendslistPageComponent } from './components/friendslist-page/friendslist-page.component';
+import { MatDividerModule } from '@angular/material/divider';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginComponent } from './components/login-page/login/login.component';
 import { NavBarComponent } from './components/main-page/nav-bar/nav-bar.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -57,6 +58,7 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     CreateAlbumDialogComponent,
     SignupPageComponent,
     SignupComponent,
+    FriendslistPageComponent,
     CommentsComponent,
     LikesComponent,
     NewPostCardComponent,
@@ -80,6 +82,8 @@ import { PeopleWhoLikedComponent } from './components/profile-page/people-who-li
     MatRadioModule,
     MatIconModule,
     MatSelectModule,
+    FormsModule,
+    MatDividerModule,
     MatTooltipModule,
     MatMenuModule,
     MatDividerModule,
