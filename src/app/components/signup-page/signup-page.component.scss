@@ -1,0 +1,39 @@
+.full-width {
+    width: 100%;
+}
+
+.signup-card {
+    min-width: 120px;
+}
+
+.mat-radio-button {
+    display: inline-block;
+    margin: 5px 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.row:first-child {
+    margin-top: 20px;
+}
+
+.row:last-child {
+    margin-bottom: 20px;
+}
+
+.main-div {
+    padding: 20px;
+    mat-card {
+        padding: 0px;
+    }
+}

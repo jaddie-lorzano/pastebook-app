@@ -43,6 +43,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { PeopleWhoLikedComponent } from './components/profile-page/people-who-liked/people-who-liked.component';
+import { NewsFeedComponent } from './components/main-page/news-feed/news-feed.component';
+import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryComponent } from './components/main-page/album-gallery/album-gallery.component';
 
 @NgModule({
@@ -66,6 +68,7 @@ import { AlbumGalleryComponent } from './components/main-page/album-gallery/albu
     NewPostDialogComponent,
     ProfilePageComponent,
     PeopleWhoLikedComponent,
+    NewsFeedComponent,
     AlbumGalleryComponent
   ],
   imports: [
@@ -96,6 +99,7 @@ import { AlbumGalleryComponent } from './components/main-page/album-gallery/albu
     MatChipsModule,
     MatBottomSheetModule,
     MatListModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
