@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AlbumComponent implements OnInit {
 
-  userAccountId = 111; // hard-coded for now
+  userAccountId = 101; // hard-coded for now
   albums: Album[] = [];
   constructor(private dialogRef:MatDialog, private albumService : AlbumService, private sanitizer: DomSanitizer) { }
 

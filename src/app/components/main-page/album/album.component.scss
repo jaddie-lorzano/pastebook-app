@@ -19,4 +19,28 @@
     height: 100%;
     object-fit: fill;
     margin: 0 ;
+    background-size: cover;
 }
+
+.album-card {
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 180px;
+    width: 180px;
+    margin: 12px;
+}
+
+.album-with-photo {
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.album-gallery-card {
+    max-width: 1044px;
+    width: 100%;
+    margin: 20px;
+    padding: 12px;
+  }
