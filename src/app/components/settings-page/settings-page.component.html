@@ -1,0 +1,246 @@
+<mat-tab-group [@.disabled]="true" >
+    <!-- <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>supervised_user_circle</mat-icon>Account Settings
+        </ng-template>
+        
+            <div class="settings-container">
+                <mat-card>
+                    <mat-card-title
+                    fxLayoutAlign="center"
+                    style="height:20px">Account Settings</mat-card-title>
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-content class="title first-name">First Name</mat-card-content>
+                    <mat-form-field class="first-name" appearance="legacy">
+                    <input [value]="firstName" matInput [disabled]="firstNameInput">
+                    </mat-form-field>
+                    <mat-card-actions align="end">
+                        <button (click)="toggleFirstName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    </mat-card-actions>
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-content class="title">Last Name</mat-card-content>
+                    <mat-form-field appearance="legacy">
+                    <input [value]="lastName" matInput [disabled]="lastNameInput">
+                    </mat-form-field>
+                    <mat-card-actions align="end">
+                        <button (click)="toggleLastName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    </mat-card-actions>
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-content class="title">Birthday</mat-card-content>
+                    <mat-form-field appearance="legacy">
+                    <input [value]="birthDate" matInput [disabled]="birthDateInput">
+                    </mat-form-field>
+                    <mat-card-actions align="end">
+                        <button (click)="toggleBirthday()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    </mat-card-actions>
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-content class="title">Gender</mat-card-content>
+                    <mat-radio-group [disabled]="genderInput"
+                        class="gender-button" style="padding-left:25px" 
+                        aria-label="Gender" >
+                        <mat-radio-button color="primary" style="padding-right:45px" value="male">Male</mat-radio-button>
+                        <mat-radio-button color="primary" style="padding-right:45px" value="female">Female</mat-radio-button>
+                        <mat-radio-button color="primary" style="padding-right:45px" value="null">Prefer not to say</mat-radio-button>
+                    </mat-radio-group>
+                    <mat-card-actions align="end">
+                        <button (click)="toggleGender()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    </mat-card-actions>
+                </mat-card>
+
+                <mat-card>
+                    <mat-card-content class="title">Phone Number</mat-card-content>
+                    <mat-form-field appearance="legacy">
+                    <input
+                    onpaste="return false;"
+                    ondrop="return false;"
+                    autocomplete="off"
+                    type="tel"
+                    (keypress)="keyPressNumbers($event)"
+                    maxlength="11" [value]="mobileNumber" matInput [disabled]="numberInput">
+                    </mat-form-field>
+                    <mat-card-actions align="end">
+                        <button (click)="toggleNumber()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                    </mat-card-actions>
+                </mat-card>
+            
+                
+                <div>
+                    <mat-icon
+                    matTooltip="Enter password to apply changes to your personal information"
+                    class="error-outline">error_outline</mat-icon><mat-form-field class="password-field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput>
+                    </mat-form-field>
+                    <div class="apply-btn">
+                        <button (submit)="onClick()" mat-raised-button color="primary">Apply</button>
+                    </div><br>
+                    <p class="label">
+                        Enter your password to apply changes
+                    </p>              
+                </div>
+            </div>
+
+    </mat-tab> -->
+
+
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>security</mat-icon>Security Settings
+        </ng-template>
+        <div class="settings-container">
+            <mat-card>
+                <mat-card-title
+                fxLayoutAlign="center"
+                style="height:20px">Security Settings</mat-card-title>
+            </mat-card>
+            
+            <mat-card>
+                <form
+                action="">
+                    <table>
+                        <tr>
+                            <td style="width:250px">
+                                Enter old password
+                            </td>
+                            <td>
+                                <mat-form-field style="width:250px" appearance="outline">
+                                <mat-label>Old Password</mat-label>
+                                <input
+                                matInput
+                                type="password">
+                            </mat-form-field>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                Change email
+                            </td>
+                            <td>
+                                <form
+                                [formGroup]="emailForm">
+                                <mat-form-field style="width: 250px;" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input 
+                                        matInput
+                                        type="email"
+                                        formControlName="email">
+                                        <!-- Email Required -->
+                                    <mat-error *ngIf="emailForm.controls['email'].touched 
+                                        && emailForm.controls['email'].errors?.['required']">
+                                        Email is <strong>required</strong>
+                                    </mat-error>
+                                    <!-- Invalid Email -->
+                                    <mat-error *ngIf="emailForm.controls['email'].touched 
+                                        && emailForm.controls['email'].errors?.['pattern']">
+                                        Email is <strong>invalid</strong>
+                                    </mat-error>
+                                    </mat-form-field>
+                                </form>
+                            </td>
+                            <div *ngIf="email.errors?.['required']">
+                                This field is <strong>required.</strong>
+                            </div>
+                            <div *ngIf="email.errors?.['pattern']">
+                                Please enter a valid email address.
+                            </div>
+                        </tr>
+                    </table>
+                </form>
+                <div fxLayoutAlign="center">
+                    <button
+                    [disabled] = "emailForm.invalid"
+                    (click)="newEmail()"
+                    mat-raised-button color="warn">Save new email</button>
+                </div>
+            </mat-card>
+
+            <mat-card>
+                <form
+                action=""[formGroup]="passwordForm">
+                    <table>
+                        <tr>
+                            <td>
+                                Enter old password
+                            </td>
+                            <td>
+                                <mat-form-field style="width:250px" appearance="outline">
+                                <mat-label>Old Password</mat-label>
+                                <input
+                                matInput
+                                type="password">
+                            </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:200px">
+                                Enter new password
+                            </td>
+                            <td>
+                                <mat-form-field style="width:250px" appearance="outline">
+                                <mat-label>New Password</mat-label>
+                                <input
+                                formControlName="password"
+                                matInput
+                                type="password">
+                                <mat-error 
+                                *ngIf="passwordForm.controls['password'].errors?.['required'] 
+                                && passwordForm.controls['password'].touched">
+                                Password is required
+                                </mat-error>
+                                <mat-error class="error-div"
+                                *ngIf="passwordForm.controls['password'].errors?.['pattern'] 
+                                && passwordForm.controls['password'].touched">
+                                Minimum six characters, at least one letter, one number and one special character
+                                </mat-error>
+                            </mat-form-field>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Confirm new password
+                            </td>
+                            <td>
+                                <mat-form-field style="width:250px" appearance="outline">
+                                <mat-label>Confirm Password</mat-label>
+                                <input 
+                                formControlName="confirmpassword"
+                                matInput
+                                type="password">
+                                <mat-error 
+                                *ngIf="passwordForm.controls['confirmpassword'].errors?.['required'] 
+                                && passwordForm.controls['confirmpassword'].touched">
+                                Password is required
+                                </mat-error>
+                                <mat-error class="error-div"
+                                *ngIf="passwordForm.controls['confirmpassword'].errors?.['pattern'] 
+                                && passwordForm.controls['confirmpassword'].touched">
+                                Minimum six characters, at least one letter, one number and one special character
+                                </mat-error>
+                            </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <div fxLayoutAlign="center">
+                    <button
+                    [disabled] = "passwordForm.invalid"
+                    (click)="checkPassword()"
+                    mat-raised-button color="warn">Save new password</button>
+                </div>
+                    <p class="warning-dialog">
+                        <mat-icon style="color:red" class="error error-outline">error_outline</mat-icon>
+                        <span style="color:red"><b>Warning! </b></span>You are about to change your password. Make sure to remember your new password the next time you login.</p>
+            </mat-card>
+        </div>
+    </mat-tab>

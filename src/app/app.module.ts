@@ -44,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryPageComponent } from './components/album-gallery-page/album-gallery-page.component';
 import { FriendsListPageComponent } from './components/friends-list-page/friends-list-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { SignupComponent } from './components/signup-page/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     FriendsListPageComponent,
     LikesComponent,
     PageNotFoundComponent,
+    SettingsPageComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatBottomSheetModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
