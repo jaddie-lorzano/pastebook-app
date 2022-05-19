@@ -12,7 +12,7 @@ import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-d
 })
 export class AlbumGalleryPageComponent implements OnInit {
 
-  userAccountId = 101; // hard-coded for now
+  userAccountId = 111; // hard-coded for now
   albums: Album[] = [];
   constructor(private dialogRef:MatDialog, private albumService : AlbumService, private sanitizer: DomSanitizer) { }
 
@@ -30,11 +30,12 @@ export class AlbumGalleryPageComponent implements OnInit {
 
   getAlbums(): void {
     this.albumService.getAlbums(this.userAccountId)
-      .subscribe(album => this.albums = album)
+      .subscribe(albums => this.albums = albums)
   }
 
   convertBase64TextString(base64string: string) {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
+    console.log(imagePath);
     return imagePath;
   }
 }

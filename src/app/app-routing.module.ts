@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'login', pathMatch: 'full', component:LoginPageComponent},
   {path: 'signup', pathMatch: 'full', component:SignupPageComponent},
   {path: 'albums', pathMatch: 'full', component:AlbumGalleryPageComponent},
-  {path: 'album', pathMatch: 'full', component:AlbumComponent},
+  {path: 'albums/:id', pathMatch: 'full', component:AlbumComponent},
   {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
   {path: 'profile', pathMatch: 'full', component:ProfilePageComponent},
   {path: 'friends', pathMatch: 'full', component:FriendsListPageComponent},
