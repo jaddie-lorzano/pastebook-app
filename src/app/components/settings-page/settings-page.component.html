@@ -1,5 +1,5 @@
 <mat-tab-group [@.disabled]="true" >
-    <mat-tab>
+    <!-- <mat-tab>
         <ng-template mat-tab-label>
             <mat-icon>supervised_user_circle</mat-icon>Account Settings
         </ng-template>
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-    </mat-tab>
+    </mat-tab> -->
 
 
     <mat-tab>
@@ -107,38 +107,50 @@
                 action="">
                     <table>
                         <tr>
-                            <div>
-                                <td style="width:200px">
-                                    Change email
-                                </td>
-                                <td>
-                                    <form
-                                    [formGroup]="emailForm">
-                                    <mat-form-field style="width: 250px;" appearance="outline">
-                                        <mat-label>Email</mat-label>
-                                        <input 
-                                          matInput
-                                          type="email"
-                                          formControlName="email">
-                                          <!-- Email Required -->
-                                        <mat-error *ngIf="emailForm.controls['email'].touched 
-                                          && emailForm.controls['email'].errors?.['required']">
-                                            Email is <strong>required</strong>
-                                        </mat-error>
-                                        <!-- Invalid Email -->
-                                        <mat-error *ngIf="emailForm.controls['email'].touched 
-                                          && emailForm.controls['email'].errors?.['pattern']">
-                                            Email is <strong>invalid</strong>
-                                        </mat-error>
-                                      </mat-form-field>
-                                    </form>
-                                </td>
-                                <div *ngIf="email.errors?.['required']">
-                                    This field is <strong>required.</strong>
-                                </div>
-                                <div *ngIf="email.errors?.['pattern']">
-                                    Please enter a valid email address.
-                                </div>
+                            <td style="width:250px">
+                                Enter old password
+                            </td>
+                            <td>
+                                <mat-form-field style="width:250px" appearance="outline">
+                                <mat-label>Old Password</mat-label>
+                                <input
+                                matInput
+                                type="password">
+                            </mat-form-field>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                Change email
+                            </td>
+                            <td>
+                                <form
+                                [formGroup]="emailForm">
+                                <mat-form-field style="width: 250px;" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input 
+                                        matInput
+                                        type="email"
+                                        formControlName="email">
+                                        <!-- Email Required -->
+                                    <mat-error *ngIf="emailForm.controls['email'].touched 
+                                        && emailForm.controls['email'].errors?.['required']">
+                                        Email is <strong>required</strong>
+                                    </mat-error>
+                                    <!-- Invalid Email -->
+                                    <mat-error *ngIf="emailForm.controls['email'].touched 
+                                        && emailForm.controls['email'].errors?.['pattern']">
+                                        Email is <strong>invalid</strong>
+                                    </mat-error>
+                                    </mat-form-field>
+                                </form>
+                            </td>
+                            <div *ngIf="email.errors?.['required']">
+                                This field is <strong>required.</strong>
+                            </div>
+                            <div *ngIf="email.errors?.['pattern']">
+                                Please enter a valid email address.
                             </div>
                         </tr>
                     </table>
@@ -152,7 +164,7 @@
             </mat-card>
 
             <mat-card>
-                <form (submit)="checkPassword()"
+                <form
                 action=""[formGroup]="passwordForm">
                     <table>
                         <tr>
