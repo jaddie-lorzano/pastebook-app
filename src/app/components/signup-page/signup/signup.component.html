@@ -157,7 +157,10 @@
         <div class="col">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Mobile Number</mat-label>
-            <input 
+            <input
+              onpaste="return false;"
+              ondrop="return false;"
+              autocomplete="off"
               matInput 
               placeholder="Mobile Number"
               type="tel"

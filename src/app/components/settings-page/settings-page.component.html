@@ -59,6 +59,9 @@
                     <mat-card-content class="title">Phone Number</mat-card-content>
                     <mat-form-field appearance="legacy">
                     <input
+                    onpaste="return false;"
+                    ondrop="return false;"
+                    autocomplete="off"
                     type="tel"
                     (keypress)="keyPressNumbers($event)"
                     maxlength="11" [value]="mobileNumber" matInput [disabled]="numberInput">
@@ -83,7 +86,7 @@
                 </div>
             </div>
 
-    </mat-tab>
+    </mat-tab> -->
 
 
     <mat-tab>
@@ -97,6 +100,55 @@
                 style="height:20px">Security Settings</mat-card-title>
             </mat-card>
             
+            <mat-card>
+                <form
+                action="">
+                    <table>
+                        <tr>
+                            <div>
+                                <td style="width:200px">
+                                    Change email
+                                </td>
+                                <td>
+                                    <form
+                                    [formGroup]="emailForm">
+                                    <mat-form-field style="width: 250px;" appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input 
+                                          matInput
+                                          type="email"
+                                          formControlName="email">
+                                          <!-- Email Required -->
+                                        <mat-error *ngIf="emailForm.controls['email'].touched 
+                                          && emailForm.controls['email'].errors?.['required']">
+                                            Email is <strong>required</strong>
+                                        </mat-error>
+                                        <!-- Invalid Email -->
+                                        <mat-error *ngIf="emailForm.controls['email'].touched 
+                                          && emailForm.controls['email'].errors?.['pattern']">
+                                            Email is <strong>invalid</strong>
+                                        </mat-error>
+                                      </mat-form-field>
+                                    </form>
+                                </td>
+                                <div *ngIf="email.errors?.['required']">
+                                    This field is <strong>required.</strong>
+                                </div>
+                                <div *ngIf="email.errors?.['pattern']">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                        </tr>
+                    </table>
+                </form>
+                <div fxLayoutAlign="center">
+                    <button
+                    [disabled] = "emailForm.invalid"
+                    (click)="newEmail()"
+                    mat-raised-button color="warn">Save new email</button>
+                </div>
+            </mat-card>
+
             <mat-card>
                 <form (submit)="checkPassword()"
                 action=""[formGroup]="passwordForm">
@@ -166,12 +218,12 @@
                     </table>
                 </form>
 
-            <div fxLayoutAlign="center">
-                <button
-                [disabled] = "passwordForm.invalid"
-                (click)="checkPassword()"
-                mat-raised-button color="warn">Save new password</button>
-            </div>
+                <div fxLayoutAlign="center">
+                    <button
+                    [disabled] = "passwordForm.invalid"
+                    (click)="checkPassword()"
+                    mat-raised-button color="warn">Save new password</button>
+                </div>
                     <p class="warning-dialog">
                         <mat-icon style="color:red" class="error error-outline">error_outline</mat-icon>
                         <span style="color:red"><b>Warning! </b></span>You are about to change your password. Make sure to remember your new password the next time you login.</p>

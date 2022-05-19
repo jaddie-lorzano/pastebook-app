@@ -19,6 +19,7 @@ export class SettingsPageComponent implements OnInit {
   firstName:string = 'Cardo';
   lastName:string = 'Dalisay';
   birthDate: any = '01/01/1990';
+  email: any = '';
   gender:string = 'Male';
   mobileNumber: string = '096';
   firstNameInput: boolean = true;
@@ -26,6 +27,11 @@ export class SettingsPageComponent implements OnInit {
   birthDateInput: boolean = true;
   genderInput: boolean = true;
   numberInput: boolean = true;
+
+  emailForm = this.formBuilder.group({
+    email: [null, [Validators.required, 
+      Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
+  })
 
   passwordForm = this.formBuilder.group({
     password: [null, [Validators.required,
@@ -60,6 +66,10 @@ export class SettingsPageComponent implements OnInit {
     {
 
     }
+  }
+
+  newEmail(){
+alert('A confirmation email has been sent to your new email.')
   }
 
   checkPassword() {
