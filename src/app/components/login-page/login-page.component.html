@@ -1,8 +1,8 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-  <mat-toolbar color="primary">
-    Log in to Pastebook
-  </mat-toolbar>
-  <mat-card class="login-card">
+  <mat-card class="login-card mat-elevation-z6">
+    <mat-toolbar color="primary">
+      Log in to Pastebook
+    </mat-toolbar>
     <form 
         fxLayoutAlign="stretch" 
         fxLayout="column" 
@@ -51,30 +51,31 @@
             </mat-form-field>
           </div>
         </div>
+        <div class="row">
+          <div class="col">
+            <button 
+              fxFill
+              (click)="onSubmit()"
+              routerLink="../"
+              mat-raised-button  
+              color="primary"
+              type="submit"
+              [disabled]="loginForm.invalid">
+              Login
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Forgot Account -->
+          <div class="col">
+            <button mat-button color="primary" class="full-width">Forgot Account?</button>
+          </div>
+          <!-- Sign Up -->
+          <div class="col">
+            <button mat-button color="primary" routerLink="../signup" class="full-width">Sign up for Pastebook</button>
+          </div>  
+        </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button 
-          fxFill
-          (click)="onSubmit()"
-          routerLink="../"
-          mat-raised-button  
-          color="primary"
-          type="submit"
-          [disabled]="loginForm.invalid">
-          Login
-        </button>
-      </mat-card-actions>
     </form>
-    <div class="row" fxLayoutAlign="center center" fxFlexFill>
-      <!-- Forgot Account -->
-      <div class="col">
-        <button mat-button color="primary">Forgot Account?</button>
-      </div>
-      <!-- Sign Up -->
-      <div class="col">
-        <button mat-button color="primary" routerLink="../signup">Sign up for Pastebook</button>
-      </div>  
-    </div>
   </mat-card>
-    
 </div>
