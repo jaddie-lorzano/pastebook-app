@@ -1,23 +1,54 @@
 <!-- CREATE ALBUM -->
 <div class="row">
     <div class = "col">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Photo Albums</mat-card-title>
-            </mat-card-header>
-        </mat-card>
-        <mat-divider></mat-divider>
-        <div fxLayoutAlign="row" fxLayoutAlign="center stretch">
-            <div class="album-gallery-card cards-div mat-elevation-z2" fxLayoutAlign="row" fxLayoutAlign="space center">
-                <button mat-fab class="album-card new-album" color="primary" (click)="openDialog()">
-                    <mat-icon>add</mat-icon>
-                    <br>Create Album
-                </button>
-                <button mat-flat-button class="album-card new-album album-with-photo" fxLayoutAlign="row" color="primary" *ngFor="let album of albums">
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" *ngIf="album.coverPhoto == null">
-                    <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null">
-                </button>
+        <div class="cards-div" fxLayoutAlign="center center">
+
+            <div class="card-container">
+                <div fxLayoutAlign="row" fxLayoutAlign="center stretch">
+                    <div class="album-gallery-card cards-div mat-elevation-z2" fxLayoutAlign="row" fxLayoutAlign="space center">
+                        <button mat-fab class="album-card new-album" color="primary" (click)="openDialog()">
+                            <mat-icon>add</mat-icon>
+                            <br>Create Album
+                        </button>
+                        <button mat-flat-button class="album-card new-album album-with-photo" fxLayoutAlign="row" color="primary" *ngFor="let album of albums">
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" *ngIf="album.coverPhoto == null">
+                            <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null">
+                        </button>
+                    </div>
+                </div>
             </div>
+        
+            <!-- CREATED ALBUM -->
+            <div class="card-container">
+                <mat-card class="container-card">
+                    <a href="//" (click)="getAlbums()">
+                        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+                    </a> 
+                    <mat-card-content>
+                        <a href="//" (click)="getAlbums()" 
+                        class="card-name"
+                        fxLayoutAlign="center"> Album Title</a>
+                    </mat-card-content>
+                    <mat-card-actions fxLayoutAlign="center" class="button-container">
+                        <button class="button"
+                        matTooltip="Edit Album Title"
+                        mat-button color="basic">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                        </button>
+                        <button class="button"
+                        matTooltip="Add Photo"
+                        mat-button color="primary">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+                        </button>
+                        <button class="button"
+                        matTooltip="Delete Album"
+                        mat-button color="warn">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div> 
+            
         </div>
     </div>
 </div>

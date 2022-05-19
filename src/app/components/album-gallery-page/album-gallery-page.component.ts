@@ -12,6 +12,14 @@ import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-d
 })
 export class AlbumGalleryPageComponent implements OnInit {
 
+
+
+
+    firstName:string = 'Cardo';
+  lastName:string = 'Dalisay';
+  firstNameInput: boolean = true;
+  lastNameInput: boolean = true;
+
   userAccountId = 101; // hard-coded for now
   albums: Album[] = [];
   constructor(private dialogRef:MatDialog, private albumService : AlbumService, private sanitizer: DomSanitizer) { }
@@ -37,4 +45,6 @@ export class AlbumGalleryPageComponent implements OnInit {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
     return imagePath;
   }
+
+
 }

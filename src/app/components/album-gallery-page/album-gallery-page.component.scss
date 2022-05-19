@@ -52,3 +52,24 @@
     margin: 20px;
     padding: 12px;
   }
+
+
+.cards-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-name {
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+}
+
+.container-card {
+    width: 200px;
+    height: 270px;
+    padding-bottom: 0;
+}
+
+.button-container {
+    padding-top: 0;
+}
