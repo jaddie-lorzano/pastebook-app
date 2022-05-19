@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-signup-page',
@@ -38,7 +40,7 @@ export class SignupPageComponent implements OnInit {
     mobileNumber: null,
   });
   
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
   // get firstName() {
   //   return this.signUpForm.get('firstName')
   // }
@@ -75,6 +77,9 @@ export class SignupPageComponent implements OnInit {
     // throw new Error('Method not implemented.');
   }
 
+  confirmEmail() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent)
+  }
   onSubmit(): void {
     if (this.signUpForm.valid)
     {

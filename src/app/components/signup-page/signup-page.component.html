@@ -186,7 +186,9 @@ novalidate
     <mat-card-actions>
       <div class="row">
         <div class="col">
-          <button fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
+          <button
+          (click)="onSubmit()" (click)="confirmEmail()"
+          fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
         </div>
       </div>
       <div class="row">
