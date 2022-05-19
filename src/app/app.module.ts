@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -46,6 +46,7 @@ import { FriendsListPageComponent } from './components/friends-list-page/friends
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { SignupComponent } from './components/signup-page/signup/signup.component';
+import { CustomErrorStateMatcher } from './custom-state-matcher';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,9 @@ import { SignupComponent } from './components/signup-page/signup/signup.componen
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
