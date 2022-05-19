@@ -13,7 +13,7 @@ export class ImageService {
   constructor(private http: HttpClient) { }
 
   uploadImages(formData: FormData, albumId: number) {    
-    return this.http.post(`${this.apiUrl}/images/upload-image/${albumId}`, formData)
+    return this.http.post(`${this.apiUrl}images/upload-image/${albumId}`, formData)
       .subscribe(response => {
       console.log(response);
     });

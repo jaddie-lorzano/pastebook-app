@@ -72,8 +72,11 @@ export class AlbumComponent implements OnInit {
     });
   }
 
-  deleteAlbum(): void {
-    
+  async deleteAlbum() {
+    this.albumService.deleteAlbum(this.albumId);
+    await new Promise(resolve => setTimeout(resolve, 500))
+    alert(`${this.album.title} delete successfully.`)
+    this.router.navigate(["/albums"]);
   }
 
   getImages(): void {

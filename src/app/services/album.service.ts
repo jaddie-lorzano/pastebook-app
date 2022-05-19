@@ -31,4 +31,10 @@ export class AlbumService {
   getAlbum(albumId: number): Observable<Album> {
     return this.http.get<Album>(`${this.apiUrl}albums/get-album?albumId=${albumId}`);
   }
+
+  deleteAlbum(albumId: number) {
+    return this.http.put(`${this.apiUrl}albums/delete-album/${albumId}`, "").subscribe(response => {
+      console.log(response);
+    })
+  }
 }
