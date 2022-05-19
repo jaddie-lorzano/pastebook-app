@@ -1,0 +1,200 @@
+<mat-toolbar color="primary">
+  Sign up to Pastebook
+</mat-toolbar>
+  <mat-card class="signup-card">
+    <form 
+      fxLayoutAlign="stretch" 
+      fxLayout="column" 
+      class="signupForm"
+      [formGroup]="signUpForm"
+      novalidate 
+      (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <!-- First row : Name -->
+      <div class="row">
+        <!-- First Name -->
+        <div class="col">
+          <mat-form-field style="width:220px" appearance="outline">
+            <mat-label>First name</mat-label>
+            <input 
+              type="text"
+              matInput 
+              placeholder="First Name"
+              formControlName="firstName">
+            <!-- First name required -->
+            <mat-error *ngIf=" signUpForm.controls['firstName'].touched 
+              && signUpForm.controls['firstName'].errors?.['required']">
+                First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!-- Last Name -->
+        <div class="col">
+          <mat-form-field style="width:220px" appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input 
+            matInput 
+            placeholder="Last Name"
+            formControlName="lastName">
+            <!-- Last name required -->
+            <mat-error *ngIf=" signUpForm.controls['lastName'].touched 
+              && signUpForm.controls['lastName'].errors?.['required']">
+                Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Second row : Email-->
+      <div class="row">
+        <!-- Email -->
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input 
+              matInput 
+              placeholder="Email"
+              type="email"
+              formControlName="email">
+              <!-- Email Required -->
+            <mat-error *ngIf="signUpForm.controls['email'].touched 
+              && signUpForm.controls['email'].errors?.['required']">
+                Email is <strong>required</strong>
+            </mat-error>
+            <!-- Invalid Email -->
+            <mat-error *ngIf="signUpForm.controls['email'].touched 
+              && signUpForm.controls['email'].errors?.['pattern']">
+                Email is <strong>invalid</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Third row : New Password-->
+      <div class="row">
+        <!-- New Password -->
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>New Password</mat-label>
+            <input 
+              matInput
+              placeholder="Password"
+              type="password"
+              formControlName="password">
+            <!-- Password Required -->
+            <mat-error 
+              *ngIf="signUpForm.controls['password'].errors?.['required'] 
+              && signUpForm.controls['password'].touched">
+                Password is <strong>required</strong>
+            </mat-error>
+            <!-- Invalid Password -->
+            <mat-error class="error-div"
+                *ngIf="signUpForm.controls['password'].errors?.['pattern'] 
+                && signUpForm.controls['password'].touched">
+                  Minimum six characters, at least one letter, one number and one special character
+            </mat-error>
+            <!-- Password does not match -->
+            <mat-error class="error-div"
+                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                  Password does not match!
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Fourth row : Confirm Password-->
+      <div class="row">
+        <!-- Confirm Password -->
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input 
+              matInput
+              placeholder="Password"
+              type="text"
+              formControlName="confirmPassword">
+            <!-- Password Required -->
+            <mat-error 
+              *ngIf="signUpForm.controls['confirmPassword'].errors?.['required'] 
+              && signUpForm.controls['confirmPassword'].touched">
+                Password is <strong>required</strong>
+            </mat-error>
+            <!-- Invalid Password -->
+            <mat-error class="error-div"
+                *ngIf="signUpForm.controls['confirmPassword'].errors?.['pattern'] 
+                && signUpForm.controls['confirmPassword'].touched">
+                  Minimum six characters, at least one letter, one number and one special character
+            </mat-error>
+            <!-- Password does not match -->
+            <mat-error class="error-div"
+                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                  Password does not match!
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Fifth row : Birthdate -->
+      <div class="row">
+        <!-- Birthdate -->
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <input 
+              formControlName="birthDate"
+              matInput 
+              [matDatepicker]="picker"
+              [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <!-- BirthDate is required -->
+            <mat-error 
+              class="error-div"
+              *ngIf="signUpForm.controls['birthDate'].errors?.['required'] 
+              && signUpForm.controls['birthDate'].touched">
+                Birthdate is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!-- Mobile Number -->
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              onpaste="return false;"
+              ondrop="return false;"
+              autocomplete="off"
+              matInput 
+              placeholder="Mobile Number"
+              type="tel"
+              (keypress)="keyPressNumbers($event)"
+              maxlength="11"
+              formControlName="mobileNumber">
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Seventh row : Gender -->
+      <div class="row">
+        <!-- Gender -->
+        <div class="col">
+          <mat-radio-group 
+            class="gender-button" 
+            aria-label="Gender" 
+            formControlName="gender">
+            <mat-radio-button color="primary" style="padding-right:80px" value="male">Male</mat-radio-button>
+            <mat-radio-button color="primary" style="padding-right:80px" value="female">Female</mat-radio-button>
+            <mat-radio-button color="primary" style="padding-right:80px" value="null">Prefer not to say</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    
+    <!-- Sign up button -->
+    <mat-card-actions>
+      <button [disabled]="signUpForm.invalid" fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </form>
+  <!-- Redirect to login page -->
+  <div fxLayoutAlign="center center" fxFlexFill>
+    <button mat-button color="primary" routerLink="../login">
+      Already have an account?
+    </button>
+  </div>
+</mat-card>
