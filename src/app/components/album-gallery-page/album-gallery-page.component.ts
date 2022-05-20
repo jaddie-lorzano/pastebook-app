@@ -12,7 +12,7 @@ import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-d
 })
 export class AlbumGalleryPageComponent implements OnInit {
 
-  userAccountId = 111; // hard-coded for now
+  userAccountId = Number(localStorage.getItem('userId')!); // hard-coded for now
   albums: Album[] = [];
   constructor(private dialogRef:MatDialog, private albumService : AlbumService, private sanitizer: DomSanitizer) { }
 

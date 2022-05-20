@@ -10,7 +10,7 @@ import { AlbumService } from 'src/app/services/album.service';
 })
 export class CreateAlbumDialogComponent implements OnInit {
 
-  userAccountId = 111; // hard-coded for now
+  userAccountId = Number(localStorage.getItem('userId')!); // hard-coded for now
   title: string ="";
   description: string | null = null
   requestBody!: CreateAlbum;
