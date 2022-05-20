@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
@@ -38,43 +38,58 @@ export class SignupPageComponent implements OnInit {
     birthDate: new FormControl('', Validators.required),
     gender: null,
     mobileNumber: null,
-  });
+  },
+  {
+    Validators: this.MustMatch('password', 'confirmPassword')
+  }
+  );
   
   constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
-  // get firstName() {
-  //   return this.signUpForm.get('firstName')
-  // }
+
+  get firstName() {
+    return this.signUpForm.get('firstName')
+  }
   
-  // get lastName() {
-  //   return this.signUpForm.get('lastName')
-  // }
+  get lastName() {
+    return this.signUpForm.get('lastName')
+  }
   
-  // get email() {
-  //   return this.signUpForm.get('email')
-  // }
+  get email() {
+    return this.signUpForm.get('email')
+  }
   
-  // get password() {
-  //   return this.signUpForm.get('password')
-  // }
+  get password() {
+    return this.signUpForm.get('password')
+  }
   
-  // get confirmPassword() {
-  //   return this.signUpForm.get('confirmPassword')
-  // }
+  get confirmPassword() {
+    return this.signUpForm.get('confirmPassword')
+  }
   
-  // get birthDate() {
-  //   return this.signUpForm.get('birthDate')
-  // }
+  get birthDate() {
+    return this.signUpForm.get('birthDate')
+  }
   
-  // get gender() {
-  //   return this.signUpForm.get('gender')
-  // }
+  get gender() {
+    return this.signUpForm.get('gender')
+  }
   
-  // get mobileNumber() {
-  //   return this.signUpForm.get('mobileNumber')
-  // }
+  get mobileNumber() {
+    return this.signUpForm.get('mobileNumber')
+  }
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
+  }
+
+  MustMatch(controlName: string, matchingControlName: string) {
+    return(formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+      if(matchingControl.errors && !matchingControl.errors.MustMatch){
+        return 
+      }
+    }                                                                                                                                                                                           
   }
 
   onSubmit(): void {
