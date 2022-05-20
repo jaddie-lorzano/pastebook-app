@@ -1,0 +1,53 @@
+<div fxLayoutAlign="column" fxLayoutAlign="center center">
+  <mat-card class="post-card">
+    <!-- *ngFor="post of posts" -->
+    <mat-card-header>
+      <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
+      <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>
+      <!-- {{post.userAccountId.name}} -->
+      <mat-card-title>User Account Name</mat-card-title>
+      <!-- {{post.createdTime}} -->
+      <mat-card-subtitle><a href="#">2h</a></mat-card-subtitle>
+    </mat-card-header>
+    <!-- Image -->
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <!-- insert [src]="post.image" *ngIf="post.image" -->
+    <!-- Content -->
+    <mat-card-content>
+      <!-- {{post.content}} -->
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between">
+      <div>
+        Likes
+        34
+        <!-- post.likes.count -->
+      </div>
+      <div>
+        Comments
+        65
+        <!-- post.comments.count -->
+      </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions fxLayoutAlign="row" fxLayoutAlign="space-evenly">
+      <!-- Like button : using Mat-Dialog -->
+      <button mat-button color="primary" style="width: 100%;">
+        <mat-icon inline="true">thumb_up</mat-icon>
+        Like
+      </button>
+      <!-- Comment button -->
+      <button mat-button color="primary" style="width: 100%;">
+        <mat-icon inline="true">comment</mat-icon>
+        Comment
+      </button>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
+    <!-- Comments Section -->
+    <app-comments></app-comments>
+  </mat-card>
+</div>

@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  // styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
 
@@ -28,11 +28,11 @@ export class SignupComponent {
       //      mysite()*@gmail.com [ here the regular expression only allows character, digit, underscore, and dash ]
       //      mysite..1234@yahoo.com [double dots are not allowed]
     password: [null, [Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9!@#$%^&*_-]{6,20}$/)]],
       //      Max 20 characters, minimum six characters
       //      atleast one letter, one number and one special character
     confirmPassword: [null, [Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9!@#$%^&*_-]{6,20}$/)]],
     birthDate: new FormControl('', Validators.required),
     gender: null,
     mobileNumber: null,

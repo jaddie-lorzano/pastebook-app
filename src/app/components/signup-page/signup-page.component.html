@@ -1,14 +1,16 @@
 
-<form 
-class="signupForm"
-[formGroup]="signUpForm" 
-novalidate 
-(ngSubmit)="onSubmit()">
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-  <mat-card class="signup-card">
+  <mat-card class="signup-card mat-elevation-z6">
     <mat-toolbar color="primary">
       Sign up to Pastebook
     </mat-toolbar>
+    <form 
+      fxLayoutAlign="stretch" 
+      fxLayout="column" 
+      class="signupForm"
+      [formGroup]="signUpForm" 
+      novalidate 
+      (ngSubmit)="onSubmit()">
     <mat-card-content>
       <!-- First row : Name -->
       <div class="row">
@@ -124,7 +126,7 @@ novalidate
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('Password')?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
@@ -181,12 +183,12 @@ novalidate
           </mat-radio-group>
         </div>
       </div>
-    </mat-card-content> 
-    <!-- Sign up button -->
-    <mat-card-actions>
+      <!-- Sign up button -->
       <div class="row">
         <div class="col">
-          <button fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
+          <button
+          (click)="onSubmit()" (click)="confirmEmail()"
+          fxFlexFill mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">Submit</button>
         </div>
       </div>
       <div class="row">
@@ -197,7 +199,7 @@ novalidate
         </button>
         </div>
       </div>
-    </mat-card-actions>
+    </mat-card-content> 
+    </form>
   </mat-card>
 </div>
-</form>

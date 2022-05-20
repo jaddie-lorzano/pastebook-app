@@ -4,6 +4,7 @@ export interface Album {
     title: string;
     description: string;
     createdDate: Date;
+    coverPhoto: string;
 }
 
 export interface CreateAlbum {
