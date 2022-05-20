@@ -19,6 +19,18 @@ export class ImageService {
     });
   };
 
+  uploadProfileImages(formData: FormData, albumId: number) {    
+    return this.http.post(`${this.apiUrl}images/upload-profile-image/${albumId}`, formData, {reportProgress: true, observe: "events"})
+  };
+
+  uploadCoverImages(formData: FormData, albumId: number) {    
+    return this.http.post(`${this.apiUrl}images/upload-profile-cover-image/${albumId}`, formData);
+  };
+
+  uploadTimelineImages(formData: FormData, albumId: number) {    
+    return this.http.post(`${this.apiUrl}images/upload-timeline-image/${albumId}`, formData);
+  };
+
   getAlbumImages(albumId: number) {
     return this.http.get<Image[]>(`${this.apiUrl}images/get-image-by-album?albumId=${albumId}`);
   }

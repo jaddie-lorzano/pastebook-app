@@ -12,7 +12,10 @@ export class UserAccountService {
   constructor(private http: HttpClient) { }
 
   createAccount(body: FormData) {
-    console.log(body);
     return this.http.post(`${this.apiUrl}user-accounts/create-user-account`, body);
   };
+
+  getUserAccount(userAccountId: number): Observable<UserAccount> {
+    return this.http.get<UserAccount>(`${this.apiUrl}user-accounts/get-user-account?userAccountId=${userAccountId}`)
+  }
 }
