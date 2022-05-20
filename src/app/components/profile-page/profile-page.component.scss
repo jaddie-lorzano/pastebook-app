@@ -1,6 +1,11 @@
 .main-div {
-    margin: auto;
-    max-width: 900px;
+    margin: 5px;
+    width: 100%;
+    > mat-card {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
 }
 .header {
     margin: 0px;
@@ -56,10 +61,6 @@
     width: 90%;
 }
 
-mat-card {
-    margin: 5px;
-}
-
 .post-image {
     height: 43px;
     width: 43px;
@@ -103,3 +104,97 @@ mat-card {
 .card-content {
     word-wrap: break-word;
 }
+
+#cover-photo {
+    position: relative;
+}
+
+#cover-photo-image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 160px;
+    overflow: hidden;
+    z-index: 1;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+// #cover-photo-image img {
+//     height: auto;
+//     width: 100%;
+// }
+
+#profile-photo-image {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    margin-top: 28px;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #fff;
+    > img {
+        width: 100%;
+    }
+}
+
+#profile-photo {
+    position: absolute;
+    left: 5%;
+    bottom: -40px;
+    right: 0px;
+    height: 180px;
+    z-index: 2;
+    > button {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top: 210px;
+        left: 175px;
+        height: 64px;
+        width: 64px;
+        transform: scale(1.5);
+    }
+}
+
+#profile-name {
+    position: relative;
+    bottom: 100px;
+    left: 260px;
+    height: 180px;
+    z-index: 2;
+    width: 100%;
+}
+
+#profile-name-text {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#friends-count {
+    font-size: 18px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+
+  .col:first-child {
+    margin-left: 0;
+  }
+
+  .row:last-child {
+      margin-bottom: 10px;
+  }
+  #space {
+      height: 150px;
+  }

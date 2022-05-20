@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -45,6 +45,9 @@ import { AlbumGalleryPageComponent } from './components/album-gallery-page/album
 import { FriendsListPageComponent } from './components/friends-list-page/friends-list-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { SignupComponent } from './components/signup-page/signup/signup.component';
+import { CustomErrorStateMatcher } from './custom-state-matcher';
 
 @NgModule({
   declarations: [
@@ -68,6 +71,8 @@ import { ConfirmationDialogComponent } from './components/signup-page/confirmati
     LikesComponent,
     PageNotFoundComponent,
     ConfirmationDialogComponent,
+    SettingsPageComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,9 +103,11 @@ import { ConfirmationDialogComponent } from './components/signup-page/confirmati
     MatBottomSheetModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
