@@ -8,8 +8,7 @@
         fxLayout="column" 
         class="loginForm"
         [formGroup]="loginForm" 
-        novalidate 
-        (ngSubmit)="onSubmit()">
+        novalidate>
       <mat-card-content>
         <!-- Email -->
         <div class="row">
@@ -22,12 +21,12 @@
                 formControlName="email" 
                 type="email">
               <!-- Email Required -->
-              <mat-error *ngIf="loginForm.controls['email'].touched 
+              <mat-error *ngIf="loginForm.controls['email']?.touched 
                 && loginForm.controls['email'].errors?.['required']">
                   Email is <strong>required</strong>
               </mat-error>
               <!-- Invalid Email -->
-              <mat-error *ngIf="loginForm.controls['email'].touched 
+              <mat-error *ngIf="loginForm.controls['email']?.touched 
                 && loginForm.controls['email'].errors?.['pattern']">
                   Email is <strong>invalid</strong>
               </mat-error>
@@ -55,8 +54,7 @@
           <div class="col">
             <button 
               fxFill
-              (click)="onSubmit()"
-              routerLink="../"
+              (click)="onSubmit(loginForm.value)"
               mat-raised-button  
               color="primary"
               type="submit"
