@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { LikesComponent } from './likes/likes.component';
 
 @Component({
@@ -8,7 +9,11 @@ import { LikesComponent } from './likes/likes.component';
 })
 export class PostCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openDialog() {
+    this.dialog.open(LikesComponent, );
+  }
 
   ngOnInit(): void {
   }
