@@ -10,17 +10,19 @@ import { FriendsListPageComponent } from './components/friends-list-page/friends
 import { AlbumGalleryPageComponent } from './components/album-gallery-page/album-gallery-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AlbumComponent } from './components/album-gallery-page/album/album.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', component:NewsFeedComponent},
   {path: 'login', pathMatch: 'full', component:LoginPageComponent},
   {path: 'signup', pathMatch: 'full', component:SignupPageComponent},
   {path: 'albums', pathMatch: 'full', component:AlbumGalleryPageComponent},
-  {path: 'album', pathMatch: 'full', component:AlbumComponent},
+  {path: 'albums/:id', pathMatch: 'full', component:AlbumComponent},
   {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
   {path: 'profile', pathMatch: 'full', component:ProfilePageComponent},
   {path: ':username', pathMatch: 'full', component:ProfilePageComponent},
   {path: 'friends', pathMatch: 'full', component:FriendsListPageComponent},
+  {path: 'settings', pathMatch: 'full', component:SettingsPageComponent},
   {path: '**', pathMatch: 'full', component:PageNotFoundComponent},
 ];
 

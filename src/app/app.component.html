@@ -1,2 +1,8 @@
-<app-nav-bar *ngIf="authService.isLoggedIn | async"></app-nav-bar>
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <div class="header">
+        <app-nav-bar *ngIf="authService.isLoggedIn | async"></app-nav-bar>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
