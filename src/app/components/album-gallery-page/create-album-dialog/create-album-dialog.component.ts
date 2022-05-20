@@ -10,7 +10,7 @@ import { AlbumService } from 'src/app/services/album.service';
 })
 export class CreateAlbumDialogComponent implements OnInit {
 
-  userAccountId = 101; // hard-coded for now
+  userAccountId = 111; // hard-coded for now
   title: string ="";
   description: string | null = null
   requestBody!: CreateAlbum;

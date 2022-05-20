@@ -125,7 +125,7 @@
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('Password')?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
