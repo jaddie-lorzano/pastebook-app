@@ -11,3 +11,12 @@ export interface CreateAlbum {
     title: string;
     description: string | null;
 }
+
+export interface EditAlbum {
+    title: string | null;
+    description: string | null;
+}
+
+export interface AlbumId {
+    id: number;
+}
