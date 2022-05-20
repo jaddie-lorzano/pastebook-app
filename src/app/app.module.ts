@@ -44,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryPageComponent } from './components/album-gallery-page/album-gallery-page.component';
 import { FriendsListPageComponent } from './components/friends-list-page/friends-list-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CustomErrorStateMatcher } from './custom-state-matcher';
@@ -69,6 +70,7 @@ import { CustomErrorStateMatcher } from './custom-state-matcher';
     FriendsListPageComponent,
     LikesComponent,
     PageNotFoundComponent,
+    ConfirmationDialogComponent,
     SettingsPageComponent,
     SignupComponent,
   ],
