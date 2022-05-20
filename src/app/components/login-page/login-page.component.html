@@ -8,8 +8,7 @@
         fxLayout="column" 
         class="loginForm"
         [formGroup]="loginForm" 
-        novalidate 
-        (ngSubmit)="onSubmit()">
+        novalidate>
       <mat-card-content>
         <!-- Email -->
         <div class="row">
@@ -55,8 +54,7 @@
       <mat-card-actions>
         <button 
           fxFill
-          (click)="onSubmit()"
-          routerLink="../"
+          (click)="onSubmit(loginForm.value)"
           mat-raised-button  
           color="primary"
           type="submit"

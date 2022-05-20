@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'album', pathMatch: 'full', component:AlbumComponent},
   {path: 'friendrequest', pathMatch: 'full', component:FriendRequestPageComponent},
   {path: 'profile', pathMatch: 'full', component:ProfilePageComponent},
+  {path: ':username', pathMatch: 'full', component:ProfilePageComponent},
   {path: 'friends', pathMatch: 'full', component:FriendsListPageComponent},
   {path: '**', pathMatch: 'full', component:PageNotFoundComponent},
 ];
