@@ -77,13 +77,11 @@ export class SignupPageComponent implements OnInit {
     // throw new Error('Method not implemented.');
   }
 
-  confirmEmail() {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent)
-  }
   onSubmit(): void {
     if (this.signUpForm.valid)
     {
       console.log(this.signUpForm.value)
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent)
     }
     else
     {

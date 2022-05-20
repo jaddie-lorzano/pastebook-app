@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../signup-page/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-settings-page',
@@ -40,7 +42,7 @@ export class SettingsPageComponent implements OnInit {
       Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9!@#$%^&*_-]{6,20}$/)]],
     });
 
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -68,8 +70,11 @@ export class SettingsPageComponent implements OnInit {
     }
   }
 
-  newEmail(){
-alert('A confirmation email has been sent to your new email.')
+  confirmEmail() {
+    if (this.emailForm.valid) {
+      const dialogRef = this.dialog.open(ConfirmationDialogComponent)
+      //lacking function to change email in Database
+    }
   }
 
   checkPassword() {

@@ -19,12 +19,22 @@ export class AlbumService {
         'Content-Type':  'application/json'
       })};
     
-    return this.http.post(`${this.apiUrl}Images/CreateAlbum`, body, httpOptions).subscribe(data => {
-      console.log(data);
+    return this.http.post(`${this.apiUrl}albums/create-album`, body, httpOptions).subscribe(response => {
+      console.log(response);
     });
   };
 
   getAlbums(userAccountId: number): Observable<Album[]> {
-    return this.http.get<Album[]>(`${this.apiUrl}UserAccount/GetAlbums?userAccountId=${userAccountId}`);
+    return this.http.get<Album[]>(`${this.apiUrl}albums/get-albums?userAccountId=${userAccountId}`);
+  }
+
+  getAlbum(albumId: number): Observable<Album> {
+    return this.http.get<Album>(`${this.apiUrl}albums/get-album?albumId=${albumId}`);
+  }
+
+  deleteAlbum(albumId: number) {
+    return this.http.put(`${this.apiUrl}albums/delete-album/${albumId}`, "").subscribe(response => {
+      console.log(response);
+    })
   }
 }

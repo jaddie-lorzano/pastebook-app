@@ -3,7 +3,7 @@
     <div class = "col">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>Photo Albums</mat-card-title>
+                <mat-card-title>Albums</mat-card-title>
             </mat-card-header>
         </mat-card>
         <mat-divider></mat-divider>
@@ -13,9 +13,9 @@
                     <mat-icon>add</mat-icon>
                     <br>Create Album
                 </button>
-                <button mat-flat-button class="album-card new-album album-with-photo" fxLayoutAlign="row" color="primary" *ngFor="let album of albums">
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" *ngIf="album.coverPhoto == null" routerLink="/albums/{{album.id}}">
-                    <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null" routerLink="/albums/{{album.id}}">
+                <button mat-flat-button class="album-card new-album album-with-photo" color="primary" *ngFor="let album of albums">
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" *ngIf="album.coverPhoto == null">
+                    <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null">
                 </button>
             </div>
         </div>
