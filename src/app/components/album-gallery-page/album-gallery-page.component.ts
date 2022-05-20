@@ -12,11 +12,12 @@ import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-d
 })
 export class AlbumGalleryPageComponent implements OnInit {
 
-  userAccountId = 111; // hard-coded for now
+  userAccountId!: number;
   albums: Album[] = [];
   constructor(private dialogRef:MatDialog, private albumService : AlbumService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
     this.getAlbums();
   }
 
@@ -31,6 +32,7 @@ export class AlbumGalleryPageComponent implements OnInit {
   getAlbums(): void {
     this.albumService.getAlbums(this.userAccountId)
       .subscribe(albums => this.albums = albums)
+      console.log(this.albums)
   }
 
   convertBase64TextString(base64string: string) {

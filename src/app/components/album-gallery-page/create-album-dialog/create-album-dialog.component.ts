@@ -10,7 +10,7 @@ import { AlbumService } from 'src/app/services/album.service';
 })
 export class CreateAlbumDialogComponent implements OnInit {
 
-  userAccountId = 111; // hard-coded for now
+  userAccountId!: number;
   title: string ="";
   description: string | null = null
   requestBody!: CreateAlbum;
@@ -18,6 +18,7 @@ export class CreateAlbumDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<CreateAlbumDialogComponent>, private albumService : AlbumService) { }
 
   ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
   }
   
   onCancel(): void {

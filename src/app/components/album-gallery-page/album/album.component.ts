@@ -16,7 +16,7 @@ import { EditAlbumDialogComponent } from '../edit-album-dialog/edit-album-dialog
 })
 export class AlbumComponent implements OnInit {
   
-  userAccountId = 111; // hard-coded for now
+  userAccountId!: number;
   albumId!: number;
   album!: Album;
   images: Image[] = [];
@@ -38,6 +38,7 @@ export class AlbumComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
     this.albumId = Number(this.route.snapshot.paramMap.get('id'));
     this.getParentAlbum();
     this.getImages();
@@ -75,7 +76,7 @@ export class AlbumComponent implements OnInit {
     this.albumService.deleteAlbum(this.albumId);
     await new Promise(resolve => setTimeout(resolve, 500))
     alert(`${this.album.title} delete successfully.`)
-    this.router.navigate(["/albums"]);
+    this.router.navigate([`${this.userAccountId}/albums`]);
   }
 
   getImages(): void {

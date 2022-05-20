@@ -9,11 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
+  userAccountId!: number;
   constructor(
     private authService: AuthService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
   }
 
   logOut(): void{

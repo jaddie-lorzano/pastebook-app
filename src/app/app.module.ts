@@ -49,6 +49,7 @@ import { SettingsPageComponent } from './components/settings-page/settings-page.
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CustomErrorStateMatcher } from './custom-state-matcher';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -105,10 +106,11 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     MatBottomSheetModule,
     MatListModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
