@@ -48,6 +48,7 @@ import { ConfirmationDialogComponent } from './components/signup-page/confirmati
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CustomErrorStateMatcher } from './custom-state-matcher';
+import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { CustomErrorStateMatcher } from './custom-state-matcher';
     ConfirmationDialogComponent,
     SettingsPageComponent,
     SignupComponent,
+    EditAlbumDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,16 +23,15 @@ export class ConfirmationDialogComponent implements OnInit {
   }
 
   onSubmit():void {
-    if (this.confirmationCode == this.inputCode)
+    if (this.confirmationCode != this.inputCode)
+    {
+      alert('Code does not match!')
+    }
+    else
     {
       alert('Email confirmed!')
       this.router.navigate(['/']);
       this.dialogRef.close();
     }
-    else
-    {
-      alert('Code does not match!')
-    }
   }
-
 }
