@@ -1,7 +1,7 @@
 <div mat-dialog-content>
   <h3>Enter Album Title:</h3>
   <mat-form-field appearance="fill">
-    <input matInput [(ngModel)]="title">
+    <input matInput [(ngModel)]="title" (keyup.enter)="onCreate()">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

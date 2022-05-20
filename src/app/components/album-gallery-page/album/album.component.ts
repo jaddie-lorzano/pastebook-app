@@ -1,10 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Album } from 'src/app/models/Album';
+import { Album, EditAlbum } from 'src/app/models/Album';
 import { Image } from 'src/app/models/Image';
 import { AlbumService } from 'src/app/services/album.service';
 import { ImageService } from 'src/app/services/image.service';
@@ -23,6 +22,10 @@ export class AlbumComponent implements OnInit {
   images: Image[] = [];
   imageFile: any;
   imageFileName: string = "";
+  title: string ="";
+  description: string | null = null
+  requestBody!: EditAlbum;
+  editStatus: boolean = false;
 
   constructor(
     private dialogRef:MatDialog, 
@@ -31,10 +34,10 @@ export class AlbumComponent implements OnInit {
     private sanitizer: DomSanitizer, 
     private route: ActivatedRoute,
     private router: Router,
-    private ref: ChangeDetectorRef) { }
+    private ref: ChangeDetectorRef,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-
     this.albumId = Number(this.route.snapshot.paramMap.get('id'));
     this.getParentAlbum();
     this.getImages();
@@ -56,18 +59,14 @@ export class AlbumComponent implements OnInit {
     this.getImages();
   }
 
-  openDialog() {
-    this.dialogRef.open(EditAlbumDialogComponent).afterClosed().subscribe(response => {
-      if(response == true) {
-        this.getParentAlbum()
-      }
+  async openDialog() {
+    const dialogRef = this.dialog.open(EditAlbumDialogComponent, {
+      data: {id: this.albumId}
     });
-  }
 
-  uploadImage(): void {
-    this.dialogRef.open(EditAlbumDialogComponent).afterClosed().subscribe(response => {
-      if(response == true) {
-        this.getImages();
+    dialogRef.afterClosed().subscribe(response => {
+      if(response == true){
+        this.getParentAlbum();
       }
     });
   }
