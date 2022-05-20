@@ -39,9 +39,9 @@ export class SignupPageComponent implements OnInit {
     gender: null,
     mobileNumber: null,
   },
-  {
-    Validators: this.MustMatch('password', 'confirmPassword')
-  }
+  // {
+  //   Validators: this.MustMatch('password', 'confirmPassword')
+  // }
   );
   
   constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
@@ -82,15 +82,15 @@ export class SignupPageComponent implements OnInit {
     // throw new Error('Method not implemented.');
   }
 
-  MustMatch(controlName: string, matchingControlName: string) {
-    return(formGroup: FormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
-      if(matchingControl.errors && !matchingControl.errors.MustMatch){
-        return 
-      }
-    }                                                                                                                                                                                           
-  }
+  // MustMatch(controlName: string, matchingControlName: string) {
+  //   return(formGroup: FormGroup) => {
+  //     const control = formGroup.controls[controlName];
+  //     const matchingControl = formGroup.controls[matchingControlName];
+  //     if(matchingControl.errors && !matchingControl.errors.MustMatch){
+  //       return 
+  //     }
+  //   }                                                                                                                                                                                           
+  // }
 
   onSubmit(): void {
     if (this.signUpForm.valid)
