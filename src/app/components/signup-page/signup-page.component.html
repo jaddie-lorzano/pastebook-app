@@ -126,7 +126,7 @@
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('Password')?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
@@ -188,7 +188,7 @@
         <div class="col">
           <button
           (click)="onSubmit()" (click)="confirmEmail()"
-          fxFlexFill mat-raised-button color="primary" type="submit">Submit</button>
+          fxFlexFill mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">Submit</button>
         </div>
       </div>
       <div class="row">
