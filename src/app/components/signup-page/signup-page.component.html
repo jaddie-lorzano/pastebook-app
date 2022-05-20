@@ -9,8 +9,7 @@
       fxLayout="column" 
       class="signupForm"
       [formGroup]="signUpForm" 
-      novalidate 
-      (ngSubmit)="onSubmit()">
+      novalidate>
     <mat-card-content>
       <!-- First row : Name -->
       <div class="row">
@@ -159,7 +158,10 @@
         <div class="col">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Mobile Number</mat-label>
-            <input 
+            <input
+              onpaste="return false;"
+              ondrop="return false;"
+              autocomplete="off"
               matInput 
               placeholder="Mobile Number"
               type="tel"
@@ -187,8 +189,10 @@
       <div class="row">
         <div class="col">
           <button
-          (click)="onSubmit()" (click)="confirmEmail()"
-          fxFlexFill mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">Submit</button>
+          (click)="onSubmit()"
+          fxFlexFill mat-raised-button color="primary"
+          [disabled]="signUpForm.invalid"
+          type="submit">Submit</button>
         </div>
       </div>
       <div class="row">
