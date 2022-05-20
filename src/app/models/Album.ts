@@ -1,6 +1,5 @@
 export interface Album {
     id: number;
-    coverPhoto: string;
     title: string;
     description: string;
     createdDate: Date;

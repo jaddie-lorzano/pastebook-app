@@ -106,7 +106,7 @@ import { CustomErrorStateMatcher } from './custom-state-matcher';
     FormsModule,
   ],
   providers: [
-    { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+    // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
   ],
   bootstrap: [AppComponent]
 })
