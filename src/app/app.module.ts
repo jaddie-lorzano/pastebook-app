@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -44,6 +44,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlbumGalleryPageComponent } from './components/album-gallery-page/album-gallery-page.component';
 import { FriendsListPageComponent } from './components/friends-list-page/friends-list-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
+import { SettingsPageComponent } from './components/settings-page/settings-page.component';
+import { SignupComponent } from './components/signup-page/signup/signup.component';
+import { CustomErrorStateMatcher } from './custom-state-matcher';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
 
 @NgModule({
@@ -67,6 +71,9 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     FriendsListPageComponent,
     LikesComponent,
     PageNotFoundComponent,
+    ConfirmationDialogComponent,
+    SettingsPageComponent,
+    SignupComponent,
     EditAlbumDialogComponent,
   ],
   imports: [
@@ -98,9 +105,11 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     MatBottomSheetModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

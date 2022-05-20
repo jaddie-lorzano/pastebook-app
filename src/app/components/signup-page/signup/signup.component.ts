@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  // styleUrls: ['./signup.component.scss']
 })
-export class SignupPageComponent implements OnInit {
+export class SignupComponent {
 
   maxDate = new Date();
   signUpForm = this.formBuilder.group({
@@ -30,17 +28,17 @@ export class SignupPageComponent implements OnInit {
       //      mysite()*@gmail.com [ here the regular expression only allows character, digit, underscore, and dash ]
       //      mysite..1234@yahoo.com [double dots are not allowed]
     password: [null, [Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9!@#$%^&*_-]{6,20}$/)]],
       //      Max 20 characters, minimum six characters
       //      atleast one letter, one number and one special character
     confirmPassword: [null, [Validators.required,
-      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()])[a-zA-Z0-9!@#$%^&*]{6,20}$/)]],
+      Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*()_-])[a-zA-Z0-9!@#$%^&*_-]{6,20}$/)]],
     birthDate: new FormControl('', Validators.required),
     gender: null,
     mobileNumber: null,
   });
   
-  constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
+  constructor(private formBuilder : FormBuilder) { }
   // get firstName() {
   //   return this.signUpForm.get('firstName')
   // }
@@ -77,9 +75,6 @@ export class SignupPageComponent implements OnInit {
     // throw new Error('Method not implemented.');
   }
 
-  confirmEmail() {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent)
-  }
   onSubmit(): void {
     if (this.signUpForm.valid)
     {

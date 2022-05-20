@@ -19,16 +19,25 @@
   
   .col {
     flex: 1;
-    margin-right: 20px;
+    margin: 0 10px;
   }
   
   .col:last-child {
     margin-right: 0;
   }
+
+  .col:first-child {
+    margin-left: 0;
+  }
+
+  .row:last-child {
+      margin-bottom: 10px;
+  }
   
   .main-div mat-card {
     padding: 0px;
   }
+  
   .loginForm {
     padding: 20px;
   }
