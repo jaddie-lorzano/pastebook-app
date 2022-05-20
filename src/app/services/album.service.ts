@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Album, CreateAlbum } from '../models/Album';
+import { Album, CreateAlbum, EditAlbum } from '../models/Album';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,18 @@ export class AlbumService {
       })};
     
     return this.http.post(`${this.apiUrl}albums/create-album`, body, httpOptions).subscribe(response => {
+      console.log(response);
+    });
+  };
+
+  editAlbum(body: EditAlbum,albumId: number) {
+    console.log(body);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })};
+    
+    return this.http.put(`${this.apiUrl}albums/edit-album/${albumId}`, body, httpOptions).subscribe(response => {
       console.log(response);
     });
   };
