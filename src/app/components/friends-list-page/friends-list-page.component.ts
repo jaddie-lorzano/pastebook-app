@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FriendService } from 'src/app/services/friend.service';
 
 @Component({
   selector: 'app-friends-list-page',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsListPageComponent implements OnInit {
 
+  id = 1;
   clearField='';
   friendName='Abdul Kharakarakha';
   friendDescription='Age:68';
-
-  constructor() { }
+  friends: any;
+  constructor(
+    private friendService: FriendService
+  ) { }
 
   ngOnInit(): void {
+    this.friendService.getFriends(this.id).subscribe(response => {
+      this.friends = response;
+    });
   }
 }
