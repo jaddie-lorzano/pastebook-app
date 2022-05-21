@@ -38,8 +38,8 @@
             placeholder="Last Name"
             formControlName="lastName">
             <!-- Last name required -->
-            <mat-error *ngIf=" signUpForm.controls['lastName'].touched 
-              && signUpForm.controls['lastName'].errors?.['required']">
+            <mat-error *ngIf=" lastName?.touched 
+              && lastName?.errors?.['required']">
                 Last name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
@@ -57,13 +57,13 @@
               type="email"
               formControlName="email">
               <!-- Email Required -->
-            <mat-error *ngIf="signUpForm.controls['email'].touched 
-              && signUpForm.controls['email'].errors?.['required']">
+            <mat-error *ngIf="email?.touched 
+              && email?.errors?.['required']">
                 Email is <strong>required</strong>
             </mat-error>
             <!-- Invalid Email -->
-            <mat-error *ngIf="signUpForm.controls['email'].touched 
-              && signUpForm.controls['email'].errors?.['pattern']">
+            <mat-error *ngIf="email?.touched 
+              && email?.errors?.['pattern']">
                 Email is <strong>invalid</strong>
             </mat-error>
           </mat-form-field>
@@ -82,19 +82,19 @@
               formControlName="password">
             <!-- Password Required -->
             <mat-error 
-              *ngIf="signUpForm.controls['password'].errors?.['required'] 
-              && signUpForm.controls['password'].touched">
+              *ngIf="password?.errors?.['required'] 
+              && password?.touched">
                 Password is required
             </mat-error>
             <!-- Invalid Password -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.controls['password'].errors?.['pattern'] 
-                && signUpForm.controls['password'].touched">
+                *ngIf="password?.errors?.['pattern'] 
+                && password?.touched">
                   Minimum six characters, at least one letter, one number and one special character
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
+                *ngIf="password?.value !== confirmPassword?.value">
                   Password does not match!
             </mat-error>
           </mat-form-field>
@@ -113,21 +113,21 @@
               formControlName="confirmPassword">
             <!-- Password Required -->
             <mat-error 
-              *ngIf="signUpForm.controls['confirmPassword'].errors?.['required'] 
-              && signUpForm.controls['confirmPassword'].touched">
+              *ngIf="confirmPassword?.errors?.['required'] 
+              && confirmPassword?.touched">
                 Password is required
             </mat-error>
             <!-- Invalid Password -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.controls['confirmPassword'].errors?.['pattern'] 
-                && signUpForm.controls['confirmPassword'].touched">
+                *ngIf="confirmPassword?.errors?.['pattern'] 
+                && confirmPassword?.touched">
                   Minimum six characters, at least one letter, one number and one special character
             </mat-error>
             <!-- Password does not match -->
             <mat-error class="error-div"
-                *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('Password')?.value">
-                  Password does not match!
-            </mat-error>
+            *ngIf="confirmPassword?.value !== password?.value">
+              Password does not match!
+        </mat-error>
           </mat-form-field>
         </div>
       </div>

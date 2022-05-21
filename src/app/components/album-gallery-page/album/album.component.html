@@ -4,7 +4,7 @@
             <mat-card-header>
                 <mat-card-title>{{album.title}}</mat-card-title>
             </mat-card-header>
-            <mat-card-actions>
+            <mat-card-actions style="padding-left: 16px;" *ngIf="checkAlbumTitle() == true">
                 <button mat-icon-button color="primary" (click)="openDialog()">
                     <mat-icon>edit</mat-icon>
                 </button>
