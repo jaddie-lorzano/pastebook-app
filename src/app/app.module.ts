@@ -49,6 +49,9 @@ import { SettingsPageComponent } from './components/settings-page/settings-page.
 import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { CustomErrorStateMatcher } from './custom-state-matcher';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
+import { DatePipe } from '@angular/common';
+import { UploadImageDialogComponent } from './components/profile-page/upload-image-dialog/upload-image-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,7 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     SettingsPageComponent,
     SignupComponent,
     EditAlbumDialogComponent,
+    UploadImageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,9 +110,11 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     MatListModule,
     HttpClientModule,
     FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
