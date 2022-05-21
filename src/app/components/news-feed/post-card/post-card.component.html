@@ -1,11 +1,14 @@
-<div fxLayoutAlign="column" fxLayoutAlign="center center">
+<div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
   <mat-card class="post-card">
     <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
-      <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>
+      <div mat-card-avatar class="profile-image">
+        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
+        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+      </div>
       <!-- {{post.userAccountId.name}} -->
-      <mat-card-title>User Account Name</mat-card-title>
+      <mat-card-title>{{userAccount.firstName}} {{userAccount.lastName}}</mat-card-title>
       <!-- {{post.createdTime}} -->
       <mat-card-subtitle><a href="#">2h</a></mat-card-subtitle>
     </mat-card-header>
@@ -23,13 +26,18 @@
     </mat-card-content>
     <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between">
       <div>
-        Likes
-        34
+        <button (click)="openDialog()">
+          Likes
+          34
+        </button>
         <!-- post.likes.count -->
       </div>
       <div>
-        Comments
-        65
+        <a>
+        <!-- <a"> -->
+          Comments
+          65
+        </a>
         <!-- post.comments.count -->
       </div>
     </mat-card-content>
