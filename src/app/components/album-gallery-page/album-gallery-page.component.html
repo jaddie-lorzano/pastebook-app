@@ -1,7 +1,24 @@
 <!-- CREATE ALBUM -->
 <div class="row">
     <div class = "col">
-        <div class="cards-div" fxLayoutAlign="center center">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Photo Albums</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <div fxLayoutAlign="row" fxLayoutAlign="center stretch">
+            <div class="album-gallery-card cards-div mat-elevation-z2" fxLayoutAlign="row" fxLayoutAlign="space center">
+                <button mat-fab class="album-card new-album" color="primary" (click)="openDialog()">
+                    <mat-icon>add</mat-icon>
+                    <br>Create Album
+                </button>
+                <button mat-flat-button class="album-card new-album album-with-photo" fxLayoutAlign="row" color="primary" *ngFor="let album of albums">
+                    <span>{{album.title}}</span>
+                    <img mat-card-image src="assets/blank_album.png" *ngIf="album.coverPhoto == null" routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
+                    <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null" routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
+                </button>
+        <!-- <div class="cards-div" fxLayoutAlign="center center">
 
             <div class="card-container">
                 <div fxLayoutAlign="row" fxLayoutAlign="center stretch">
@@ -15,7 +32,7 @@
                             <img mat-card-image [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null">
                         </button>
                     </div>
-                </div>
+                </div> -->
             </div>
         
             <!-- CREATED ALBUM -->

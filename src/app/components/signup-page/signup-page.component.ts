@@ -1,5 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { UserAccountService } from 'src/app/services/user-account.service';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-signup-page',
@@ -36,54 +40,85 @@ export class SignupPageComponent implements OnInit {
     birthDate: new FormControl('', Validators.required),
     gender: null,
     mobileNumber: null,
-  });
-  
-  constructor(private formBuilder : FormBuilder) { }
-  // get firstName() {
-  //   return this.signUpForm.get('firstName')
+  },
+  // {
+  //   Validators: this.MustMatch('password', 'confirmPassword')
   // }
+  );
   
-  // get lastName() {
-  //   return this.signUpForm.get('lastName')
-  // }
+  constructor(
+    private formBuilder : FormBuilder, 
+    public dialog : MatDialog, 
+    private userAccountService : UserAccountService,
+    private datePipe : DatePipe
+    ) { }
+
+  get firstName() {
+    return this.signUpForm.get('firstName')
+  }
   
-  // get email() {
-  //   return this.signUpForm.get('email')
-  // }
+  get lastName() {
+    return this.signUpForm.get('lastName')
+  }
   
-  // get password() {
-  //   return this.signUpForm.get('password')
-  // }
+  get email() {
+    return this.signUpForm.get('email')
+  }
   
-  // get confirmPassword() {
-  //   return this.signUpForm.get('confirmPassword')
-  // }
+  get password() {
+    return this.signUpForm.get('password')
+  }
   
-  // get birthDate() {
-  //   return this.signUpForm.get('birthDate')
-  // }
+  get confirmPassword() {
+    return this.signUpForm.get('confirmPassword')
+  }
   
-  // get gender() {
-  //   return this.signUpForm.get('gender')
-  // }
+  get birthDate() {
+    return this.signUpForm.get('birthDate')
+  }
   
-  // get mobileNumber() {
-  //   return this.signUpForm.get('mobileNumber')
-  // }
+  get gender() {
+    return this.signUpForm.get('gender')
+  }
+  
+  get mobileNumber() {
+    return this.signUpForm.get('mobileNumber')
+  }
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
   }
 
+  // MustMatch(controlName: string, matchingControlName: string) {
+  //   return(formGroup: FormGroup) => {
+  //     const control = formGroup.controls[controlName];
+  //     const matchingControl = formGroup.controls[matchingControlName];
+  //     if(matchingControl.errors && !matchingControl.errors.MustMatch){
+  //       return 
+  //     }
+  //   }                                                                                                                                                                                           
+  // }
+
   onSubmit(): void {
-    if (this.signUpForm.valid)
-    {
-      console.log(this.signUpForm.value)
-    }
-    else
-    {
-      console.log("Passwords don't match");
-    }
+    const formData = new FormData();
+    let birthDate = this.datePipe.transform(this.birthDate?.value, 'yyyy-MM-dd') ?? '';
+
+    formData.append('FirstName', this.firstName?.value);
+    formData.append('LastName', this.lastName?.value);
+    formData.append('EmailAddress', this.email?.value);
+    formData.append('Password', this.password?.value);
+    formData.append('Birthday', birthDate);
+    formData.append('Gender', this.gender?.value ?? '');
+    formData.append('MobileNumber', this.mobileNumber?.value ?? '');
+
+    this.userAccountService.createAccount(formData).subscribe(response => {
+      console.log(response);
+      if (response == true)
+      {
+        console.log(this.signUpForm.value)
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent)
+      }
+    });
   }
 
   //restricts user to input numbers only

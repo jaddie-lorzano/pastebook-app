@@ -1,99 +1,101 @@
 <mat-tab-group [@.disabled]="true" >
-    <!-- <mat-tab>
+    <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon>supervised_user_circle</mat-icon>Account Settings
+            <mat-icon color="primary">supervised_user_circle</mat-icon>
+            <span color="primary">Account Settings</span>
         </ng-template>
         
-            <div class="settings-container">
-                <mat-card>
-                    <mat-card-title
-                    fxLayoutAlign="center"
-                    style="height:20px">Account Settings</mat-card-title>
-                </mat-card>
+        <div class="settings-container">
+            <mat-card>
+                <mat-card-title
+                fxLayoutAlign="center"
+                style="height:20px">Account Settings</mat-card-title>
+            </mat-card>
 
-                <mat-card>
-                    <mat-card-content class="title first-name">First Name</mat-card-content>
-                    <mat-form-field class="first-name" appearance="legacy">
-                    <input [value]="firstName" matInput [disabled]="firstNameInput">
-                    </mat-form-field>
-                    <mat-card-actions align="end">
-                        <button (click)="toggleFirstName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card>
+                <mat-card-content class="title first-name">First Name</mat-card-content>
+                <mat-form-field class="first-name" appearance="legacy">
+                <input [value]="firstName" matInput [disabled]="firstNameInput">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleFirstName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
 
-                <mat-card>
-                    <mat-card-content class="title">Last Name</mat-card-content>
-                    <mat-form-field appearance="legacy">
-                    <input [value]="lastName" matInput [disabled]="lastNameInput">
-                    </mat-form-field>
-                    <mat-card-actions align="end">
-                        <button (click)="toggleLastName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card>
+                <mat-card-content class="title">Last Name</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="lastName" matInput [disabled]="lastNameInput">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleLastName()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
 
-                <mat-card>
-                    <mat-card-content class="title">Birthday</mat-card-content>
-                    <mat-form-field appearance="legacy">
-                    <input [value]="birthDate" matInput [disabled]="birthDateInput">
-                    </mat-form-field>
-                    <mat-card-actions align="end">
-                        <button (click)="toggleBirthday()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card>
+                <mat-card-content class="title">Birthday</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input [value]="birthDate" matInput [disabled]="birthDateInput">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleBirthday()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
 
-                <mat-card>
-                    <mat-card-content class="title">Gender</mat-card-content>
-                    <mat-radio-group [disabled]="genderInput"
-                        class="gender-button" style="padding-left:25px" 
-                        aria-label="Gender" >
-                        <mat-radio-button color="primary" style="padding-right:45px" value="male">Male</mat-radio-button>
-                        <mat-radio-button color="primary" style="padding-right:45px" value="female">Female</mat-radio-button>
-                        <mat-radio-button color="primary" style="padding-right:45px" value="null">Prefer not to say</mat-radio-button>
-                    </mat-radio-group>
-                    <mat-card-actions align="end">
-                        <button (click)="toggleGender()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card>
+                <mat-card-content class="title">Gender</mat-card-content>
+                <mat-radio-group [disabled]="genderInput"
+                    class="gender-button" style="padding-left:25px" 
+                    aria-label="Gender" >
+                    <mat-radio-button color="primary" style="padding-right:45px" value="male">Male</mat-radio-button>
+                    <mat-radio-button color="primary" style="padding-right:45px" value="female">Female</mat-radio-button>
+                    <mat-radio-button color="primary" style="padding-right:45px" value="null">Prefer not to say</mat-radio-button>
+                </mat-radio-group>
+                <mat-card-actions align="end">
+                    <button (click)="toggleGender()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
 
-                <mat-card>
-                    <mat-card-content class="title">Phone Number</mat-card-content>
-                    <mat-form-field appearance="legacy">
-                    <input
-                    onpaste="return false;"
-                    ondrop="return false;"
-                    autocomplete="off"
-                    type="tel"
-                    (keypress)="keyPressNumbers($event)"
-                    maxlength="11" [value]="mobileNumber" matInput [disabled]="numberInput">
-                    </mat-form-field>
-                    <mat-card-actions align="end">
-                        <button (click)="toggleNumber()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
-                    </mat-card-actions>
-                </mat-card>
+            <mat-card>
+                <mat-card-content class="title">Phone Number</mat-card-content>
+                <mat-form-field appearance="legacy">
+                <input
+                onpaste="return false;"
+                ondrop="return false;"
+                autocomplete="off"
+                type="tel"
+                (keypress)="keyPressNumbers($event)"
+                maxlength="11" [value]="mobileNumber" matInput [disabled]="numberInput">
+                </mat-form-field>
+                <mat-card-actions align="end">
+                    <button (click)="toggleNumber()" mat-button><mat-icon class="icon">edit</mat-icon>Edit</button>
+                </mat-card-actions>
+            </mat-card>
+        
             
-                
-                <div>
-                    <mat-icon
-                    matTooltip="Enter password to apply changes to your personal information"
-                    class="error-outline">error_outline</mat-icon><mat-form-field class="password-field" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input type="password" matInput>
-                    </mat-form-field>
-                    <div class="apply-btn">
-                        <button (submit)="onClick()" mat-raised-button color="primary">Apply</button>
-                    </div><br>
-                    <p class="label">
-                        Enter your password to apply changes
-                    </p>              
-                </div>
+            <div>
+                <mat-icon
+                matTooltip="Enter password to apply changes to your personal information"
+                class="error-outline">error_outline</mat-icon><mat-form-field class="password-field" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput>
+                </mat-form-field>
+                <div class="apply-btn">
+                    <button (submit)="onClick()" mat-raised-button color="primary">Apply</button>
+                </div><br>
+                <p class="label">
+                    Enter your password to apply changes
+                </p>              
             </div>
+        </div>
 
-    </mat-tab> -->
+    </mat-tab>
 
 
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon>security</mat-icon>Security Settings
+            <mat-icon color="primary">security</mat-icon>
+            <span color="primary">Security Settings</span>
         </ng-template>
         <div class="settings-container">
             <mat-card>
@@ -158,7 +160,7 @@
                 <div fxLayoutAlign="center">
                     <button
                     [disabled] = "emailForm.invalid"
-                    (click)="newEmail()"
+                    (click)="confirmEmail()"
                     mat-raised-button color="warn">Save new email</button>
                 </div>
             </mat-card>

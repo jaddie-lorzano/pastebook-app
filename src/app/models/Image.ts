@@ -1,9 +1,9 @@
 import { Album } from "./Album";
 
 export interface Image {
-    Id: number;
-    Album: Album
-    UploadedDate: Date;
-    FilePath: string;
-    Active: Boolean;
+    id: number;
+    albumId: number;
+    uploadedDate: Date;
+    name: string;
+    data: string;
 }
