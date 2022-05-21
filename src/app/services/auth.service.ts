@@ -18,7 +18,7 @@ export class AuthService{
 
     login(email: string, password: string): Observable<Object> {
       //return this.http.post(`${this.baseUrl}UserAccount/LogIn?email=${email}&password=${password}`, {email,password});
-      return this.http.post(`${this.baseUrl}UserAccount/LoginUserAccount`, {email, password}).pipe(
+      return this.http.post(`${this.baseUrl}user-accounts/login-user-account`, {email, password}).pipe(
         tap((response: any) => {
           localStorage.setItem('pastebook_auth', response.token);
           localStorage.setItem('email', response.email);
