@@ -42,7 +42,7 @@ export class ProfilePageComponent implements OnInit {
   openUploadProfileImageDialog() {
     const dialogRef = this.dialog.open(UploadImageDialogComponent).afterClosed().subscribe(response => {
       if(response == true){
-        this.ngOnInit();
+        window.location.reload();
       }
     });
   }

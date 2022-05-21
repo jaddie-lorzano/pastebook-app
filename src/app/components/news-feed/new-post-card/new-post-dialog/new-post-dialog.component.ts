@@ -32,7 +32,6 @@ export class NewPostDialogComponent implements OnInit {
 
   convertBase64TextString(base64string: string) {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
     return imagePath;
   }
 }
