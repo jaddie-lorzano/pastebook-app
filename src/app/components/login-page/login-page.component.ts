@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CustomErrorStateMatcher } from 'src/app/custom-state-matcher';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserAccountService } from 'src/app/services/user-account.service';
 
 @Component({
   selector: 'app-login-page',
@@ -16,12 +19,27 @@ export class LoginPageComponent {
     ]],
     password: [null, Validators.required]
   });
+  isLoggedIn: boolean = false;
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+    ) {
+    }
 
-  constructor(private fb: FormBuilder) {}
+  ngOnInit(): void {
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+    if(this.isLoggedIn){
+      this.router.navigate(['/']);
+    }
+  }
 
-  ngOnInit(): void {}
-
-  onSubmit(): void {
-    alert('Thanks!');
+  onSubmit(data:any): void {
+    this.authService.login(data.email, data.password).subscribe(response => {
+      this.router.navigate(['/']);
+    }, (err) => {
+      alert("Log In Failed");
+      //this.router.navigate(['/login']);
+    });
   }
 }
