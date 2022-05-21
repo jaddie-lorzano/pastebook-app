@@ -1,13 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Album } from 'src/app/models/Album';
+import { Album, EditAlbum } from 'src/app/models/Album';
 import { Image } from 'src/app/models/Image';
+import { UserAccount } from 'src/app/models/UserAccount';
 import { AlbumService } from 'src/app/services/album.service';
 import { ImageService } from 'src/app/services/image.service';
+import { UserAccountService } from 'src/app/services/user-account.service';
 import { EditAlbumDialogComponent } from '../edit-album-dialog/edit-album-dialog.component';
 
 @Component({
@@ -17,24 +18,33 @@ import { EditAlbumDialogComponent } from '../edit-album-dialog/edit-album-dialog
 })
 export class AlbumComponent implements OnInit {
   
-  userAccountId = 111; // hard-coded for now
+  userAccountId!: number;
+  userAccount!: UserAccount;
   albumId!: number;
   album!: Album;
   images: Image[] = [];
   imageFile: any;
   imageFileName: string = "";
+  title: string ="";
+  description: string | null = null
+  requestBody!: EditAlbum;
+  editStatus: boolean = false;
 
   constructor(
     private dialogRef:MatDialog, 
     private imageService : ImageService, 
-    private albumService : AlbumService, 
+    private albumService : AlbumService,
+    private userAccountService : UserAccountService, 
     private sanitizer: DomSanitizer, 
     private route: ActivatedRoute,
     private router: Router,
     private ref: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-
+    this.userAccountId = Number(localStorage.getItem('userId')!);
+    this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
+      this.userAccount = response;
+    });
     this.albumId = Number(this.route.snapshot.paramMap.get('id'));
     this.getParentAlbum();
     this.getImages();
@@ -57,17 +67,13 @@ export class AlbumComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialogRef.open(EditAlbumDialogComponent).afterClosed().subscribe(response => {
-      if(response == true) {
-        this.getParentAlbum()
-      }
+    const dialogRef = this.dialogRef.open(EditAlbumDialogComponent, {
+      data: {id: this.albumId}
     });
-  }
 
-  uploadImage(): void {
-    this.dialogRef.open(EditAlbumDialogComponent).afterClosed().subscribe(response => {
-      if(response == true) {
-        this.getImages();
+    dialogRef.afterClosed().subscribe(response => {
+      if(response == true){
+        this.getParentAlbum();
       }
     });
   }
@@ -76,7 +82,7 @@ export class AlbumComponent implements OnInit {
     this.albumService.deleteAlbum(this.albumId);
     await new Promise(resolve => setTimeout(resolve, 500))
     alert(`${this.album.title} delete successfully.`)
-    this.router.navigate(["/albums"]);
+    this.router.navigate([`${this.userAccount.userName}/albums`]);
   }
 
   getImages(): void {
@@ -94,5 +100,14 @@ export class AlbumComponent implements OnInit {
   convertBase64TextString(base64string: string) {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
     return imagePath;
+  }
+
+  checkAlbumTitle():boolean {
+    if (this.album.title == "Timeline photos" || this.album.title == "Profile pictures" || this.album.title == "Cover photos"){
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 }

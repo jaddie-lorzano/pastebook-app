@@ -1,0 +1,27 @@
+<div mat-dialog-content>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Upload profile photo</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions style="padding-left: 16px;">
+            <button mat-icon-button color="primary" (click)="fileAttach.click()">
+                <mat-icon>attach_file</mat-icon>
+            </button>
+            <span *ngIf="imageFile == null">No file attached.</span>
+            <span *ngIf="imageFile != null">{{imageFileName}}</span>
+        </mat-card-actions>
+    </mat-card>    
+</div>
+<div mat-dialog-actions>
+    <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    <button  mat-stroked-button color="primary" (click)="onFileUpload()">Upload</button>
+    <span *ngIf="uploadStatus == true" style="padding-left: 20px;"><mat-spinner [diameter]="25"></mat-spinner></span>
+</div>
+
+<input
+    type="file"
+    accept="image/*"
+    (change)="onFileSelect($event)"
+    style="display:none;"
+    #fileAttach
+/>
