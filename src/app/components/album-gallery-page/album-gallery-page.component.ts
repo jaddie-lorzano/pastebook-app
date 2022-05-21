@@ -14,6 +14,7 @@ import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-d
 })
 export class AlbumGalleryPageComponent implements OnInit {
 
+  // userAccountId = Number(localStorage.getItem('userId')!); // hard-coded for now
   userAccountId!: number;
   userAccount!: UserAccount;
   albums: Album[] = [];
