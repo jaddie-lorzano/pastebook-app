@@ -1,5 +1,5 @@
 <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
-  <mat-card class="post-card">
+  <mat-card class="post-card mat-elevation-z2">
     <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
@@ -24,7 +24,7 @@
         bred for hunting.
       </p>
     </mat-card-content>
-    <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between">
+    <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between" style="margin:0">
       <div>
         <button mat-button color="primary" (click)="openDialog()">
           Likes
@@ -40,7 +40,7 @@
       </div>
     </mat-card-content>
     <mat-divider></mat-divider>
-    <mat-card-actions style="margin:0" fxLayoutAlign="row" fxLayoutAlign="space-evenly">
+    <mat-card-actions style="margin:5px; padding:0px" fxLayoutAlign="row" fxLayoutAlign="center center">
       <!-- Like button : using Mat-Dialog -->
       <button mat-button color="primary" style="width: 100%; font-size: large;">
         <mat-icon inline="true">thumb_up</mat-icon>

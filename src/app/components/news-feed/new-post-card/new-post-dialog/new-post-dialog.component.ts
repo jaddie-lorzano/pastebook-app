@@ -37,4 +37,11 @@ export class NewPostDialogComponent implements OnInit {
     console.log(imagePath);
     return imagePath;
   }
+
+  postTextContent?: any;
+  getTextContent():void {
+    this.postTextContent = document.getElementById("content")?.textContent;
+    console.log(this.postTextContent);
+  }
+  openUploadPhoto:boolean = false;
 }

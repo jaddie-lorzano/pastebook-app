@@ -5,3 +5,30 @@
 .header {
     padding: 12px 0px;
 }
+
+.post-content {
+    width: 100%;
+    height: auto;
+    outline: none;
+    border: none;
+}
+
+.upload-photo {
+    position: relative;
+    border-radius: 8px;
+    height: 240px;
+    background-color: lightgray;
+    #close-upload-photo {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #upload-photo-button {
+        position: absolute;
+        left: calc(50% - 70px);
+        top: calc(50% - 18px);
+        background-color: white;
+    }
+    
+}
+

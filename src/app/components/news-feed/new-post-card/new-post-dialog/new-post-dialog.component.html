@@ -11,14 +11,18 @@
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-form-field appearance="standard" style="width:100%; height: auto;">
-            <textarea matInput placeholder="What's on your mind, {{userAccount.firstName}}" style="height:auto;text-align: left"></textarea>
-        </mat-form-field>
+        <div id="content" class="post-content" contenteditable="true" (keyup)="getTextContent()">
+            <span *ngIf="postTextContent==null||postTextContent.trim().length == 0" contenteditable="false">What's on your mind?</span>
+        </div>
     </mat-card-content>
-    <mat-card-content style="background-color: lightgrey; height: 240px;">
-        <button mat-mini-fab><mat-icon>add_photo_alternate</mat-icon></button>
-        <button mat-mini-fab><mat-icon>close</mat-icon></button>
+    <mat-card-content class="upload-photo" *ngIf="openUploadPhoto">
+        <button color="primary" mat-button id="upload-photo-button"><mat-icon>add_photo_alternate</mat-icon>Upload Photo</button>
+        <button mat-mini-fab id="close-upload-photo" (click)="openUploadPhoto=false"><mat-icon>close</mat-icon></button>
     </mat-card-content>
+    <button *ngIf="!openUploadPhoto" (click)="openUploadPhoto" mat-button color="primary" style="width: 100%;" (click)="openUploadPhoto=true">
+        <mat-icon>add_photo_alternate</mat-icon>
+        Upload Photo
+    </button>
     <button mat-raised-button color="primary" style="width: 100%;">
         Post
     </button>
