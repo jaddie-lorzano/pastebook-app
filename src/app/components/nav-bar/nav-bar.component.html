@@ -37,7 +37,7 @@
     <div fxLayoutAlign="column" fxLayoutAlign="end center" fxFlex="25">
         <!-- Profile -->
         <mat-chip-list>
-            <mat-chip color="primary" routerLink="/profile" selected>
+            <mat-chip color="primary" (click)="this.navigateToUserProfile()" selected>
                 <mat-chip-avatar style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');background-size: cover">
                 </mat-chip-avatar>
                 First name

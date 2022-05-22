@@ -1,3 +1,5 @@
+<app-page-not-found *ngIf="this.userDetails == null"></app-page-not-found>
+<div *ngIf="this.userDetails != null">
 <div fxLayoutAlign="center" class="main-div">
     <mat-card style="padding:0;margin:0">
     <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
@@ -24,7 +26,7 @@
                     <mat-icon>camera_enhance</mat-icon>
                 </button>
                 <div id="profile-name">
-                    <span id="profile-name-text">John Doe</span><br>
+                    <span id="profile-name-text">{{this.userDetails.firstName}} {{this.userDetails.lastName}}</span><br>
                     <span id="friends-count">1.7k friends</span>
                 </div>
             </div>
@@ -36,6 +38,8 @@
 </div>
     </mat-card>
 </div>
+<button *ngIf="!this.checkIfProfile()" (click)="this.sendFriendRequest()" >Add Friend</button>
+<button *ngIf="!this.checkIfFriend()" (click)="this.sendFriendRequest()" >Add Friend</button>
 <div class="container">
     <div class="left-container">
         <div class="about-me">
@@ -74,4 +78,5 @@
         </div>
     </div>
     <app-news-feed></app-news-feed>
+</div>
 </div>

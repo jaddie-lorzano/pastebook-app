@@ -9,9 +9,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
+  userName = "joesalido101"; //hardcoded for now
+
   constructor(
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router) {
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      };
+    }
 
   ngOnInit(): void {
   }
@@ -20,5 +26,9 @@ export class NavBarComponent implements OnInit {
     alert("Log out successful!");
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  navigateToUserProfile(): void {
+    this.router.navigate(['/' + this.userName]);
   }
 }

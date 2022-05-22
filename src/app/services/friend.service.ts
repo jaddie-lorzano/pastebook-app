@@ -19,6 +19,6 @@ export class FriendService {
       'Authorization', `Bearer ${token}`
     );
 
-    return this.http.get(`${this.baseUrl}friends?id=${id}`, {headers: header});
+    return this.http.get(`${this.baseUrl}friends/get-friends?id=${id}`, {headers: header});
   }
 }
