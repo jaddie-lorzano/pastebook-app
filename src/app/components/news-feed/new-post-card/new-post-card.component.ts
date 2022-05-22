@@ -42,4 +42,5 @@ export class NewPostCardComponent implements OnInit {
     console.log(imagePath);
     return imagePath;
   }
+
 }
