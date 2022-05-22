@@ -12,6 +12,9 @@ import { LikesComponent } from './likes/likes.component';
 })
 export class PostCardComponent implements OnInit {
 
+  seeCommentsSection: boolean = false;
+  insertComment: boolean = false;
+
   userAccountId!: number;
   userAccount!: UserAccount;
 

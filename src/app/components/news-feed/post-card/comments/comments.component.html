@@ -1,19 +1,39 @@
-<div class="row">
-    <div mat-card-avatar class="profile-image">
-        <img mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-    </div>
-    <div class="col">
-        <div class="row">
-            <div class="col">
-                <a href="#"><h4><strong>User Name</strong></h4></a>
-                <div>Comment Here!</div>
+<div class="comment">
+    <div class="comment-container">
+        <div class="profile-image-container">
+            <img mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: 40px; height: 40px; object-fit: cover"/>
+        </div>
+        <div class="comment-section">
+            <div class="comment-box">
+                <div class="user-name"><a href="#">John Doe</a></div>
+                <div class="user-comment">
+                    This is comment of user John Doe.
+                </div>
+            </div>
+            <div class="buttons">
+                <ul>
+                    <li><a href="">Like</a></li>
+                    <li><a href="">2h</a></li>
+                </ul>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <button mat-button>Like</button>
-                <button mat-button>Reply</button>
-                <span>2h</span>
+    </div>
+    <div class="comment-container">
+        <div class="profile-image-container">
+            <img mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: 40px; height: 40px; object-fit: cover"/>
+        </div>
+        <div class="comment-section">
+            <div class="comment-box">
+                <div class="user-name"><a href="#">Doe John</a></div>
+                <div class="user-comment">
+                    This is comment of user Doe John.
+                </div>
+            </div>
+            <div class="buttons">
+                <ul>
+                    <li><a href="">Like</a></li>
+                    <li><a href="">2h</a></li>
+                </ul>
             </div>
         </div>
     </div>

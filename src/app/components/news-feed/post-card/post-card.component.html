@@ -26,36 +26,35 @@
     </mat-card-content>
     <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between">
       <div>
-        <button (click)="openDialog()">
+        <button mat-button color="primary" (click)="openDialog()">
           Likes
           34
         </button>
         <!-- post.likes.count -->
       </div>
       <div>
-        <a>
-        <!-- <a"> -->
-          Comments
-          65
-        </a>
+        <button mat-button color="primary" (click)="seeCommentsSection=!seeCommentsSection">
+          Comments 65
+        </button>
         <!-- post.comments.count -->
       </div>
     </mat-card-content>
     <mat-divider></mat-divider>
-    <mat-card-actions fxLayoutAlign="row" fxLayoutAlign="space-evenly">
+    <mat-card-actions style="margin:0" fxLayoutAlign="row" fxLayoutAlign="space-evenly">
       <!-- Like button : using Mat-Dialog -->
-      <button mat-button color="primary" style="width: 100%;">
+      <button mat-button color="primary" style="width: 100%; font-size: large;">
         <mat-icon inline="true">thumb_up</mat-icon>
         Like
       </button>
       <!-- Comment button -->
-      <button mat-button color="primary" style="width: 100%;">
+      <button mat-button color="primary" style="width: 100%; font-size: large;" (click)="insertComment=!insertComment">
         <mat-icon inline="true">comment</mat-icon>
         Comment
       </button>
     </mat-card-actions>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="insertComment||seeCommentsSection"></mat-divider>
     <!-- Comments Section -->
-    <app-comments></app-comments>
+    <app-insert-comment *ngIf="insertComment"></app-insert-comment>
+    <app-comments *ngIf="seeCommentsSection"></app-comments>
   </mat-card>
 </div>

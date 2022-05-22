@@ -13,3 +13,16 @@ export class CommentsComponent implements OnInit {
   }
 
 }
+@Component({
+  selector: 'app-insert-comment',
+  templateUrl: './insert-comment.component.html',
+  styleUrls: ['./comments.component.scss']
+})
+export class InsertCommentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

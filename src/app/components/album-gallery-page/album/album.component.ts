@@ -66,7 +66,7 @@ export class AlbumComponent implements OnInit {
     this.getImages();
   }
 
-  openDialog() {
+  editAlbumName() {
     const dialogRef = this.dialogRef.open(EditAlbumDialogComponent, {
       data: {id: this.albumId}
     });

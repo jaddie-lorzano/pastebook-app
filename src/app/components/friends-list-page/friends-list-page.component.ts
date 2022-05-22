@@ -21,5 +21,5 @@ export class FriendsListPageComponent implements OnInit {
     this.friendService.getFriends(this.id).subscribe(response => {
       this.friends = response;
     });
-  }
+  } 
 }
