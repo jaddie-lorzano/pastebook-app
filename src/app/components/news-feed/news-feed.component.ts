@@ -16,7 +16,7 @@ export class NewsFeedComponent implements OnInit {
   ngOnInit(): void {
     
     const token = localStorage.getItem("pastebook_auth")!;
-    if (this.helper.isTokenExpired(token)) {
+    if (this.helper.isTokenExpired(token) && token !== null) {
       alert("3 Days Log In Limit Reached");
       this.authService.logout();
       this.router.navigate(['/login']);

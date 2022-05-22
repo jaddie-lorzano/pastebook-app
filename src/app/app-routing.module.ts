@@ -22,7 +22,8 @@ const routes: Routes = [
   {path: ':username', pathMatch: 'full', component:ProfilePageComponent},
   {path: ':username/friends', pathMatch: 'full', component:FriendsListPageComponent},
   {path: ':username/settings', pathMatch: 'full', component:SettingsPageComponent},
-  {path: '**', pathMatch: 'full', component:PageNotFoundComponent},
+  // {path: '**', pathMatch: 'full', component:PageNotFoundComponent},
+  //{path: '**/', pathMatch: 'full', component:PageNotFoundComponent},
 ];
 
 @NgModule({

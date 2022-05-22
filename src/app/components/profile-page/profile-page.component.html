@@ -1,13 +1,9 @@
+<app-page-not-found *ngIf="this.userAccount == null"></app-page-not-found>
+<!-- <div *ngIf="this.userDetails != null"> => from Joe Branch -->
 <div *ngIf="userAccount">
     <div fxLayoutAlign="center" class="main-div">
         <mat-card style="padding:0;margin:0">
         <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
-    <div class="row">
-        <div class="col">
-            <div id="cover-photo">
-                <div id="cover-photo-image">
-                    <!-- <img src="assets/blank_album.png" alt=""> -->
-                </div>
                 <mat-divider></mat-divider>
                 <mat-divider></mat-divider>
                 <mat-divider></mat-divider>
@@ -16,6 +12,7 @@
                     <div id="profile-photo-image">
                         <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" alt="">
                         <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" alt="">
+                        <!-- <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt=""> => from Joe Branch -->
                     </div>
                     <button
                         matTooltip="Change Picture"
@@ -28,16 +25,19 @@
                     <div id="profile-name">
                         <span id="profile-name-text">{{userAccount.firstName}} {{userAccount.lastName}}</span><br>
                         <span id="friends-count">1.7k friends</span>
+                      <!--
+                        <span id="profile-name-text">{{this.userDetails.firstName}} {{this.userDetails.lastName}}</span><br>
+                        <span id="friends-count">1.7k friends</span>
+                      //-->
                     </div>
                 </div>
-            </div>
-            <div id="cover-photo">
-                <div id="space"></div>
-            </div>
-        </div>
-    </div>
+                <div id="cover-photo">
+                    <div id="space"></div>
+                </div>
         </mat-card>
     </div>
+    <button *ngIf="!this.checkIfProfile()" (click)="this.sendFriendRequest()" >Add Friend</button>
+    <button *ngIf="!this.checkIfFriend()" (click)="this.sendFriendRequest()" >Add Friend</button>
     <div class="container">
         <div class="left-container">
             <div class="about-me">

@@ -26,11 +26,11 @@
             <mat-icon>home</mat-icon>
         </button>
         <!-- Friends Button => redirects to Display Friends page -->
-        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="{{userAccount.userName}}/friends">
+        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="/{{this.userAccount.userName}}/friends">
             <mat-icon>people</mat-icon>
         </button>
         <!-- Photo Album -->
-        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="{{userAccount.userName}}/albums">
+        <button mat-button aria-label="Example icon-button with heart icon" style="max-width: 200px;width: 100%;" routerLink="/{{this.userAccount.userName}}/albums">
             <mat-icon>photo_album</mat-icon>
         </button>
     </div>
@@ -38,7 +38,8 @@
     <div fxLayoutAlign="column" fxLayoutAlign="end center" fxFlex="25">
         <!-- Profile -->
         <mat-chip-list>
-            <mat-chip color="primary" routerLink="/{{userAccount.userName}}" selected>
+            <!-- <mat-chip color="primary" routerLink="/{{userAccount.userName}}" selected> -->
+            <mat-chip color="primary" (click)="this.navigateToUserProfile()" selected>
                 <mat-chip-avatar>
                     <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
                     <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
