@@ -13,7 +13,6 @@
     padding: 0;
 }
 
-
 .image-card img { 
     width: 100%;
     height: 100%;
@@ -22,6 +21,7 @@
 }
 
 .album-card img {
+    border-radius: 8px;
     height: 100%;
     max-width: 180px;
     object-fit: cover;
@@ -34,16 +34,24 @@
     box-sizing: border-box;
     height: 180px;
     width: 180px;
-    margin: 3px;
     padding:0;
+    margin:3px;
+    .mat-icon {
+        font-size: 50px;
+        transition: font-size 0.5s;
+    }
+    &:hover {
+        .mat-icon {
+            font-size: 100px;
+        }
+    }
 }
 
 .album-with-photo {
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.3);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    border-radius: 8px;
+    margin: 3px;
+    padding: 0px;
 }
 
 .album-gallery-card {
@@ -52,3 +60,47 @@
     margin: 20px;
     padding: 12px;
   }
+
+
+.cards-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-name {
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+}
+
+.container-card {
+    width: 200px;
+    height: 270px;
+    padding-bottom: 0;
+}
+
+.button-container {
+    padding-top: 0;
+}
+
+.container {
+    position: relative;
+    div {
+        border-radius: 8px;
+        background: rgb(31,31,31);
+        background: linear-gradient(0deg, rgb(35, 35, 35) 0%, rgba(0, 116, 140, 0) 50%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        span {
+            font-size: large;
+        }
+    }
+}
+

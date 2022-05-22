@@ -30,7 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FriendRequestPageComponent } from './components/friends-list-page/friend-request-page/friend-request-page.component';
 import { AlbumComponent } from './components/album-gallery-page/album/album.component';
 import { CreateAlbumDialogComponent } from './components/album-gallery-page/create-album-dialog/create-album-dialog.component';
-import { CommentsComponent } from './components/news-feed/post-card/comments/comments.component';
+import { CommentsComponent, InsertCommentComponent } from './components/news-feed/post-card/comments/comments.component';
 import { LikesComponent } from './components/news-feed/post-card/likes/likes.component';
 import { NewPostCardComponent } from './components/news-feed/new-post-card/new-post-card.component';
 import { NewPostDialogComponent } from './components/news-feed/new-post-card/new-post-dialog/new-post-dialog.component';
@@ -47,8 +47,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
 import { SignupComponent } from './components/signup-page/signup/signup.component';
-import { CustomErrorStateMatcher } from './custom-state-matcher';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
+import { DatePipe } from '@angular/common';
+import { UploadImageDialogComponent } from './components/profile-page/upload-image-dialog/upload-image-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     SettingsPageComponent,
     SignupComponent,
     EditAlbumDialogComponent,
+    UploadImageDialogComponent,
+    InsertCommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,9 +110,11 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
     MatListModule,
     HttpClientModule,
     FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

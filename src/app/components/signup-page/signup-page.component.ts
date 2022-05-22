@@ -1,6 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { UserAccountService } from 'src/app/services/user-account.service';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @Component({
@@ -44,7 +46,12 @@ export class SignupPageComponent implements OnInit {
   // }
   );
   
-  constructor(private formBuilder : FormBuilder, public dialog : MatDialog) { }
+  constructor(
+    private formBuilder : FormBuilder, 
+    public dialog : MatDialog, 
+    private userAccountService : UserAccountService,
+    private datePipe : DatePipe
+    ) { }
 
   get firstName() {
     return this.signUpForm.get('firstName')
@@ -93,15 +100,25 @@ export class SignupPageComponent implements OnInit {
   // }
 
   onSubmit(): void {
-    if (this.signUpForm.valid)
-    {
-      console.log(this.signUpForm.value)
-      const dialogRef = this.dialog.open(ConfirmationDialogComponent)
-    }
-    else
-    {
-      console.log("Passwords don't match");
-    }
+    const formData = new FormData();
+    let birthDate = this.datePipe.transform(this.birthDate?.value, 'yyyy-MM-dd') ?? '';
+
+    formData.append('FirstName', this.firstName?.value);
+    formData.append('LastName', this.lastName?.value);
+    formData.append('EmailAddress', this.email?.value);
+    formData.append('Password', this.password?.value);
+    formData.append('Birthday', birthDate);
+    formData.append('Gender', this.gender?.value ?? '');
+    formData.append('MobileNumber', this.mobileNumber?.value ?? '');
+
+    this.userAccountService.createAccount(formData).subscribe(response => {
+      console.log(response);
+      if (response == true)
+      {
+        console.log(this.signUpForm.value)
+        const dialogRef = this.dialog.open(ConfirmationDialogComponent)
+      }
+    });
   }
 
   //restricts user to input numbers only

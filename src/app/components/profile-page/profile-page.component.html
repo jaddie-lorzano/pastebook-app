@@ -1,40 +1,83 @@
 <app-page-not-found *ngIf="this.userDetails == null"></app-page-not-found>
-<div *ngIf="this.userDetails != null">
-<div fxLayoutAlign="center" class="main-div">
-    <mat-card style="padding:0;margin:0">
-    <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
-<div class="row">
-    <div class="col">
-        <div id="cover-photo">
-            <div id="cover-photo-image">
-                <!-- <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt=""> -->
-            </div>
-            <mat-divider></mat-divider>
-            <mat-divider></mat-divider>
-            <mat-divider></mat-divider>
-            <mat-divider></mat-divider>
-            <div id="profile-photo">
-                <div id="profile-photo-image">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="">
-                    
+<!-- <div *ngIf="this.userDetails != null"> => from Joe Branch -->
+<div *ngIf="userAccount">
+    <div fxLayoutAlign="center" class="main-div">
+        <mat-card style="padding:0;margin:0">
+        <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
                 </div>
-                <button
-                    matTooltip="Change Picture"
-                    matTooltipShowDelay="700"
-                    mat-button
-                    color="primary">
-                    <mat-icon>camera_enhance</mat-icon>
-                </button>
-                <div id="profile-name">
-                    <span id="profile-name-text">{{this.userDetails.firstName}} {{this.userDetails.lastName}}</span><br>
-                    <span id="friends-count">1.7k friends</span>
-                </div>
+                <mat-divider></mat-divider>
+                <mat-divider></mat-divider>
+                <mat-divider></mat-divider>
+                <mat-divider></mat-divider>
+                <div id="profile-photo">
+                    <div id="profile-photo-image">
+                        <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" alt="">
+                        <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" alt="">
+                        <!-- <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt=""> => from Joe Branch -->
+                    </div>
+                    <button
+                        matTooltip="Change Picture"
+                        matTooltipShowDelay="700"
+                        mat-button
+                        (click)="openUploadProfileImageDialog()"
+                        color="primary">
+                        <mat-icon>camera_enhance</mat-icon>
+                    </button>
+                    <div id="profile-name">
+                        <span id="profile-name-text">{{userAccount.firstName}} {{userAccount.lastName}}</span><br>
+                        <span id="friends-count">1.7k friends</span>
+                      <!--
+                        <span id="profile-name-text">{{this.userDetails.firstName}} {{this.userDetails.lastName}}</span><br>
+                        <span id="friends-count">1.7k friends</span>
+                      //-->
+                      
+                    </div>
+               
             </div>
-        </div>
-        <div id="cover-photo">
-            <div id="space"></div>
+            <div id="cover-photo">
+                <div id="space"></div>
+            </div>
         </div>
     </div>
+        </mat-card>
+    </div>
+    <div class="container">
+        <div class="left-container">
+            <div class="about-me">
+                <mat-card class="about-me-card">
+                    <mat-card-title>About Me</mat-card-title>
+                    <mat-card-content>{{aboutMeSaved}}</mat-card-content>
+                    <mat-form-field class="form-field" appearance="legacy">
+                    <mat-label>{{aboutMe.length}}/200 characters typed</mat-label>
+                    <input (keyup.enter)="addToAboutMe($event, aboutMe)"
+                        maxlength="200" matInput
+                        placeholder="You may type upto 200 characters only"
+                        [(ngModel)]="aboutMe">
+                    </mat-form-field>
+    
+                    <mat-card-actions class="btn-container">
+                        <button (click)="addToAboutMe($event, aboutMe)"
+                        mat-raised-button
+                        color="primary">Save</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+    
+            <div class="user-details">
+                <mat-card>
+                    <p>{{userAccount.emailAddress}}</p>
+                    <p>{{userAccount.birthday | date}}</p>
+                    <p>{{userAccount.gender}}</p>
+                    <p>{{userAccount.mobileNumber}}</p>
+                </mat-card>
+            </div>
+    
+            <div class="albums">
+                <mat-card>
+                    <p>Put albums preview here. Put albums link here</p>
+                </mat-card>
+            </div>
+          <!-- Joe Branch
 </div>
     </mat-card>
 </div>
@@ -76,7 +119,7 @@
                 <p>Put albums preview here. Put albums link here</p>
             </mat-card>
         </div>
+//-->
+        <app-news-feed></app-news-feed>
     </div>
-    <app-news-feed></app-news-feed>
-</div>
 </div>

@@ -1,19 +1,13 @@
-<div fxLayoutAlign="column" fxLayoutAlign="space-evenly center">
+<div fxLayoutAlign="column" fxLayoutAlign="space-evenly center" *ngIf="userAccount">
     
-    <mat-card class="new-post-card">
+    <mat-card class="new-post-card mat-elevation-z2">
         <mat-card-content class="new-post-card-header" fxLayoutAlign="row" fxLayoutAlign="space-between center">
-            <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>
+            <div mat-card-avatar class="profile-image">
+                <img *ngIf="userAccount.profileImagePath == null" mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
+                <img *ngIf="userAccount.profileImagePath != null" mat-card-avatar class="profile-image" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+            </div>
             <span style="width:12px"></span>
-            <button mat-stroked-button style="border-radius: 10px; width: 100%;text-align: left;color:gray" (click)="openDialog()">What's on your mind?</button>
+            <button mat-stroked-button style="border-radius: 10px; width: 100%;text-align: left;color:gray" (click)="openCreatePost()">What's on your mind?</button>
         </mat-card-content>
-        <mat-card-content>
-        </mat-card-content>
-        <mat-divider></mat-divider>
-        <mat-card-actions fxLayoutAlign="row" fxLayoutAlign="space-evenly">
-            <button mat-button style="width: 100%; max-width: 680px;">
-                <mat-icon>add_photo_alternate</mat-icon>
-                Photo
-            </button>
-        </mat-card-actions>
     </mat-card>
 </div>

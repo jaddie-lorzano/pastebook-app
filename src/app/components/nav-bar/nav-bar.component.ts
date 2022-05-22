@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { UserAccount } from 'src/app/models/UserAccount';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserAccountService } from 'src/app/services/user-account.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,17 +12,23 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
-  userName = "joesalido101"; //hardcoded for now
-
+  userAccountId!: number;
+  userAccount!: UserAccount;
   constructor(
     private authService: AuthService,
-    private router: Router) {
+    private userAccountService: UserAccountService,
+    private router: Router,
+    private sanitizer: DomSanitizer) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
-      };
-    }
+      }; 
+  }
 
   ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
+    this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
+      this.userAccount = response;
+    });
   }
 
   logOut(): void{
@@ -28,7 +37,11 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  navigateToUserProfile(): void {
-    this.router.navigate(['/' + this.userName]);
+  convertBase64TextString(base64string: string) {
+    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
+    console.log(imagePath);
+    return imagePath;
+  // navigateToUserProfile(): void {              => from Joe Branch
+  // this.router.navigate(['/' + this.userName]); => from Joe Branch
   }
 }

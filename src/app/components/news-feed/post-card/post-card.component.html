@@ -1,13 +1,17 @@
-<div fxLayoutAlign="column" fxLayoutAlign="center center">
-  <mat-card class="post-card">
+<div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
+  <mat-card class="post-card mat-elevation-z2">
     <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
-      <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>
+      <div mat-card-avatar class="profile-image">
+        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
+        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+      </div>
       <!-- {{post.userAccountId.name}} -->
-      <mat-card-title>User Account Name</mat-card-title>
+      <mat-card-title>{{userAccount.firstName}} {{userAccount.lastName}}</mat-card-title>
       <!-- {{post.createdTime}} -->
       <mat-card-subtitle><a href="#">2h</a></mat-card-subtitle>
+      <mat-chip><mat-icon>public</mat-icon>Public</mat-chip>
     </mat-card-header>
     <!-- Image -->
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -21,38 +25,37 @@
         bred for hunting.
       </p>
     </mat-card-content>
-    <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between">
+    <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between" style="margin:0">
       <div>
-        <button (click)="openDialog()">
+        <button mat-button color="primary" (click)="openDialog()">
           Likes
           34
         </button>
         <!-- post.likes.count -->
       </div>
       <div>
-        <a>
-        <!-- <a"> -->
-          Comments
-          65
-        </a>
+        <button mat-button color="primary" (click)="seeCommentsSection=!seeCommentsSection">
+          Comments 65
+        </button>
         <!-- post.comments.count -->
       </div>
     </mat-card-content>
     <mat-divider></mat-divider>
-    <mat-card-actions fxLayoutAlign="row" fxLayoutAlign="space-evenly">
+    <mat-card-actions style="margin:5px; padding:0px" fxLayoutAlign="row" fxLayoutAlign="center center">
       <!-- Like button : using Mat-Dialog -->
-      <button mat-button color="primary" style="width: 100%;">
+      <button mat-button color="primary" style="width: 100%; font-size: large;">
         <mat-icon inline="true">thumb_up</mat-icon>
         Like
       </button>
       <!-- Comment button -->
-      <button mat-button color="primary" style="width: 100%;">
+      <button mat-button color="primary" style="width: 100%; font-size: large;" (click)="insertComment=!insertComment">
         <mat-icon inline="true">comment</mat-icon>
         Comment
       </button>
     </mat-card-actions>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="insertComment||seeCommentsSection"></mat-divider>
     <!-- Comments Section -->
-    <app-comments></app-comments>
+    <app-insert-comment *ngIf="insertComment"></app-insert-comment>
+    <app-comments *ngIf="seeCommentsSection"></app-comments>
   </mat-card>
 </div>

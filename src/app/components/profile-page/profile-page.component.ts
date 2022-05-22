@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UserAccount } from 'src/app/models/UserAccount';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FriendRequestService } from 'src/app/services/friend-request.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 import { PeopleWhoLikedComponent } from './people-who-liked/people-who-liked.component';
+import { UploadImageDialogComponent } from './upload-image-dialog/upload-image-dialog.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -11,19 +14,32 @@ import { PeopleWhoLikedComponent } from './people-who-liked/people-who-liked.com
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
-  
-  username: string = '';
-  loggedInId: number = 0;
-  userDetails: any = null;
+
+  constructor(
+    public dialog: MatDialog,
+    private route: ActivatedRoute, // from Joe Branch
+    private router: Router, // from Joe Branch
+    private userAccountService: UserAccountService,
+    private friendRequestService: FriendRequestService, // from Joe Branch
+    private sanitizer: DomSanitizer) {}
+
+  userAccountId!: number;
+  userAccount!: UserAccount;
+
+  username: string = ''; // from Joe Branch
+  loggedInId: number = 0; // from Joe Branch
+  userDetails: any = null; // from Joe Branch
+
   aboutMe = '';
   aboutMeSaved = '';
 
-  constructor(public dialog: MatDialog,
-    private route: ActivatedRoute,
-    private router: Router,
-    private userAccountSerive: UserAccountService,
-    private friendRequestService: FriendRequestService) {}
-
+  ngOnInit(): void {
+    this.userAccountId = Number(localStorage.getItem('userId')!);
+    this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
+      this.userAccount = response;
+    });
+  }
+  /* From Joe Branch
   ngOnInit(): void {
     this.username = this.route.snapshot.paramMap.get('username')!;
     this.loggedInId = Number(localStorage.getItem('userId'));
@@ -35,10 +51,17 @@ export class ProfilePageComponent implements OnInit {
       this.router.navigate(['/' + this.username]);
     });
   }
+  */
+
+  addToAboutMe(event: Event, aboutMe: string) {
+    this.aboutMeSaved = aboutMe;
+    this.aboutMe = '';
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(PeopleWhoLikedComponent);
   }
+
   addToAboutMe(event: Event, aboutMe: String) {
     this.aboutMeSaved = this.aboutMe;
     this.aboutMe = '';
@@ -52,6 +75,19 @@ export class ProfilePageComponent implements OnInit {
     return true;
   }
 
+  openUploadProfileImageDialog() {
+    const dialogRef = this.dialog.open(UploadImageDialogComponent).afterClosed().subscribe(response => {
+      if(response == true){
+        this.ngOnInit();
+      }
+    });
+  }
+
+  convertBase64TextString(base64string: string) {
+    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
+    console.log(imagePath);
+    return imagePath;
+  
   sendFriendRequest() {
       this.friendRequestService.sendFriendRequest(this.userDetails.id, this.loggedInId).subscribe(response => {
         //this.router.navigate(['/']);

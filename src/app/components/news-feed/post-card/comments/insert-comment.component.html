@@ -1,0 +1,14 @@
+<div class="comment">
+    <div class="comment-container">
+        <div class="profile-image-container">
+            <img mat-card-avatar class="profile-image" src="assets/blank_profile.png"/>
+        </div>
+        <div class="comment-section">
+            <div class="comment-box">
+                <div id="content" class="user-comment" contenteditable="true" (keyup)="getTextContent()">
+                    <span *ngIf="commentTextContent==null||commentTextContent.trim().length == 0" contenteditable="false">Write a comment...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
