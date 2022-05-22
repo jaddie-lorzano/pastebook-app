@@ -18,7 +18,11 @@ export class NavBarComponent implements OnInit {
     private authService: AuthService,
     private userAccountService: UserAccountService,
     private router: Router,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer) {
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      }; 
+  }
 
   ngOnInit(): void {
     this.userAccountId = Number(localStorage.getItem('userId')!);
@@ -37,5 +41,7 @@ export class NavBarComponent implements OnInit {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
     console.log(imagePath);
     return imagePath;
+  // navigateToUserProfile(): void {              => from Joe Branch
+  // this.router.navigate(['/' + this.userName]); => from Joe Branch
   }
 }
