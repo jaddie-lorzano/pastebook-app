@@ -41,7 +41,9 @@ export class NavBarComponent implements OnInit {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
     console.log(imagePath);
     return imagePath;
-  // navigateToUserProfile(): void {              => from Joe Branch
-  // this.router.navigate(['/' + this.userName]); => from Joe Branch
+  }
+
+  navigateToUserProfile(): void {              
+  this.router.navigate(['/' + this.userAccount.userName]);
   }
 }

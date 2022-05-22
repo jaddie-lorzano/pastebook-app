@@ -26,36 +26,29 @@ export class ProfilePageComponent implements OnInit {
   userAccountId!: number;
   userAccount!: UserAccount;
 
-  username: string = ''; // from Joe Branch
-  loggedInId: number = 0; // from Joe Branch
-  userDetails: any = null; // from Joe Branch
+  username!: string; // from Joe Branch
+  //loggedInId!: number; // from Joe Branch
+  //userDetails: any; // from Joe Branch
 
   aboutMe = '';
   aboutMeSaved = '';
 
-  ngOnInit(): void {
-    this.userAccountId = Number(localStorage.getItem('userId')!);
-    this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
-      this.userAccount = response;
-    });
-  }
-  /* From Joe Branch
+  // ngOnInit(): void {
+  //   this.userAccountId = Number(localStorage.getItem('userId')!);
+  //   this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
+  //     this.userAccount = response;
+  //   });
+  // }
   ngOnInit(): void {
     this.username = this.route.snapshot.paramMap.get('username')!;
-    this.loggedInId = Number(localStorage.getItem('userId'));
-    this.userAccountSerive.getAccountByUsername(this.username).subscribe(response => {
-      this.userDetails = response;
-      console.log(this.userDetails.id == this.loggedInId);
+    this.userAccountId = Number(localStorage.getItem('userId'));
+    this.userAccountService.getAccountByUsername(this.username).subscribe(response => {
+      this.userAccount = response;
+      console.log(this.userAccount.id == this.userAccountId);
     }, (err) => {
       console.log(err.message);
       this.router.navigate(['/' + this.username]);
     });
-  }
-  */
-
-  addToAboutMe(event: Event, aboutMe: string) {
-    this.aboutMeSaved = aboutMe;
-    this.aboutMe = '';
   }
 
   openDialog() {
@@ -68,7 +61,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   checkIfProfile(){
-    return this.userDetails.id == this.loggedInId;
+    return this.userAccount.id == this.userAccountId;
   }
 
   checkIfFriend(){
@@ -87,9 +80,10 @@ export class ProfilePageComponent implements OnInit {
     var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
     console.log(imagePath);
     return imagePath;
-  
+  }
+
   sendFriendRequest() {
-      this.friendRequestService.sendFriendRequest(this.userDetails.id, this.loggedInId).subscribe(response => {
+      this.friendRequestService.sendFriendRequest(this.userAccount.id, this.userAccountId).subscribe(response => {
         //this.router.navigate(['/']);
         alert("Friend Request Success");
       }, (err) => {
