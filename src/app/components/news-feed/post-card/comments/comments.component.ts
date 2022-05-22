@@ -25,4 +25,11 @@ export class InsertCommentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  commentTextContent?: any;
+  getTextContent():void {
+    this.commentTextContent = document.getElementById("content")?.textContent;
+    console.log(this.commentTextContent);
+  }
+
+
 }

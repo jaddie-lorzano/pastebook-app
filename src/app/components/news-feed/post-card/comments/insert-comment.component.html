@@ -5,8 +5,8 @@
         </div>
         <div class="comment-section">
             <div class="comment-box">
-                <div class="user-comment">
-                    Write a comment...
+                <div id="content" class="user-comment" contenteditable="true" (keyup)="getTextContent()">
+                    <span *ngIf="commentTextContent==null||commentTextContent.trim().length == 0" contenteditable="false">Write a comment...</span>
                 </div>
             </div>
         </div>
