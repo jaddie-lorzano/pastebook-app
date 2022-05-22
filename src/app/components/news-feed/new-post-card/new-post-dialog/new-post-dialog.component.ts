@@ -11,6 +11,8 @@ import { UserAccountService } from 'src/app/services/user-account.service';
 })
 export class NewPostDialogComponent implements OnInit {
 
+  defaultMessage: boolean = true;
+
   userAccountId!: number;
   userAccount!: UserAccount;
 
