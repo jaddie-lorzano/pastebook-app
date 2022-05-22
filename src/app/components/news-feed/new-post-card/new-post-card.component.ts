@@ -26,8 +26,8 @@ export class NewPostCardComponent implements OnInit {
       this.userAccount = response;
     });
   }
-
-  openDialog(): void {
+  
+  openCreatePost(): void {
     const dialogRef = this.dialog.open(NewPostDialogComponent, {
       width: '480px',
     });
