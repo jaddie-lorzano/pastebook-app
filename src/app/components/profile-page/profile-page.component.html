@@ -4,6 +4,12 @@
     <div fxLayoutAlign="center" class="main-div">
         <mat-card style="padding:0;margin:0">
         <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
+    <div class="row">
+        <div class="col">
+            <div id="cover-photo">
+                <div id="cover-photo-image">
+                    <!-- <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt=""> -->
+                </div>    
                 <mat-divider></mat-divider>
                 <mat-divider></mat-divider>
                 <mat-divider></mat-divider>
@@ -31,13 +37,19 @@
                       //-->
                     </div>
                 </div>
-                <div id="cover-photo">
-                    <div id="space"></div>
-                </div>
+            </div>
+            <div id="cover-photo">
+                <div id="space"></div>
+            </div>
+        </div>
+    </div>
         </mat-card>
     </div>
-    <button *ngIf="!this.checkIfProfile()" (click)="this.sendFriendRequest()" >Add Friend</button>
-    <button *ngIf="!this.checkIfFriend()" (click)="this.sendFriendRequest()" >Add Friend</button>
+    <button *ngIf="!this.checkIfProfile() && !this.checkIfFriend && this.checkIfBlocked == 0" (click)="this.sendFriendRequest()" >Add Friend</button>
+    <button *ngIf="this.checkIfFriend" (click)="this.unfriendCurrentUser()" >Unfriend User</button>
+    <button *ngIf="!this.checkIfProfile() && this.checkIfBlocked == 0" (click)="this.blockCurrentUser()" >Block User</button>
+    <button *ngIf="this.checkIfBlocked > 0" (click)="this.unblockCurrentUser()" >Unblock User</button>
+
     <div class="container">
         <div class="left-container">
             <div class="about-me">
@@ -75,6 +87,6 @@
                 </mat-card>
             </div>
         </div>
-        <app-news-feed></app-news-feed>
+        <app-news-feed [posts]="this.posts"></app-news-feed>
     </div>
 </div>

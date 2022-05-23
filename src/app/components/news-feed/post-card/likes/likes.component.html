@@ -1,8 +1,8 @@
-<div class="row">
+<div *ngFor="let like of likes" class="row">
     <div class="col">
         <div mat-card-avatar class="profile-image" style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg')"></div>  
     </div>
     <div class="col">
-        <span><h4><strong>User Name</strong></h4></span>
+        <span><h4><strong>{{like.firstName}}</strong></h4></span>
     </div>
 </div>
