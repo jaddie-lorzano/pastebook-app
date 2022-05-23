@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { ErrorStateMatcher, MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
@@ -46,11 +46,10 @@ import { FriendsListPageComponent } from './components/friends-list-page/friends
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
-import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
 import { DatePipe } from '@angular/common';
 import { UploadImageDialogComponent } from './components/profile-page/upload-image-dialog/upload-image-dialog.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -75,7 +74,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     PageNotFoundComponent,
     ConfirmationDialogComponent,
     SettingsPageComponent,
-    SignupComponent,
     EditAlbumDialogComponent,
     UploadImageDialogComponent,
     InsertCommentComponent,
