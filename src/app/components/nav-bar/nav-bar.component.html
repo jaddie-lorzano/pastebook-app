@@ -42,7 +42,7 @@
             <mat-chip color="primary" (click)="this.navigateToUserProfile()" selected>
                 <mat-chip-avatar>
                     <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-                    <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+                    <img *ngIf="userAccount.profileImagePath != null" [src]="getImagePath(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
                 </mat-chip-avatar>
                 {{userAccount.firstName}}
             </mat-chip>
@@ -103,7 +103,7 @@
             <mat-card-header style="padding: 6px 24px; cursor: pointer; " routerLink="/{{userAccount.userName}}">
                 <div mat-card-avatar class="profile-image">
                     <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-                    <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+                    <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath != null" [src]="getImagePath(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
                 </div>
                 <mat-card-title>{{userAccount.firstName}} {{userAccount.lastName}}</mat-card-title>
                 <mat-card-subtitle>See your profile</mat-card-subtitle>

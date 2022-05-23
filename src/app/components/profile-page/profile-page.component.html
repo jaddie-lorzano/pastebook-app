@@ -1,6 +1,13 @@
 <app-page-not-found *ngIf="this.userAccount == null"></app-page-not-found>
 <!-- <div *ngIf="this.userDetails != null"> => from Joe Branch -->
-<div *ngIf="userAccount">
+<div 
+*ngIf="userAccount"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="500"
+(scrolled)="onScroll()"
+[scrollWindow]="false" 
+style="height: 100%; overflow-y: scroll;">
     <div fxLayoutAlign="center" class="main-div">
         <mat-card style="padding:0;margin:0">
         <!-- Reference: https://codepen.io/himalayasingh/pen/bxoBZZ -->
@@ -17,7 +24,7 @@
                 <div id="profile-photo">
                     <div id="profile-photo-image">
                         <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" alt="">
-                        <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" alt="">
+                        <img *ngIf="userAccount.profileImagePath != null" [src]="getImagePath(userAccount.profileImagePath)" alt="">
                         <!-- <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt=""> => from Joe Branch -->
                     </div>
                     <button
@@ -87,6 +94,12 @@
                 </mat-card>
             </div>
         </div>
-        <app-news-feed [posts]="this.posts"></app-news-feed>
+        <!-- <app-news-feed [posts]="this.posts"></app-news-feed> -->
+        <div>
+            <app-new-post-card></app-new-post-card>
+        </div>
+        <div>
+            <app-post-card [posts]="this.posts"></app-post-card>
+        </div>
     </div>
 </div>

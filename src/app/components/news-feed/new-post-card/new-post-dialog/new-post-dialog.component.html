@@ -4,7 +4,7 @@
     <mat-card-header class="header" fxLayout="row" fxLayoutAlign="start center">
         <div mat-card-avatar class="profile-image">
             <img *ngIf="userAccount.profileImagePath == null" mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-            <img *ngIf="userAccount.profileImagePath != null" mat-card-avatar class="profile-image" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+            <img *ngIf="userAccount.profileImagePath != null" mat-card-avatar class="profile-image" [src]="getImagePath(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
         </div>
         <mat-card-title>
         {{userAccount.firstName}} {{userAccount.lastName}}
@@ -21,7 +21,7 @@
         </div>
     </mat-card-content>
     <mat-card-content class="upload-photo" *ngIf="openUploadPhoto">
-        <button color="primary" mat-button id="upload-photo-button"><mat-icon>add_photo_alternate</mat-icon>Upload Photo</button>
+        <button color="primary" mat-button id="upload-photo-button" (click)="fileAttach.click()"><mat-icon>add_photo_alternate</mat-icon>Upload Photo</button>
         <button mat-mini-fab id="close-upload-photo" (click)="openUploadPhoto=false"><mat-icon>close</mat-icon></button>
     </mat-card-content>
     <button *ngIf="!openUploadPhoto" (click)="openUploadPhoto" mat-button color="primary" style="width: 100%;" (click)="openUploadPhoto=true">
@@ -32,3 +32,11 @@
         Post
     </button>
 </div>
+
+<input
+    type="file"
+    accept="image/*"
+    (change)="onFileSelect($event)"
+    style="display:none;"
+    #fileAttach
+/>

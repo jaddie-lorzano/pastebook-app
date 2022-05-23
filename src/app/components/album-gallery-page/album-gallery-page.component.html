@@ -14,7 +14,7 @@
                 </button>
                 <button mat-flat-button class="album-card album-with-photo container" fxLayoutAlign="row" color="primary" *ngFor="let album of albums">
                     <img src="assets/blank_album.png" *ngIf="album.coverPhoto == null" routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
-                    <img [src]="convertBase64TextString(album.coverPhoto)" *ngIf="album.coverPhoto != null" routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
+                    <img [src]="getImagePath(album.coverPhoto)" *ngIf="album.coverPhoto != null" routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
                     <div routerLink="/{{userAccount.userName}}/albums/{{album.id}}">
                         <span>{{album.title}}</span>
                     </div>

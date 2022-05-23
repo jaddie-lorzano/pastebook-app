@@ -2,7 +2,7 @@
     <div class = "col">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>{{album.title}}</mat-card-title>
+                <mat-card-title>Album: {{album.title}}</mat-card-title>
             </mat-card-header>
             <mat-card-actions style="padding-left: 16px;" *ngIf="checkAlbumTitle() == true">
                 <button mat-icon-button color="primary" (click)="editAlbumName()">
@@ -23,11 +23,11 @@
         <mat-divider></mat-divider>
         <div fxLayoutAlign="row" fxLayoutAlign="center stretch">
             <div class="album-gallery-card cards-div mat-elevation-z2" fxLayoutAlign="row" fxLayoutAlign="space center">
-                <button mat-fab matTooltip="Upload Image" class="album-card" color="primary">
+                <button mat-fab matTooltip="Upload Image" class="album-card mat-elevation-z3" color="primary">
                     <mat-icon inline="true">upload</mat-icon>
                 </button>
-                <button mat-flat-button class="album-card album-with-photo" fxLayoutAlign="row" color="primary" *ngFor="let image of images">
-                    <img id="myImg" [src]="convertBase64TextString(image.data)" alt="image">
+                <button mat-flat-button class="album-card album-with-photo mat-elevation-z3" fxLayoutAlign="row" color="primary" *ngFor="let image of images">
+                    <img id="myImg" [src]="getImagePath(image.data)" alt="image">
 
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
@@ -41,28 +41,6 @@
                             <!-- Modal Caption (Image Text) -->
                             <div id="caption"></div>
                         </div>
-                        <script>
-                            // Get the modal
-                            var modal = document.getElementById("myModal");
-
-                            // Get the image and insert it inside the modal - use its "alt" text as a caption
-                            var img = document.getElementById("myImg");
-                            var modalImg = document.getElementById("img01");
-                            var captionText = document.getElementById("caption");
-                            img.onclick = function(){
-                                modal.style.display = "block";
-                                modalImg.src = this.src;
-                                captionText.innerHTML = this.alt;
-                                }
-
-                            // Get the <span> element that closes the modal
-                            var span = document.getElementsByClassName("close")[0];
-
-                            // When the user clicks on <span> (x), close the modal
-                            span.onclick = function() {
-                            modal.style.display = "none";
-                            }
-                        </script>
                 </button>
             </div>
         </div>
@@ -82,3 +60,27 @@
     style="display:none;"
     #fileUpload>Upload
 </button>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+        }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+</script>

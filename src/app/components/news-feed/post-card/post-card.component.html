@@ -6,7 +6,7 @@
         <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
         <div mat-card-avatar class="profile-image">
           <img mat-card-avatar class="profile-image" *ngIf="post.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-          <img mat-card-avatar class="profile-image" *ngIf="post.profileImagePath != null" [src]="convertBase64TextString(post.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+          <img mat-card-avatar class="profile-image" *ngIf="post.profileImagePath != null" [src]="getImagePath(post.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
         </div>
         <!-- {{post.userAccountId.name}} -->
         <mat-card-title>{{post.firstName}} {{post.lastName}}</mat-card-title>
@@ -42,16 +42,16 @@
       <mat-divider></mat-divider>
       <mat-card-actions style="margin:5px; padding:0px" fxLayoutAlign="row" fxLayoutAlign="center center">
         <!-- Like button : using Mat-Dialog -->
-        <button (click)="this.likePost(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
+        <button (click)="this.likePost(post.id)" mat-button color="primary" style="width: 100%;">
           <mat-icon inline="true">thumb_up</mat-icon>
           Like
         </button>
-        <button (click)="this.checkLikeStatus(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
+        <button (click)="this.checkLikeStatus(post.id)" mat-button color="primary" style="width: 100%;">
           <mat-icon inline="true">thumb_up</mat-icon>
           Liked?
         </button>
         <!-- Comment button -->
-        <button mat-button color="primary" style="width: 100%; font-size: large;" (click)="insertComment=!insertComment">
+        <button mat-button color="primary" style="width: 100%;" (click)="insertComment=!insertComment">
           <mat-icon inline="true">comment</mat-icon>
           Comment
         </button>
@@ -63,3 +63,4 @@
     </mat-card>
   </div>
 </div>
+

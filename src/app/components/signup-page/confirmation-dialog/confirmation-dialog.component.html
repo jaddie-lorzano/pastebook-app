@@ -1,9 +1,6 @@
-<h2>We've sent a code to your email. Please check your email.</h2>
+<h2>Click confirm to get verified. Please check your email.</h2>
     <mat-form-field (keyup.enter)="onSubmit()"
         fxLayoutAlign="center center"
         appearance="outline">
-        <input
-        [(ngModel)]="inputCode"
-        placeholder="Type the code here"
-        matInput type="text">
+        <button (click)="onSubmit()">Confirm Email</button>
     </mat-form-field>

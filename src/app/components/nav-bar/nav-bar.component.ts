@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserAccount } from 'src/app/models/UserAccount';
 import { AuthService } from 'src/app/services/auth.service';
 import { FriendRequestService } from 'src/app/services/friend-request.service';
+import { ImageService } from 'src/app/services/image.service';
 import { NotificationsService } from 'src/app/services/notifications.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 
@@ -29,7 +30,8 @@ export class NavBarComponent implements OnInit {
     private router: Router,
     private notificationService: NotificationsService,
     private friendRequestService: FriendRequestService,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private imageService: ImageService) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
       }; 
@@ -64,9 +66,8 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 
