@@ -1,4 +1,4 @@
-<div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
+<div *ngIf="userAccount"> 
   <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngFor="let post of posts">
     <mat-card class="post-card mat-elevation-z2">
       <!-- *ngFor="post of posts" -->
@@ -61,6 +61,6 @@
       <app-insert-comment *ngIf="insertComment"></app-insert-comment>
       <app-comments *ngIf="seeCommentsSection"></app-comments>
     </mat-card>
-  <br/>
   </div>
 </div>
+
