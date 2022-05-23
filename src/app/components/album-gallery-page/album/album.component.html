@@ -27,7 +27,7 @@
                     <mat-icon inline="true">upload</mat-icon>
                 </button>
                 <button mat-flat-button class="album-card album-with-photo mat-elevation-z3" fxLayoutAlign="row" color="primary" *ngFor="let image of images">
-                    <img id="myImg" [src]="convertBase64TextString(image.data)" alt="image">
+                    <img id="myImg" [src]="getImagePath(image.data)" alt="image">
 
                         <!-- The Modal -->
                         <div id="myModal" class="modal">

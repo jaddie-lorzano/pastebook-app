@@ -10,6 +10,7 @@ import { UploadImageDialogComponent } from './upload-image-dialog/upload-image-d
 import { FriendService } from 'src/app/services/friend.service';
 import { BlockedAccountService } from 'src/app/services/blocked-account.service';
 import { PostService } from 'src/app/services/post.service';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -27,7 +28,7 @@ export class ProfilePageComponent implements OnInit {
     private friendService: FriendService,
     private blockedAccountService: BlockedAccountService,
     private postService: PostService,
-    private sanitizer: DomSanitizer) {}
+    private imageService: ImageService) {}
 
   userAccountId!: number; //logged in userId
   userAccount!: UserAccount; //logged in userAccount
@@ -41,6 +42,9 @@ export class ProfilePageComponent implements OnInit {
 
   checkIfFriend!: boolean;
   checkIfBlocked: number = 0;
+
+  pageNumber: number = 1;
+  itemsPerScroll: number = 10;
 
   posts: any;
   // ngOnInit(): void {
@@ -65,10 +69,15 @@ export class ProfilePageComponent implements OnInit {
   }
 
   getPosts(){
-    this.postService.getWallPosts(this.userAccount.id).subscribe(response => {
+    this.postService.getWallPosts(this.userAccount.id, this.pageNumber, this.itemsPerScroll).subscribe(response => {
       this.posts = response;
       console.log('posts: ' + Object.keys(this.posts).length);
     });
+  }
+
+  onScroll() {
+    this.pageNumber += 1;
+    this.getPosts();
   }
 
   checkFriend(){
@@ -107,14 +116,13 @@ export class ProfilePageComponent implements OnInit {
   openUploadProfileImageDialog() {
     const dialogRef = this.dialog.open(UploadImageDialogComponent).afterClosed().subscribe(response => {
       if(response == true){
-        this.ngOnInit();
+        window.location.reload();
       }
     });
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 

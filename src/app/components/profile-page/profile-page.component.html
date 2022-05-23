@@ -17,7 +17,7 @@
                 <div id="profile-photo">
                     <div id="profile-photo-image">
                         <img *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" alt="">
-                        <img *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" alt="">
+                        <img *ngIf="userAccount.profileImagePath != null" [src]="getImagePath(userAccount.profileImagePath)" alt="">
                         <!-- <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt=""> => from Joe Branch -->
                     </div>
                     <button
@@ -87,6 +87,6 @@
                 </mat-card>
             </div>
         </div>
-        <app-news-feed [posts]="this.posts"></app-news-feed>
+        <app-news-feed (scrolled)="onScroll()" [posts]="this.posts"></app-news-feed>
     </div>
 </div>

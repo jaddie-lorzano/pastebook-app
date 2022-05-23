@@ -51,6 +51,7 @@ import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-a
 import { DatePipe } from '@angular/common';
 import { UploadImageDialogComponent } from './components/profile-page/upload-image-dialog/upload-image-dialog.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatListModule,
     HttpClientModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    InfiniteScrollModule
   ],
   providers: [
     // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserAccount } from 'src/app/models/UserAccount';
+import { ImageService } from 'src/app/services/image.service';
 import { LikeService } from 'src/app/services/like.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 import { LikesComponent } from './likes/likes.component';
@@ -14,6 +15,7 @@ import { LikesComponent } from './likes/likes.component';
 export class PostCardComponent implements OnInit {
 
   @Input() posts: any = [];
+  @Output() scrolled = new EventEmitter<boolean>();
 
   seeCommentsSection: boolean = false;
   insertComment: boolean = false;
@@ -26,7 +28,7 @@ export class PostCardComponent implements OnInit {
     public dialog: MatDialog,
     private userAccountService: UserAccountService,
     private likeService: LikeService,
-    private sanitizer: DomSanitizer) { }
+    private imageService: ImageService) { }
 
   ngOnInit(): void {
     this.userAccountId = Number(localStorage.getItem('userId')!);
@@ -43,9 +45,8 @@ export class PostCardComponent implements OnInit {
     });
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 
@@ -85,5 +86,9 @@ export class PostCardComponent implements OnInit {
     this.likeService.getAllLikesByPostId(postId).subscribe(response => {
       return response;
     });
+  }
+
+  onScroll(){
+    this.scrolled.emit(true)
   }
 }

@@ -1,4 +1,4 @@
 <app-new-post-card></app-new-post-card>
 
-<app-post-card *ngIf="this.fromProfile" [posts]="this.posts"></app-post-card>
-<app-post-card *ngIf="!this.fromProfile" [posts]="this.timelinePost"></app-post-card>
+<app-post-card (scrolled)="onScroll()" *ngIf="this.fromProfile" [posts]="this.posts"></app-post-card>
+<app-post-card (scrolled)="onScroll()" *ngIf="!this.fromProfile" [posts]="this.timelinePost"></app-post-card>

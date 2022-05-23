@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserAccount } from 'src/app/models/UserAccount';
+import { ImageService } from 'src/app/services/image.service';
 import { PostService } from 'src/app/services/post.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 
@@ -25,7 +26,7 @@ export class NewPostDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<NewPostDialogComponent>, 
     private userAccountService: UserAccountService,
     private postService: PostService,
-    private sanitizer: DomSanitizer,) {}
+    private imageService: ImageService) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -38,9 +39,8 @@ export class NewPostDialogComponent implements OnInit {
     });
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 

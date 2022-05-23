@@ -1,8 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Album, EditAlbum } from 'src/app/models/Album';
 import { Image } from 'src/app/models/Image';
 import { UserAccount } from 'src/app/models/UserAccount';
@@ -35,7 +33,6 @@ export class AlbumComponent implements OnInit {
     private imageService : ImageService, 
     private albumService : AlbumService,
     private userAccountService : UserAccountService, 
-    private sanitizer: DomSanitizer, 
     private route: ActivatedRoute,
     private router: Router,
     private ref: ChangeDetectorRef) { }
@@ -97,8 +94,8 @@ export class AlbumComponent implements OnInit {
       .subscribe(album => this.album = album)
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 
