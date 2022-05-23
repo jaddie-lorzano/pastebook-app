@@ -1,6 +1,6 @@
-<div *ngIf="userAccount"> 
-  <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngFor="let post of posts">
-    <mat-card class="post-card mat-elevation-z2">
+<div *ngIf="userAccount">
+  <div *ngFor="let post of posts" fxLayoutAlign="column" fxLayoutAlign="center center">
+    <mat-card  class="post-card mat-elevation-z2">
       <!-- *ngFor="post of posts" -->
       <mat-card-header>
         <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->

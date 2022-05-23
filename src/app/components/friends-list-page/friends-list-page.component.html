@@ -10,59 +10,23 @@
         </mat-form-field>
     </div>
 
-    <div class="friend-container">
+    <div *ngFor="let friend of this.friends" class="friend-container">
         <mat-card class="friend-card">
             <mat-card-title-group>
             <mat-card-title>
-                {{friendName}}
+                {{friend.firstName}} {{friend.lastName}}
                 <div>
-                   <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
+                   <button routerLink="/{{friend.userName}}" class="align:left" mat-button color="primary">Visit Profile</button>
                 </div>
             </mat-card-title>
-            <mat-card-subtitle>Professional Woofer</mat-card-subtitle>
-            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            <img mat-card-md-image *ngIf="friend.profileImagePath != null"[src]="convertBase64TextString(friend.profileImagePath)">
+            <img mat-card-md-image *ngIf="friend.profileImagePath == null" src="assets/blank_profile.png">
+            
             </mat-card-title-group>
             <mat-card-content>
-            {{friendDescription}}
+            {{friend.aboutMe}}
             </mat-card-content>
         </mat-card>
-
-        <mat-divider></mat-divider>
-
-        <mat-card class="friend-card">
-            <mat-card-title-group>
-            <mat-card-title>
-                Doge to the moon
-                <div>
-                    <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
-                </div>
-            </mat-card-title>
-            <mat-card-subtitle>Professional Howler</mat-card-subtitle>
-            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-            </mat-card-title-group>
-            <mat-card-content>
-            Works at Krusty Krab
-            </mat-card-content>
-        </mat-card>
-
-        <mat-divider></mat-divider>
-
-        <mat-card class="friend-card">
-            <mat-card-title-group>
-            <mat-card-title>
-                Scary Doge
-                <div>
-                <button routerLink="/friends" class="align:left" mat-button color="primary">Visit Profile</button>
-                </div>
-            </mat-card-title>
-            <mat-card-subtitle>Professional Howler</mat-card-subtitle>
-            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-            </mat-card-title-group>
-            <mat-card-content>
-            Works at sa Puso Mo
-            </mat-card-content>
-        </mat-card>
-
         <mat-divider></mat-divider>
     </div>
 </div>

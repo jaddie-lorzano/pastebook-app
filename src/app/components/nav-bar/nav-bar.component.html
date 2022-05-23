@@ -50,7 +50,7 @@
         <span style="width:10px"></span>
         <!-- Friend Request -->
         <button mat-mini-fab color="primary" [matMenuTriggerFor]="request" aria-label="Example icon-button with heart icon">
-            <mat-icon matBadge="15" matBadgeColor="accent">person_add</mat-icon>
+            <mat-icon matBadge="{{this.friendRequestCount}}" matBadgeColor="accent">person_add</mat-icon>
         </button>
         <mat-menu #request="matMenu" class="menu-card">
             <mat-card-header style="padding: 6px 24px ;">
@@ -60,31 +60,13 @@
             <!-- Friend Request Content-->
             <mat-card-content style="margin: 0;">
                 <ul>
-                    <li style="margin: 0;">
+                    <li *ngFor="let fr of this.friendRequest" style="margin: 0;">
                         <p style="margin: 0;">
-                        Some One sent you a Friend Request.
+                        {{fr.firstName}} {{fr.lastName}} sent you a Friend Request. {{fr.id}}
                         </p>
                         <mat-card-actions style="margin: 0; padding-top: 0;">
-                            <button mat-button color="primary">Accept</button>
-                            <button mat-button color="warn">Decline</button>
-                        </mat-card-actions>
-                    </li>
-                    <li style="margin: 0;">
-                        <p style="margin: 0;">
-                        Some Two sent you a Friend Request.
-                        </p>
-                        <mat-card-actions style="margin: 0; padding-top: 0;">
-                            <button mat-button color="primary">Accept</button>
-                            <button mat-button color="warn">Decline</button>
-                        </mat-card-actions>
-                    </li>
-                    <li style="margin: 0;">
-                        <p style="margin: 0;">
-                        Some Three sent you a Friend Request.
-                        </p>
-                        <mat-card-actions style="margin: 0; padding-top: 0;">
-                            <button mat-button color="primary">Accept</button>
-                            <button mat-button color="warn">Decline</button>
+                            <button (click)="this.AcceptFR(fr.id)" mat-button color="primary">Accept</button>
+                            <button (click)="this.DeclineFR(fr.id)" mat-button color="warn">Decline</button>
                         </mat-card-actions>
                     </li>
                 </ul>
@@ -94,7 +76,7 @@
         <span style="width:10px"></span>
         <!-- Notification -->
         <button mat-mini-fab color="primary" [matMenuTriggerFor]="notif" aria-label="Example icon-button with heart icon">
-            <mat-icon matBadge="{{3}}" matBadgeColor="accent">notifications</mat-icon>
+            <mat-icon matBadge="{{this.notificationCount}}" matBadgeColor="accent">notifications</mat-icon>
         </button>
         <mat-menu #notif="matMenu" class="menu-card-notif" style="padding: 6px 10px ; width: fit-content;">
             <mat-card-header style="padding: 6px 24px ;">
@@ -103,14 +85,10 @@
             <mat-divider></mat-divider>
         <!-- Notif Content -->
             <mat-card-content style="padding: 6px 10px ;">
-                <a mat-button routerLink=".">
-                    <span>Some One sent you a Friend Request.</span>
-                </a>
-                <a mat-button routerLink=".">
-                    <span>Some Body commented on your post.</span>
-                </a>
-                <a mat-button routerLink=".">
-                    <span>Some Thing liked your post.</span>
+                <a *ngFor="let notif of this.notification" mat-button routerLink=".">
+                    <span *ngIf="notif.friendRequestId != null">{{notif.firstName}} {{notif.lastName}} sent you a Friend Request.</span>
+                    <span *ngIf="notif.commentId != null">{{notif.firstName}} {{notif.lastName}} commented on your post.</span>
+                    <span *ngIf="notif.likesId != null">{{notif.firstName}} {{notif.lastName}} liked your post.</span>
                 </a>
             </mat-card-content>
 
