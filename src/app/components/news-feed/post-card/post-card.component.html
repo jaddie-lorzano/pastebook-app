@@ -1,4 +1,4 @@
-<div *ngIf="userAccount">
+<div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
   <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngFor="let post of posts">
     <mat-card class="post-card mat-elevation-z2">
       <!-- *ngFor="post of posts" -->
@@ -42,16 +42,16 @@
       <mat-divider></mat-divider>
       <mat-card-actions style="margin:5px; padding:0px" fxLayoutAlign="row" fxLayoutAlign="center center">
         <!-- Like button : using Mat-Dialog -->
-        <button (click)="this.likePost(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
+        <button (click)="this.likePost(post.id)" mat-button color="primary" style="width: 100%;">
           <mat-icon inline="true">thumb_up</mat-icon>
           Like
         </button>
-        <button (click)="this.checkLikeStatus(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
+        <button (click)="this.checkLikeStatus(post.id)" mat-button color="primary" style="width: 100%;">
           <mat-icon inline="true">thumb_up</mat-icon>
           Liked?
         </button>
         <!-- Comment button -->
-        <button mat-button color="primary" style="width: 100%; font-size: large;" (click)="insertComment=!insertComment">
+        <button mat-button color="primary" style="width: 100%;" (click)="insertComment=!insertComment">
           <mat-icon inline="true">comment</mat-icon>
           Comment
         </button>
@@ -61,5 +61,6 @@
       <app-insert-comment *ngIf="insertComment"></app-insert-comment>
       <app-comments *ngIf="seeCommentsSection"></app-comments>
     </mat-card>
+  <br/>
   </div>
 </div>
