@@ -12,7 +12,6 @@ import { PostService } from 'src/app/services/post.service';
 export class NewsFeedComponent implements OnInit {
 
   @Input() posts: any = [];
-  @Output() scrolled = new EventEmitter<boolean>();
 
   pageNumber: number = 1;
   itemsPerScroll: number = 10;

@@ -6,6 +6,6 @@ export interface Post {
     UserAccount: UserAccount;
     Visibility: string;
     Content: string;
-    CreationDate: Date;
+    CreatedDate: Date;
     Album: Album;
 }
