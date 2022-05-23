@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UserAccount } from 'src/app/models/UserAccount';
+import { ImageService } from 'src/app/services/image.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 import { NewPostDialogComponent } from './new-post-dialog/new-post-dialog.component';
 
@@ -18,7 +19,7 @@ export class NewPostCardComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private userAccountService: UserAccountService,
-    private sanitizer: DomSanitizer) {}
+    private imageService: ImageService) {}
 
   ngOnInit(): void {
     this.userAccountId = Number(localStorage.getItem('userId')!);
@@ -37,9 +38,8 @@ export class NewPostCardComponent implements OnInit {
     });
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
 

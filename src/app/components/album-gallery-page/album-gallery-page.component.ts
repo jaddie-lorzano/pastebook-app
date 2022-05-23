@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Album } from 'src/app/models/Album';
 import { UserAccount } from 'src/app/models/UserAccount';
 import { AlbumService } from 'src/app/services/album.service';
+import { ImageService } from 'src/app/services/image.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 import { CreateAlbumDialogComponent } from './create-album-dialog/create-album-dialog.component';
 
@@ -20,8 +20,8 @@ export class AlbumGalleryPageComponent implements OnInit {
   constructor(
     private dialogRef:MatDialog, 
     private albumService: AlbumService, 
-    private userAccountService: UserAccountService, 
-    private sanitizer: DomSanitizer) { }
+    private userAccountService: UserAccountService,
+    private imageService: ImageService) { }
 
   ngOnInit(): void {
     this.userAccountId = Number(localStorage.getItem('userId')!);
@@ -42,14 +42,11 @@ export class AlbumGalleryPageComponent implements OnInit {
   getAlbums(): void {
     this.albumService.getAlbums(this.userAccountId)
       .subscribe(albums => this.albums = albums)
-      console.log(this.albums)
   }
 
-  convertBase64TextString(base64string: string) {
-    var imagePath = this.sanitizer.bypassSecurityTrustResourceUrl("data:image/jpg;base64," + base64string);
-    console.log(imagePath);
+  getImagePath(base64string: string) {
+    var imagePath = this.imageService.convertBase64TextString(base64string);
     return imagePath;
   }
-
 
 }

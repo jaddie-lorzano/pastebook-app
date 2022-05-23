@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
@@ -12,6 +12,7 @@ import { PostService } from 'src/app/services/post.service';
 export class NewsFeedComponent implements OnInit {
 
   @Input() posts: any = [];
+  @Output() scrolled = new EventEmitter<boolean>();
 
   pageNumber: number = 1;
   itemsPerScroll: number = 10;
@@ -49,14 +50,15 @@ export class NewsFeedComponent implements OnInit {
   }
 
   getTimelinePosts(){
-    this.postService.getTimelinePosts(this.userAccountId).subscribe(response => {
+    this.postService.getTimelinePosts(this.userAccountId, this.pageNumber, this.itemsPerScroll).subscribe(response => {
       this.timelinePost = response;
       console.log('timeline posts: ' + Object.keys(this.timelinePost).length);
     });
   }
 
   onScroll() {
+    console.log("test")
     this.pageNumber += 1;
-    //this.GetUserAccounts();
+    this.getTimelinePosts();
   }
 }

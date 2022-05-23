@@ -4,7 +4,7 @@
         <mat-card-content class="new-post-card-header" fxLayoutAlign="row" fxLayoutAlign="space-between center">
             <div mat-card-avatar class="profile-image">
                 <img *ngIf="userAccount.profileImagePath == null" mat-card-avatar class="profile-image" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-                <img *ngIf="userAccount.profileImagePath != null" mat-card-avatar class="profile-image" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+                <img *ngIf="userAccount.profileImagePath != null" mat-card-avatar class="profile-image" [src]="getImagePath(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
             </div>
             <span style="width:12px"></span>
             <button mat-stroked-button style="border-radius: 10px; width: 100%;text-align: left;color:gray" (click)="openCreatePost()">What's on your mind?</button>
