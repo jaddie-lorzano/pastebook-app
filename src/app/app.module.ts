@@ -46,7 +46,6 @@ import { FriendsListPageComponent } from './components/friends-list-page/friends
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ConfirmationDialogComponent } from './components/signup-page/confirmation-dialog/confirmation-dialog.component';
 import { SettingsPageComponent } from './components/settings-page/settings-page.component';
-import { SignupComponent } from './components/signup-page/signup/signup.component';
 import { EditAlbumDialogComponent } from './components/album-gallery-page/edit-album-dialog/edit-album-dialog.component';
 import { DatePipe } from '@angular/common';
 import { UploadImageDialogComponent } from './components/profile-page/upload-image-dialog/upload-image-dialog.component';
@@ -76,7 +75,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PageNotFoundComponent,
     ConfirmationDialogComponent,
     SettingsPageComponent,
-    SignupComponent,
     EditAlbumDialogComponent,
     UploadImageDialogComponent,
     InsertCommentComponent,
@@ -112,10 +110,9 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HttpClientModule,
     FormsModule,
     MatProgressSpinnerModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   providers: [
-    // { provide: ErrorStateMatcher, useClass: CustomErrorStateMatcher}
     DatePipe
   ],
   bootstrap: [AppComponent]
