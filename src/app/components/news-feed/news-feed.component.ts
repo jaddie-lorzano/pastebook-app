@@ -13,6 +13,9 @@ export class NewsFeedComponent implements OnInit {
 
   @Input() posts: any = [];
 
+  pageNumber: number = 1;
+  itemsPerScroll: number = 10;
+
   isLoggedIn: boolean = false;
   helper = new JwtHelperService();
   constructor(
@@ -50,5 +53,10 @@ export class NewsFeedComponent implements OnInit {
       this.timelinePost = response;
       console.log('timeline posts: ' + Object.keys(this.timelinePost).length);
     });
+  }
+
+  onScroll() {
+    this.pageNumber += 1;
+    //this.GetUserAccounts();
   }
 }

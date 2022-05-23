@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserAccount } from 'src/app/models/UserAccount';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationsService } from 'src/app/services/notifications.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class NavBarComponent implements OnInit {
     private authService: AuthService,
     private userAccountService: UserAccountService,
     private router: Router,
+    private notificationService: NotificationsService,
     private sanitizer: DomSanitizer) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
@@ -28,7 +30,12 @@ export class NavBarComponent implements OnInit {
     this.userAccountId = Number(localStorage.getItem('userId')!);
     this.userAccountService.getUserAccount(this.userAccountId).subscribe(response => {
       this.userAccount = response;
+      this.getAllNotification();
     });
+  }
+  
+  getAllNotification(){
+
   }
 
   logOut(): void{
@@ -46,4 +53,6 @@ export class NavBarComponent implements OnInit {
   navigateToUserProfile(): void {              
   this.router.navigate(['/' + this.userAccount.userName]);
   }
+
+
 }
