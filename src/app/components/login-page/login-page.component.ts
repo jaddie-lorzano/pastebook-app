@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CustomErrorStateMatcher } from 'src/app/custom-state-matcher';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserAccountService } from 'src/app/services/user-account.service';
@@ -11,7 +10,6 @@ import { UserAccountService } from 'src/app/services/user-account.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  customErrorStateMatcher = new CustomErrorStateMatcher();
   loginForm = this.fb.group({
     email: [null, [
       Validators.required,
