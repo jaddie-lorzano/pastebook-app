@@ -49,22 +49,15 @@ export class NewsFeedComponent implements OnInit {
     this.getTimelinePosts();
   }
 
-  // getTimelinePosts(){
-  //   this.postService.getTimelinePosts(this.userAccountId, this.pageNumber, this.itemsPerScroll).subscribe(response => {
-  //     this.timelinePost = response;
-  //     console.log('timeline posts: ' + Object.keys(this.timelinePost).length);
-  //   });
-  // }
-
   getTimelinePosts(){
-    this.postService.getTimelinePosts(this.userAccountId).subscribe(response => {
+    this.postService.getTimelinePosts(this.userAccountId, this.pageNumber, this.itemsPerScroll).subscribe(response => {
       this.timelinePost = response;
       console.log('timeline posts: ' + Object.keys(this.timelinePost).length);
     });
   }
 
   onScroll() {
-    this.scrolled.emit(true);
+    console.log("test")
     this.pageNumber += 1;
     this.getTimelinePosts();
   }

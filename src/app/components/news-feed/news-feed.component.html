@@ -1,4 +1,12 @@
-<app-new-post-card></app-new-post-card>
+<div 
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="500"
+(scrolled)="onScroll()"
+[scrollWindow]="false" 
+style="height: 100%; overflow-y: scroll;">
+    <app-new-post-card></app-new-post-card>
+    <app-post-card  *ngIf="this.fromProfile" [posts]="this.posts"></app-post-card>
+    <app-post-card  *ngIf="!this.fromProfile" [posts]="this.timelinePost"></app-post-card>
+</div>
 
-<app-post-card (scrolled)="onScroll()" *ngIf="this.fromProfile" [posts]="this.posts"></app-post-card>
-<app-post-card (scrolled)="onScroll()" *ngIf="!this.fromProfile" [posts]="this.timelinePost"></app-post-card>

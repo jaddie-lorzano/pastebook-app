@@ -15,7 +15,6 @@ import { LikesComponent } from './likes/likes.component';
 export class PostCardComponent implements OnInit {
 
   @Input() posts: any = [];
-  @Output() scrolled = new EventEmitter<boolean>();
 
   seeCommentsSection: boolean = false;
   insertComment: boolean = false;
@@ -86,9 +85,5 @@ export class PostCardComponent implements OnInit {
     this.likeService.getAllLikesByPostId(postId).subscribe(response => {
       return response;
     });
-  }
-
-  onScroll(){
-    this.scrolled.emit(true)
   }
 }

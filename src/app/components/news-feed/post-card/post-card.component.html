@@ -1,10 +1,5 @@
 <div *ngIf="userAccount">
-  <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngFor="let post of posts"
-  infiniteScroll
-  [infiniteScrollDistance]="1"
-  [infiniteScrollThrottle]="1000"
-  (scrolled)="onScroll()"
-  [scrollWindow]="false">
+  <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngFor="let post of posts">
     <mat-card class="post-card mat-elevation-z2">
       <!-- *ngFor="post of posts" -->
       <mat-card-header>

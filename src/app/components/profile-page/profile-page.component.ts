@@ -44,7 +44,7 @@ export class ProfilePageComponent implements OnInit {
   checkIfBlocked: number = 0;
 
   pageNumber: number = 1;
-  itemsPerScroll: number = 100;
+  itemsPerScroll: number = 10;
 
   posts: any;
   // ngOnInit(): void {
@@ -68,15 +68,8 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  // getPosts(){
-  //   this.postService.getWallPosts(this.userAccount.id, this.pageNumber, this.itemsPerScroll).subscribe(response => {
-  //     this.posts = response;
-  //     console.log('posts: ' + Object.keys(this.posts).length);
-  //   });
-  // }
-
   getPosts(){
-    this.postService.getWallPosts(this.userAccount.id).subscribe(response => {
+    this.postService.getWallPosts(this.userAccount.id, this.pageNumber, this.itemsPerScroll).subscribe(response => {
       this.posts = response;
       console.log('posts: ' + Object.keys(this.posts).length);
     });
