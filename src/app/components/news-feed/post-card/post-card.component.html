@@ -1,5 +1,5 @@
 <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
-  <mat-card class="post-card mat-elevation-z2">
+  <mat-card class="post-card mat-elevation-z2" *ngFor="let post of posts">
     <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
@@ -27,7 +27,7 @@
     </mat-card-content>
     <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between" style="margin:0">
       <div>
-        <button mat-button color="primary" (click)="openDialog()">
+        <button mat-button color="primary" (click)="openDialog(post.id)">
           Likes
           34
         </button>

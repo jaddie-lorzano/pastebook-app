@@ -1,3 +1,4 @@
+<app-page-not-found *ngIf="this.userAccount == null"></app-page-not-found>
 <div *ngIf="userAccount">
     <div fxLayoutAlign="center" class="main-div">
         <mat-card style="padding:0;margin:0">
@@ -36,7 +37,11 @@
             </div>
         </div>
     </div>
-        </mat-card>
+    <button *ngIf="!this.checkIfProfile() && !this.checkIfFriend && this.checkIfBlocked == 0" (click)="this.sendFriendRequest()" >Add Friend</button>
+    <button *ngIf="this.checkIfFriend" (click)="this.unfriendCurrentUser()" >Unfriend User</button>
+    <button *ngIf="!this.checkIfProfile() && this.checkIfBlocked == 0" (click)="this.blockCurrentUser()" >Block User</button>
+    <button *ngIf="this.checkIfBlocked > 0" (click)="this.unblockCurrentUser()" >Unblock User</button>
+</mat-card>
     </div>
     <div class="container">
         <div class="left-container">
@@ -75,6 +80,6 @@
                 </mat-card>
             </div>
         </div>
-        <app-news-feed></app-news-feed>
+        <app-news-feed [posts]="this.posts"></app-news-feed>
     </div>
 </div>
