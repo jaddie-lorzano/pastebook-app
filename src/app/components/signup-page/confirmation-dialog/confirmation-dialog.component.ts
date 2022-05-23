@@ -10,8 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ConfirmationDialogComponent implements OnInit {
 
   router: Router;
-  inputCode = '';
-  confirmationCode = '123';
 
   constructor(router: Router,  private dialogRef: MatDialogRef<ConfirmationDialogComponent>) {
     this.router = router;
@@ -23,15 +21,8 @@ export class ConfirmationDialogComponent implements OnInit {
   }
 
   onSubmit():void {
-    if (this.confirmationCode != this.inputCode)
-    {
-      alert('Code does not match!')
-    }
-    else
-    {
-      alert('Email confirmed!')
+    alert('Email confirmed!')
       this.router.navigate(['/']);
       this.dialogRef.close();
-    }
   }
 }
