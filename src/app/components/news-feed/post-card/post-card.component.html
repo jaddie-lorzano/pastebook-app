@@ -1,41 +1,40 @@
 <div fxLayoutAlign="column" fxLayoutAlign="center center" *ngIf="userAccount">
+  <div *ngFor="let post of posts">
   <mat-card class="post-card mat-elevation-z2">
     <!-- *ngFor="post of posts" -->
     <mat-card-header>
       <!-- [style]="background-image: url('{{post.username.profilePicture}}')" something like that -->
       <div mat-card-avatar class="profile-image">
-        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
-        <img mat-card-avatar class="profile-image" *ngIf="userAccount.profileImagePath != null" [src]="convertBase64TextString(userAccount.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
+        <img mat-card-avatar class="profile-image" *ngIf="post.profileImagePath == null" src="assets/blank_profile.png" style="width: inherit; height: inherit; object-fit: cover"/>
+        <img mat-card-avatar class="profile-image" *ngIf="post.profileImagePath != null" [src]="convertBase64TextString(post.profileImagePath)" style="width: inherit; height: inherit; object-fit: cover"/>
       </div>
       <!-- {{post.userAccountId.name}} -->
-      <mat-card-title>{{userAccount.firstName}} {{userAccount.lastName}}</mat-card-title>
+      <mat-card-title>{{post.firstName}} {{post.lastName}}</mat-card-title>
       <!-- {{post.createdTime}} -->
       <mat-card-subtitle><a href="#">2h</a></mat-card-subtitle>
-      <mat-chip><mat-icon>public</mat-icon>Public</mat-chip>
+      <mat-chip *ngIf="post.visibility == 'public'"><mat-icon>public</mat-icon>Public</mat-chip>
+      <mat-chip *ngIf="post.visibility == 'friends'"><mat-icon>people</mat-icon>Friends</mat-chip>
     </mat-card-header>
     <!-- Image -->
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img *ngIf="post.AlbumId != null" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <!-- insert [src]="post.image" *ngIf="post.image" -->
     <!-- Content -->
     <mat-card-content>
       <!-- {{post.content}} -->
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+        {{post.textContent}} {{post.id}} {{this.userAccountId}}
       </p>
     </mat-card-content>
     <mat-card-content fxLayoutAlign="row" fxLayoutAlign="space-between" style="margin:0">
       <div>
-        <button mat-button color="primary" (click)="openDialog()">
-          Likes
-          34
+        <button mat-button color="primary" (click)="openDialog(post.id)">
+          Likes {{post.likesCount}}
         </button>
         <!-- post.likes.count -->
       </div>
       <div>
         <button mat-button color="primary" (click)="seeCommentsSection=!seeCommentsSection">
-          Comments 65
+          Comments {{post.commentsCount}}
         </button>
         <!-- post.comments.count -->
       </div>
@@ -43,9 +42,13 @@
     <mat-divider></mat-divider>
     <mat-card-actions style="margin:5px; padding:0px" fxLayoutAlign="row" fxLayoutAlign="center center">
       <!-- Like button : using Mat-Dialog -->
-      <button mat-button color="primary" style="width: 100%; font-size: large;">
+      <button (click)="this.likePost(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
         <mat-icon inline="true">thumb_up</mat-icon>
         Like
+      </button>
+      <button (click)="this.checkLikeStatus(post.id)" mat-button color="primary" style="width: 100%; font-size: large;">
+        <mat-icon inline="true">thumb_up</mat-icon>
+        Liked?
       </button>
       <!-- Comment button -->
       <button mat-button color="primary" style="width: 100%; font-size: large;" (click)="insertComment=!insertComment">
@@ -58,4 +61,6 @@
     <app-insert-comment *ngIf="insertComment"></app-insert-comment>
     <app-comments *ngIf="seeCommentsSection"></app-comments>
   </mat-card>
+  <br/>
+  </div>
 </div>

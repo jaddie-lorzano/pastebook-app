@@ -11,8 +11,8 @@
         </mat-card-title>
         <mat-chip [matMenuTriggerFor]="menu"><mat-icon>public</mat-icon>Public</mat-chip>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item><mat-icon>public</mat-icon>Public</button>
-            <button mat-menu-item><mat-icon>people</mat-icon>Friends</button>
+            <button (click)="this.setPostToPublic()" mat-menu-item><mat-icon>public</mat-icon>Public</button>
+            <button (click)="this.setPostToFriends()" mat-menu-item><mat-icon>people</mat-icon>Friends</button>
         </mat-menu>
     </mat-card-header>
     <mat-card-content>
@@ -28,7 +28,7 @@
         <mat-icon>add_photo_alternate</mat-icon>
         Upload Photo
     </button>
-    <button mat-raised-button color="primary" style="width: 100%;">
+    <button (click)="this.submitNewPost()" mat-raised-button color="primary" style="width: 100%;">
         Post
     </button>
 </div>
