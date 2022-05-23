@@ -18,6 +18,9 @@ export class NewPostDialogComponent implements OnInit {
   userAccountId!: number;
   userAccount!: UserAccount;
 
+  imageFile: any;
+  imageFileName: string = "";
+
   visibility: string = 'public'; //public default
   
   openUploadPhoto?:boolean;
@@ -58,6 +61,10 @@ export class NewPostDialogComponent implements OnInit {
   }
 
   submitNewPost(){
+    const formData = new FormData();
+    formData.append('profileImage',this.imageFile)
+    this.imageService.uploadProfileImages(formData, this.userAccountId);
+
     const post = {
       "userAccountId": this.userAccountId,
       "visibility": this.visibility,
@@ -70,5 +77,10 @@ export class NewPostDialogComponent implements OnInit {
     }, (err) => {
       alert("post failed");
     });
+  }
+
+  onFileSelect(event:any) {
+    this.imageFile = event.target.files[0];
+    this.imageFileName = event.target.files[0].name;
   }
 }

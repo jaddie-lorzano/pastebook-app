@@ -12,20 +12,36 @@ export class PostService {
     private http: HttpClient
   ) { }
 
-  getWallPosts(id: number, pageNumber: number, itemsPerScroll: number): Observable<any> {
+  // getWallPosts(id: number, pageNumber: number, itemsPerScroll: number): Observable<any> {
+  //   const token = localStorage.getItem("pastebook_auth");
+  //   const header = new HttpHeaders().set(
+  //     'Authorization', `Bearer ${token}`
+  //   );
+  //   return this.http.get(`${this.baseUrl}infinite-scroll/get-posts-wall?id=${id}&pageNumber=${pageNumber}&itemsPerScroll=${itemsPerScroll}`, {headers: header});
+  // }
+
+  // getTimelinePosts(id: number, pageNumber: number, itemsPerScroll: number): Observable<any> {
+  //   const token = localStorage.getItem("pastebook_auth");
+  //   const header = new HttpHeaders().set(
+  //     'Authorization', `Bearer ${token}`
+  //   );
+  //   return this.http.get(`${this.baseUrl}infinite-scroll/get-posts-timeline?id=${id}&pageNumber=${pageNumber}&itemsPerScroll=${itemsPerScroll}`, {headers: header});
+  // }
+
+  getWallPosts(id: number): Observable<any> {
     const token = localStorage.getItem("pastebook_auth");
     const header = new HttpHeaders().set(
       'Authorization', `Bearer ${token}`
     );
-    return this.http.get(`${this.baseUrl}infinite-scroll/get-posts-wall?id=${id}&pageNumber=${pageNumber}&itemsPerScroll=${itemsPerScroll}`, {headers: header});
+    return this.http.get(`${this.baseUrl}posts/get-posts-wall?id=${id}`, {headers: header});
   }
 
-  getTimelinePosts(id: number, pageNumber: number, itemsPerScroll: number): Observable<any> {
+  getTimelinePosts(id: number): Observable<any> {
     const token = localStorage.getItem("pastebook_auth");
     const header = new HttpHeaders().set(
       'Authorization', `Bearer ${token}`
     );
-    return this.http.get(`${this.baseUrl}infinite-scroll/get-posts-timeline?id=${id}&pageNumber=${pageNumber}&itemsPerScroll=${itemsPerScroll}`, {headers: header});
+    return this.http.get(`${this.baseUrl}posts/get-posts-timeline?id=${id}`, {headers: header});
   }
 
   createNewPost(post: any): Observable<any> {
